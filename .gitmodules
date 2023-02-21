@@ -1,0 +1,3 @@
+[submodule "Assets/GAAUBAGE_HelperLib"]
+	path = Assets/GAAUBAGE_HelperLib
+	url = https://github.com/MTA10gr08/GAAUBAGE_HelperLib.git
