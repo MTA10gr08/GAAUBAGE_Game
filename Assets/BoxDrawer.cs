@@ -18,6 +18,7 @@ public class BoxDrawer : MonoBehaviour
     }
 
     public void StartBoxMode() {
+        Debug.Log("BoxStarted");
         BoxMode = true;
     }
 
@@ -33,6 +34,7 @@ public class BoxDrawer : MonoBehaviour
                 break;
             case InputActionPhase.Started:
                 CurrentBoundingBoxObject = Instantiate(BoundingBoxeObject);
+                BoundingBoxes.Add(CurrentBoundingBoxObject);
                 ln = CurrentBoundingBoxObject.GetComponent<LineRenderer>();
                 startPos = GetCurrentMouseWorldPosition();
                 break;
