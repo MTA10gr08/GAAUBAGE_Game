@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIStyleSheet.uss?fileID=7433441132597879392&amp;guid=6b5c3a75dae8aa544a29baad338f13e1&amp;type=3#UIStyleSheet" />
+    <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" />
+</ui:UXML>

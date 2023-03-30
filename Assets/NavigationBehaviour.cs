@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NavigationBehaviour : MonoBehaviour
 {
+    bool isNGame = false;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void NavigateTo(string scene) {
+        if (SceneManager.GetActiveScene().name == scene) {
+            return;
+        }
+        SceneManager.LoadSceneAsync(scene);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ReturnHome() {
+        if (isNGame) {//Blarp/Game
+            SceneManager.LoadSceneAsync("NGame_Home");
+            return;
+        }
+        SceneManager.LoadSceneAsync("BLAP_Home");
+    }
+    public void ReturnToPrevious() {
+        //Loade previous Scene if Feature is implemented
+        Debug.Log("ReturnToPrevious : NYI");
     }
 }

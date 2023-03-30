@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BLARP/BLARP_Home.unity
+    path: Assets/Scenes/BLARP/BLAP_Home.unity
     guid: c7b473cc1977ba448885655cbc1d645b
+  - enabled: 1
+    path: Assets/Scenes/BLARP/BLAP_Leaderboard.unity
+    guid: 7c9ac1658bd827443a5dc9f6809cfc01
+  - enabled: 1
+    path: Assets/Scenes/BLARP/BLAP_Profile.unity
+    guid: 46ca17f926c82f44d8b153e7541e909d
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Classify Level 2.unity
+    guid: 3ebe65ee85b60bd459f656d99787a777
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Classify Level 1.unity
+    guid: d36274f47ebfdbe4a9fed3f78573c4aa
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Segmentation.unity
+    guid: 0d3351c6c2e42ea428dcd6624da8d0e4
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Sub-image.unity
+    guid: 8d4c6851466586c4d9fd6c15261ff71a
   m_configObjects: {}
