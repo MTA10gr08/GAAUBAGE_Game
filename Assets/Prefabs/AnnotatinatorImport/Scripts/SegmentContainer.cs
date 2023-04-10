@@ -69,7 +69,7 @@ public class SegmentContainer : MonoBehaviour
 
         //Create the point
         var newPoint = Instantiate(PointPrefab, new Vector3(pos.x, pos.y, PointPrefab.transform.position.z + transform.position.z), Quaternion.identity, canvas.transform);
-        newPoint.segmentContainer = this;
+        //newPoint.segmentContainer = this;
 
         //Update the point list
         points.Insert(atIndex, newPoint);

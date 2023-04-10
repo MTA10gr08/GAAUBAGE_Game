@@ -6,47 +6,44 @@ using UnityEngine.Events;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SpriteFromURL : MonoBehaviour {
+public class SpriteTest : MonoBehaviour
+{
 	[SerializeField] private Vector2 ImagePivot = Vector2.zero;
 	private SpriteRenderer spriteRenderer = null;
-	public new BoxCollider2D collider2D = null;
-	public GameObject LoadingObject = null;
+	//public new BoxCollider2D collider2D = null;
+	//public GameObject LoadingObject = null;
 
 	//private string testURL = "https://i.imgur.com/B5FcIac.jpeg";
 	private string testURL = "https://i.imgur.com/tJvxXyv.jpeg";
 
-	private void Awake()
-	{
+
+	private void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
-	public Vector2 WorldPointToImageCord(Vector2 point)
-	{
+	public Vector2 WorldPointToImageCord(Vector2 point) {
 		return Vector2.zero;
 	}
 
 
 	[UnityEngine.ContextMenu("LoadTestUrl")]
-	public void LoadTestUrl()
-	{
+	public void LoadTestUrl() {
 		LoadImage(testURL);
 	}
 
-	public void LoadImage(string URL)
-	{
+	public void LoadImage(string URL) {
 		StartCoroutine(GetTexture(URL));
-		LoadingObject.SetActive(true);
+		//LoadingObject.SetActive(true);
 		spriteRenderer.enabled = false;
 		var pos = Camera.main.transform.position;
 		Camera.main.transform.position = new Vector3(0, 0, pos.z);
 	}
 
-	IEnumerator GetTexture(string URL)
-	{
-		using(UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(URL)) {
+	IEnumerator GetTexture(string URL) {
+		using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(URL)) {
 			yield return uwr.SendWebRequest();
 
-			if(uwr.result != UnityWebRequest.Result.Success) {
+			if (uwr.result != UnityWebRequest.Result.Success) {
 				Debug.Log(uwr.error);
 			} else {
 				Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
@@ -55,10 +52,15 @@ public class SpriteFromURL : MonoBehaviour {
 				spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
 				var width = spriteRenderer.sprite.texture.width;
 				var height = spriteRenderer.sprite.texture.height;
-				collider2D.size = new Vector2(width, height);
-				Camera.main.orthographicSize = height / 2;
+				//collider2D.size = new Vector2(width, height);
+				if (width * 2 < height) {
+					Camera.main.orthographicSize = (height / 2) + (height/5);
+				} else {
+					Camera.main.orthographicSize = width;
+				}
+				
 				spriteRenderer.enabled = true;
-				LoadingObject.SetActive(false);
+				//LoadingObject.SetActive(false);
 			}
 		}
 	}

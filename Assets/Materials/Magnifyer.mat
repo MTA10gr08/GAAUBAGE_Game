@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Magnifyer
   m_Shader: {fileID: -6465566751694194690, guid: ee3ab447ef745dc41a8788729ff99abb,
     type: 3}
   m_Parent: {fileID: 0}
@@ -113,15 +113,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _ZoomAmount: 0
+    - _ZoomAmount: 6.48
     m_Colors:
-    - _BaseColor: {r: 0.46932217, g: 0.9716981, b: 0.45376468, a: 1}
-    - _Color: {r: 0.46932217, g: 0.9716981, b: 0.45376468, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ObjectScreenPosition: {r: 6004, g: 600, b: 0, a: 0}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _ObjectScreenPosition: {r: 250, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3256928675861380067
+--- !u!114 &9029244859659022191
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

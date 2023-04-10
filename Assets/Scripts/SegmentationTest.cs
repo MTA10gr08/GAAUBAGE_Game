@@ -12,18 +12,23 @@ public class SegmentationTest : MonoBehaviour
     public GameObject canvas;
 
     public List<PointBehaviour> points = new List<PointBehaviour>();
-    private void Start() {
+    private void Awake() {
+        outline = Instantiate(outlinePrefab, transform).GetComponent<Outline>();
+        outline.Segmentation = this;
+        polygon = Instantiate(polygonPrefab, transform).GetComponent<Polygon>();
         AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 - 50));
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 - 50));
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 + 50));
         AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 + 50));
-        outline = Instantiate(outlinePrefab, transform).GetComponent<Outline>();
-        polygon = Instantiate(polygonPrefab, transform).GetComponent<Polygon>();
 
+    }
+    private void Start() {
         UpdatePositions();
+        
     }
 
     public void AddPoint(Vector2 pos) {
+        Debug.Log("Starting Insertion");
         InsertPoint(pos, points.Count);
     }
 
@@ -34,17 +39,30 @@ public class SegmentationTest : MonoBehaviour
         }
 
         //Create the point
+        Debug.Log("Making new Point");
         var newPoint = Instantiate(PointPrefab, new Vector3(pos.x, pos.y, PointPrefab.transform.position.z + transform.position.z), Quaternion.identity, canvas.transform);
         //newPoint.segmentContainer = this;
+        Debug.Log(newPoint.name);
         newPoint.segmentation = this;
 
         //Update the point list
         points.Insert(atIndex, newPoint);
 
-        //UpdatePoints();
+        UpdatePositions();
+        //newPoint.OnPointerClick(UnityEngine.EventSystems.PointerEventData );
     }
     public void UpdatePositions() {
+        Debug.Log("Updating Outline" + outline.name);
+        
         outline.UpdateLine(points);
+        Debug.Log("Updating Polygon");
         polygon.UpdatePolygon(points);
+        Debug.Log("Done");
+    }
+    public void RemovePoint(PointBehaviour point) {
+        points.Remove(point);
+        Destroy(point.gameObject);
+
+        UpdatePositions();
     }
 }

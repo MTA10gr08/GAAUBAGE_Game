@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector]
-    public SegmentContainer segmentContainer;
     public SegmentationTest segmentation;
 
     PlayerInput pInput;
@@ -22,22 +21,13 @@ public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHan
         btn = GetComponent<Button>();
     }
 
-    private void Update() {
-
-        if (btn.spriteState.pressedSprite) {
-            transform.position = pInput.PlayerActions.pos.ReadValue<Vector2>();
-        }
-        switch (btn.spriteState) {
-            default:
-                break;
-        }
-    }
-
     public void OnPointerClick(PointerEventData eventData) {
-        Debug.Log(Time.time - clickTime);
         if (Time.time - clickTime < doubleClickThreshhold) {
             Debug.Log("DoubleClicked");
-                segmentContainer?.RemovePoint(this);
+            if (segmentation.points.Count < 4) {
+                return;
+            }
+            segmentation.RemovePoint(this);
         }
         clickTime = Time.time;
     }
@@ -49,8 +39,8 @@ public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHan
         Debug.Log("WERE YOU FKN DRAGGING");
         transform.position = pInput.PlayerActions.pos.ReadValue<Vector2>();
         Debug.Log(pInput.PlayerActions.pos.ReadValue<Vector2>());
-        
-        segmentContainer?.UpdatePoints();
+
+        //segmentContainer?.UpdatePoints();
         segmentation?.UpdatePositions();
 
     }
