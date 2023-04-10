@@ -8,7 +8,6 @@ public class CategoryPopulator : MonoBehaviour
 {
     public TextAsset jsonData;
 
-    //public Rootobject trashCategories;
     public Button SubmitBtn;
     public TMP_Dropdown superCategoryDropdown, categoryDropdown;
     private Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
