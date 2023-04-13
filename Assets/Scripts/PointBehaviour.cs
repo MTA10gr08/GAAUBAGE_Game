@@ -1,29 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector]
-    public SegmentationTest segmentation;
+    public Segmentation segmentation;
 
     PlayerInput pInput;
-    Button btn;
-    bool Dragging = false;
     float clickTime = 0f, doubleClickThreshhold = 0.5f;
 
     private void Awake() {
         pInput = new PlayerInput();
         pInput.Enable();
-        btn = GetComponent<Button>();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
         if (Time.time - clickTime < doubleClickThreshhold) {
-            Debug.Log("DoubleClicked");
             if (segmentation.points.Count < 4) {
                 return;
             }
