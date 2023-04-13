@@ -68,7 +68,7 @@ public class ImageSegmenter : MonoBehaviour
             if (!item)
                 continue;
 
-            tasks.Add(ApiHelper.PostAsync("Annotations", new AnnotationModel {
+            tasks.Add(ApiHelperOld.PostAsync("Annotations", new AnnotationModel {
                 imageMetaId = CurrentImageId,
                 userId = PlayerPrefs.GetInt("UserID"),
                 segmentation = item.points.Select(x => new SimplePoint() {X = x.pos.x, Y = x.pos.y }).ToList(),
@@ -80,10 +80,10 @@ public class ImageSegmenter : MonoBehaviour
         Debug.Log("Done with All the Items");
         await Task.WhenAll(tasks);
         Debug.Log("Done with Tasks");
-        var user = await ApiHelper.GetAsync<UserModel>("Users/" + PlayerPrefs.GetInt("UserID"));
+        var user = await ApiHelperOld.GetAsync<UserModel>("Users/" + PlayerPrefs.GetInt("UserID"));
         //PlayerPrefs.SetInt("StoryProgress", PlayerPrefs.GetInt("StoryProgress")+1);
         user.energySpent++;
-        user = await ApiHelper.PutAsync("Users/" + user.id, user);
+        user = await ApiHelperOld.PutAsync("Users/" + user.id, user);
         if (PlayerPrefs.GetInt("StoryProgress") >= 42) {
             SceneManager.LoadScene("FreePlayMenu");
         } else {
@@ -95,16 +95,16 @@ public class ImageSegmenter : MonoBehaviour
         _ = AddCurrentSegmentationsToDatabaseAsync();
     }
     IEnumerator GetImage() {
-        var user = ApiHelper.GetAsync<UserModel>("Users/" + PlayerPrefs.GetInt("UserID"));
+        var user = ApiHelperOld.GetAsync<UserModel>("Users/" + PlayerPrefs.GetInt("UserID"));
         yield return new WaitUntil(() => user.IsCompleted);
         //CurrentUserId = user.Result;
         Debug.Log("Tivoli");
         //Debug.Log("ImageMeta/" + user.Result.storyProgress);
 
-        var task = ApiHelper.GetAsync<ImageMetaModel>("ImageMetas/" + (user.Result.energySpent+1));
+        var task = ApiHelperOld.GetAsync<ImageMetaModel>("ImageMetas/" + (user.Result.energySpent+1));
         yield return new WaitUntil(() => task.IsCompleted);
         CurrentImageId = task.Result.id;
-        URL = ApiHelper.APIURL + "images/" + task.Result.FileName;
+        URL = ApiHelperOld.APIURL + "images/" + task.Result.FileName;
         Debug.Log(URL);
         spriteFromURL.LoadImage(URL);
         //task.Result;
