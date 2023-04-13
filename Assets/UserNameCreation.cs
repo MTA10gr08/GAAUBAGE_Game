@@ -1,5 +1,6 @@
 using GAAUBAGE_Game.API.Models;
 using GAAUBAGE_Game.API.Services;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,15 +40,35 @@ public class UserNameCreation : MonoBehaviour
         var task = UserService.PostUserAsync(user);
         yield return new WaitUntil(() => task.IsCompleted);
 
-        if (task.Result.ResultCode == UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            PlayerPrefs.SetString("jwt", task.Result.Value);
-            Debug.Log(task.Result.Value);
-            Debug.Log(PlayerPrefs.GetString("jwt"));
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            yield break;
+        }
 
-        } else Debug.LogError(task.Result.ResponseCode);
+        PlayerPrefs.SetString("jwt", task.Result.Value);
+        Debug.Log(task.Result.Value);
+        Debug.Log(PlayerPrefs.GetString("jwt"));
 
         //get token tag
-        //based on token tag loade scene; for now loade blap
-        SceneManager.LoadSceneAsync("BLAP_Home");
+        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("jwt"));
+        var task2 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        yield return new WaitUntil(() => task2.IsCompleted);
+        string tag = "";
+
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            yield break;
+        }
+
+        tag = task2.Result.Value.Tag;
+
+        if (tag.Equals("BLAP")) {
+            SceneManager.LoadSceneAsync("BLAP_Home");
+        } else if (tag.Equals("Narative")) {
+            SceneManager.LoadSceneAsync("Narrative_Home");
+        } else {
+            Debug.LogError("No Valid Tag");
+            yield break;
+        }
     }
 }
