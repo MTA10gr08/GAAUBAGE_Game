@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UserCreationScene.unity
+    guid: 17bacff3535e02f4d821a58fde361ca0
+  - enabled: 1
     path: Assets/Scenes/BLARP/BLAP_Home.unity
     guid: c7b473cc1977ba448885655cbc1d645b
   - enabled: 1

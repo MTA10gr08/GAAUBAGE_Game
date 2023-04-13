@@ -15,7 +15,7 @@ public class NavigationBehaviour : MonoBehaviour
     }
     public void ReturnHome() {
         if (isNGame) {//Blarp/Game
-            SceneManager.LoadSceneAsync("NGame_Home");
+            SceneManager.LoadSceneAsync("Narrative_Home");
             return;
         }
         SceneManager.LoadSceneAsync("BLAP_Home");
