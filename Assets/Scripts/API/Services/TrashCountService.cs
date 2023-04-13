@@ -14,19 +14,19 @@ namespace GAAUBAGE_Game.API.Services
             return await APIRequestHandler.PostAsync<TrashCount, TrashCount>(apiUrl, trashCount);
         }
 
-        public static void PostTrashCount(TrashCountService user, Action<RequestResult<TrashCount>>? onResponse = null)
+        public static void PostTrashCount(TrashCount trashCount, Action<RequestResult<TrashCount>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashCount.Post();
-            APIRequestHandler.Post(apiUrl, user, onResponse);
+            APIRequestHandler.Post(apiUrl, trashCount, onResponse);
         }
 
-        public static async Task<RequestResult<ContextCassification>> NextTrashCountAsync()
+        public static async Task<RequestResult<ContextClassification>> NextTrashCountAsync()
         {
             string apiUrl = Endpoints.TrashCount.Next();
-            return await APIRequestHandler.GetAsync<ContextCassification>(apiUrl);
+            return await APIRequestHandler.GetAsync<ContextClassification>(apiUrl);
         }
 
-        public static void GetTrashCount(Action<RequestResult<ContextCassification>>? onResponse = null)
+        public static void GetTrashCount(Action<RequestResult<ContextClassification>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashCount.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

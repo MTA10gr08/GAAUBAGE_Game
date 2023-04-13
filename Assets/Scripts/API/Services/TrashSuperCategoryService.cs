@@ -14,10 +14,10 @@ namespace GAAUBAGE_Game.API.Services
             return await APIRequestHandler.PostAsync<TrashSuperCategory, TrashSuperCategory>(apiUrl, TrashSuperCategory);
         }
 
-        public static void PostTrashSuperCategory(TrashSuperCategoryService user, Action<RequestResult<TrashSuperCategory>>? onResponse = null)
+        public static void PostTrashSuperCategory(TrashSuperCategory TrashSuperCategory, Action<RequestResult<TrashSuperCategory>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashSuperCategory.Post();
-            APIRequestHandler.Post(apiUrl, user, onResponse);
+            APIRequestHandler.Post(apiUrl, TrashSuperCategory, onResponse);
         }
 
         public static async Task<RequestResult<TrashBoundingBox>> NextTrashSuperCategoryAsync()
