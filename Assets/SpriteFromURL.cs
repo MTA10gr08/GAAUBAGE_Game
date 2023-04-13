@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SpriteTest : MonoBehaviour
+public class SpriteFromURL : MonoBehaviour
 {
 	[SerializeField] private Vector2 ImagePivot = Vector2.zero;
 	private SpriteRenderer spriteRenderer = null;
