@@ -15,7 +15,7 @@ public class UserNameCreation : MonoBehaviour
 
     private void Awake() {
 
-        if (string.IsNullOrEmpty(PlayerPrefs.GetString("jwt"))) {
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT"))) {
             //load a different scene dependent on the user tag read from thier token
             //But for now just load BLAP
             UsernameContent.SetActive(true);
@@ -45,12 +45,12 @@ public class UserNameCreation : MonoBehaviour
             yield break;
         }
 
-        PlayerPrefs.SetString("jwt", task.Result.Value);
+        PlayerPrefs.SetString("JWT", task.Result.Value);
         Debug.Log(task.Result.Value);
-        Debug.Log(PlayerPrefs.GetString("jwt"));
+        Debug.Log(PlayerPrefs.GetString("JWT"));
 
         //get token tag
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("jwt"));
+        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
         var task2 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
         yield return new WaitUntil(() => task2.IsCompleted);
         string tag = "";

@@ -56,7 +56,7 @@ public class SpriteFromURL : MonoBehaviour
 				if (width * 2 < height) {
 					Camera.main.orthographicSize = (height / 2) + (height/5);
 				} else {
-					Camera.main.orthographicSize = width;
+					Camera.main.orthographicSize = width + (height / 5);
 				}
 				
 				spriteRenderer.enabled = true;
