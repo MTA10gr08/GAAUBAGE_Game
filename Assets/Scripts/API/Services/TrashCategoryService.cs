@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<TrashCategory>> PostTrashCategoryAsync(TrashCategory TrashCategory)
         {
-            string apiUrl = Endpoints.Users.Post();
+            string apiUrl = Endpoints.TrashCategory.Post();
             return await APIRequestHandler.PostAsync<TrashCategory, TrashCategory>(apiUrl, TrashCategory);
         }
 

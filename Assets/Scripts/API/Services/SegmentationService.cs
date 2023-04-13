@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<Segmentation>> PostSegmentationAsync(Segmentation Segmentation)
         {
-            string apiUrl = Endpoints.Users.Post();
+            string apiUrl = Endpoints.Segmentation.Post();
             return await APIRequestHandler.PostAsync<Segmentation, Segmentation>(apiUrl, Segmentation);
         }
 

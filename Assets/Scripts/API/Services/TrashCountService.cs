@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<TrashCount>> PostTrashCountAsync(TrashCount trashCount)
         {
-            string apiUrl = Endpoints.Users.Post();
+            string apiUrl = Endpoints.TrashCount.Post();
             return await APIRequestHandler.PostAsync<TrashCount, TrashCount>(apiUrl, trashCount);
         }
 

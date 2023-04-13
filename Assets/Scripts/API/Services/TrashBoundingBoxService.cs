@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<TrashBoundingBox>> PostTrashBoundingBoxAsync(TrashBoundingBox TrashBoundingBox)
         {
-            string apiUrl = Endpoints.Users.Post();
+            string apiUrl = Endpoints.TrashBoundingBox.Post();
             return await APIRequestHandler.PostAsync<TrashBoundingBox, TrashBoundingBox>(apiUrl, TrashBoundingBox);
         }
 
