@@ -52,11 +52,10 @@ public class SpriteFromURL : MonoBehaviour
 				spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
 				var width = spriteRenderer.sprite.texture.width;
 				var height = spriteRenderer.sprite.texture.height;
-				//collider2D.size = new Vector2(width, height);
 				if (width * 2 < height) {
 					Camera.main.orthographicSize = (height / 2) + (height/5);
 				} else {
-					Camera.main.orthographicSize = width + (height / 5);
+					Camera.main.orthographicSize = width + ( width/5);
 				}
 				
 				spriteRenderer.enabled = true;

@@ -11,9 +11,9 @@ public class BackgroundAndContextTasker : MonoBehaviour
     SpriteFromURL spriteFromURL;
 
     public BackgroundContextSelector bgSelector;
+    public ContextSelector ctxSelector;
 
     Guid currentID;
-    //public ContextPopulator ctxPopulator;
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
@@ -23,7 +23,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator GetTask() {
-        //BackgroundClassification bgClass = new BackgroundClassification { };
         var task = BackgroundClassificationService.NextBackgroundClassificationAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
@@ -36,21 +35,25 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
     }
 
+    public void submitValuesToServer() {
+        StartCoroutine(PostUserValues());
+    }
+
     IEnumerator PostUserValues() {
-        BackgroundClassification bgClass = new BackgroundClassification { Id = currentID};
+        BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = bgSelector.CompileStringList()[0] };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        //ContextClassification ctxClass = new ContextClassification { Id = currentID };
-        //var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass);
-        //yield return new WaitUntil(() => task2.IsCompleted);
-        //if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task2.Result.ResponseCode);
-        //    yield break;
-        //}
+        ContextClassification ctxClass = new ContextClassification { BackgroundClassificationId = task.Result.Value.Id, Category = ctxSelector.SelectedContext};
+        var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass);
+        yield return new WaitUntil(() => task2.IsCompleted);
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            yield break;
+        }
         StartCoroutine(GetTask());
     }
 
