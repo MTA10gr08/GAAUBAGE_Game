@@ -1,7 +1,7 @@
 using System;
 namespace GAAUBAGE_Game.API.Models
 {
-    public class ContextCassification : BaseModel
+    public class ContextClassification : BaseModel
     {
         public Guid UserId { get; set; }
         public Guid BackgroundClassificationId { get; set; }
