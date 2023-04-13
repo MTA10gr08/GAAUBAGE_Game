@@ -19,22 +19,17 @@ public class BackgroundContextSelector : MonoBehaviour
         categories.Add("category 7");
     }
 
-    void AssignCategory(bool category) {
-        category = !category;
-        if (category) {
-
-        }
-    }
     [ContextMenu("Compile String List")]
-    void CompileStringList() {
+    public List<string> CompileStringList() {
         int indexer = 0;
+        categoriesToSubmit.Clear();
         foreach (var item in buttons) {
             if (item.IsSelected == true) {
                 categoriesToSubmit.Add(categories[indexer]);
             }
             indexer++;
         }
-        Debug.Log(categoriesToSubmit.Count);
+        return categoriesToSubmit;
     }
 
 }
