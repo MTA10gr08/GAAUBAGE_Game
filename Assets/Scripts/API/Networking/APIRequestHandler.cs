@@ -3,15 +3,21 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Text;
+using Unity.VisualScripting;
 
 #nullable enable
 namespace GAAUBAGE_Game.API.Networking
 {
-    public struct RequestResult<T> where T : class
+    public class RequestResult<T> : RequestResult where T : class
     {
         public T? Value;
+    }
+    public class RequestResult
+    {
         public long ResponseCode;
         public UnityWebRequest.Result ResultCode;
+
+        public override string ToString() => ResponseCode.ToString() + ResultCode.ToString();
     }
 
     public static class APIRequestHandler
@@ -57,6 +63,41 @@ namespace GAAUBAGE_Game.API.Networking
             }
         }
 
+        public static async Task<RequestResult> PostAsync<T>(string Endpoint, T Data)
+            where T : class
+        {
+            using var request = CreateRequest(Endpoint, Data);
+
+            await request.SendWebRequest();
+
+            var requestResult = new RequestResult
+            {
+                ResponseCode = request.responseCode,
+                ResultCode = request.result
+            };
+
+            return requestResult;
+        }
+
+        public static void Post<T>(string Endpoint, T Data, Action<RequestResult>? onResponse = null)
+            where T : class
+        {
+            using var request = CreateRequest(Endpoint, Data);
+            var requestAsync = request.SendWebRequest();
+            if (onResponse != null)
+            {
+                requestAsync.completed += (_) =>
+                {
+                    var requestResult = new RequestResult
+                    {
+                        ResponseCode = request.responseCode,
+                        ResultCode = request.result
+                    };
+                    onResponse.Invoke(requestResult);
+                };
+            }
+        }
+
         public static async Task<RequestResult<D>> PostAsync<D, T>(string Endpoint, T Data)
             where D : class
             where T : class
@@ -80,6 +121,7 @@ namespace GAAUBAGE_Game.API.Networking
             where T : class
         {
             using var request = CreateRequest(Endpoint, Data);
+
             var requestAsync = request.SendWebRequest();
             if (onResponse != null)
             {

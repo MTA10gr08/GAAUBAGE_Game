@@ -13,6 +13,7 @@ namespace GAAUBAGE_Game.API.Services
             string apiUrl = Endpoints.Users.Post();
             return await APIRequestHandler.PostAsync<string, User>(apiUrl, user);
         }
+
         public static void PostUser(User user, Action<RequestResult<string>>? onResponse = null)
         {
             string apiUrl = Endpoints.Users.Post();
@@ -24,6 +25,7 @@ namespace GAAUBAGE_Game.API.Services
             string apiUrl = Endpoints.Users.Get(id);
             return await APIRequestHandler.GetAsync<User>(apiUrl);
         }
+
         public static void GetUser(Guid id, Action<RequestResult<User>>? onResponse = null)
         {
             string apiUrl = Endpoints.Users.Get(id);
