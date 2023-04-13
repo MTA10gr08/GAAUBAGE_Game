@@ -40,21 +40,25 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator PostUserValues() {
-        BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = bgSelector.CompileStringList()[0] };
+        BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = "" };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass);
         yield return new WaitUntil(() => task.IsCompleted);
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            Debug.LogError(task.Result.ResponseCode);
-            yield break;
-        }
-        ContextClassification ctxClass = new ContextClassification { BackgroundClassificationId = task.Result.Value.Id, Category = ctxSelector.SelectedContext};
-        var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass);
-        yield return new WaitUntil(() => task2.IsCompleted);
-        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            Debug.LogError(task2.Result.ResponseCode);
-            yield break;
-        }
-        StartCoroutine(GetTask());
+        Debug.Log(task.Status);
+        Debug.Log(task);
+        Debug.Log(task.Result);
+        Debug.Log(task.Result.Value);
+        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        //    Debug.LogError(task.Result.ResponseCode);
+        //    yield break;
+        //}
+        //    ContextClassification ctxClass = new ContextClassification { BackgroundClassificationId = task.Result.Value.Id, Category = ctxSelector.SelectedContext};
+        //    var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass);
+        //    yield return new WaitUntil(() => task2.IsCompleted);
+        //    if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        //        Debug.LogError(task2.Result.ResponseCode);
+        //        yield break;
+        //    }
+        //    StartCoroutine(GetTask());
     }
 
 
