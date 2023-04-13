@@ -5,23 +5,27 @@ using UnityEngine.UI;
 
 public class GradientLeaderboard : MonoBehaviour
 {
-    Image Gradient;
+    Image GradientContainer;
+
     //public RectTransform ScrollView;
     public ScrollRect ScrollView;
+    //public Sprite Gradient;
+ 
     // Start is called before the first frame update
     void Start()
     {
-        Gradient = GetComponent<Image>();
-        Gradient.enabled = false;
+        GradientContainer = GetComponent<Image>();
+        GradientContainer.enabled = false;
 
     }
 
     private void Update() {
-        Debug.Log(ScrollView.normalizedPosition.y);
         if (ScrollView.normalizedPosition.y < 0.99f) {
-            Gradient.enabled = true;
+            //GradientContainer.sprite = Gradient;
+            GradientContainer.enabled = true;
         } else {
-            Gradient.enabled = false;
+            GradientContainer.enabled = false;
+            //GradientContainer.sprite = null;
         }
     }
 

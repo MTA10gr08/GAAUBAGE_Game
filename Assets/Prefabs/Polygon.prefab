@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3738695734976445826
 MonoBehaviour:
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteShapeProfile: {fileID: 11400000, guid: 3831704a409a3a14db031bd11093719d, type: 2}
   spriteShapeRendererSortingLayer: 
-  SegmentTransparency: 0.2
+  SegmentTransparency: 0.15
 --- !u!1971053207 &3738695734976445827
 SpriteShapeRenderer:
   m_ObjectHideFlags: 2
@@ -92,7 +92,7 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Color: {r: 0, g: 1, b: 0.1463399, a: 0.2}
+  m_Color: {r: 1, g: 0, b: 0.8199091, a: 0.15}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []

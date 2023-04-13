@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.UI;
 
 public class Outline : MonoBehaviour, IPointerClickHandler
 {
-    public SegmentationTest Segmentation;
+    public Segmentation Segmentation;
     //public List<PointBehaviour> points = new List<PointBehaviour>();
     private LineRenderer lr;
     private EdgeCollider2D edgeCollider;

@@ -943,7 +943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 796787018}
         m_TargetAssemblyTypeName: NavigationBehaviour, Assembly-CSharp
         m_MethodName: ReturnHome
         m_Mode: 1

@@ -14,6 +14,8 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 
 	//private string testURL = "https://i.imgur.com/B5FcIac.jpeg";
 	private string testURL = "https://i.imgur.com/tJvxXyv.jpeg";
+	public ImageMask mask;
+	public Segmentation segmentation;
 
 
 	private void Awake() {
@@ -51,21 +53,23 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 				var rect = new Rect(0, 0, texture.width, texture.height);
 				spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
 				
-				Vector2 p1 = new Vector2(100, 600), p2 = new Vector2(10, 20);
+				//My wacky attempt at centering the camera on the subimage/box provided by the server
+				Vector2 p1 = new Vector2(0, 1000), p2 = new Vector2(1000, 0);
 				Vector2[] vList = { p1, p2};
 
-				var width = Mathf.Abs(p1.x + p2.x);//spriteRenderer.sprite.texture.width;
-				var height = Mathf.Abs(p1.y + p2.y); ;//spriteRenderer.sprite.texture.height;
+				var width = Mathf.Abs(p1.x - p2.x);//spriteRenderer.sprite.texture.width;
+				var height = Mathf.Abs(p1.y - p2.y);//spriteRenderer.sprite.texture.height;
 				var center = CenterOfVectors(vList);
 				var pos = Camera.main.transform.position;
-				Camera.main.transform.position = new Vector3(center.x, center.y, pos.z);
+				Camera.main.transform.position = new Vector3(center.x, -center.y, pos.z);
 				//collider2D.size = new Vector2(width, height);
 				if (width * 2 < height) {
 					Camera.main.orthographicSize = (height / 2) + (height / 5);
 				} else {
-					Camera.main.orthographicSize = width;
+					Camera.main.orthographicSize = width + (width / 10);
 				}
-
+				mask.updateImageMask(width, height);
+				segmentation.UpdatePositions();
 				spriteRenderer.enabled = true;
 				//LoadingObject.SetActive(false);
 			}

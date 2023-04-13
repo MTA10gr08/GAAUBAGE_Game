@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SegmentationTest : MonoBehaviour
+public class Segmentation : MonoBehaviour
 {
     [SerializeField] PointBehaviour PointPrefab;
     [SerializeField] GameObject outlinePrefab, polygonPrefab;
@@ -28,7 +27,6 @@ public class SegmentationTest : MonoBehaviour
     }
 
     public void AddPoint(Vector2 pos) {
-        Debug.Log("Starting Insertion");
         InsertPoint(pos, points.Count);
     }
 
@@ -39,17 +37,12 @@ public class SegmentationTest : MonoBehaviour
         }
 
         //Create the point
-        Debug.Log("Making new Point");
         var newPoint = Instantiate(PointPrefab, new Vector3(pos.x, pos.y, PointPrefab.transform.position.z + transform.position.z), Quaternion.identity, canvas.transform);
-        //newPoint.segmentContainer = this;
-        Debug.Log(newPoint.name);
         newPoint.segmentation = this;
 
         //Update the point list
         points.Insert(atIndex, newPoint);
-
         UpdatePositions();
-        //newPoint.OnPointerClick(UnityEngine.EventSystems.PointerEventData );
     }
     public void UpdatePositions() {
         Debug.Log("Updating Outline" + outline.name);
