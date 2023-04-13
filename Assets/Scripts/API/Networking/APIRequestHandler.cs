@@ -200,51 +200,5 @@ namespace GAAUBAGE_Game.API.Networking
                 };
             }
         }
-
-        private static UnityWebRequest CreateRequest2<T>(string Endpoint, T Data, string method = UnityWebRequest.kHttpVerbPOST) where T : class
-        {
-            var request = CreateRequest2(Endpoint, method);
-
-            string jsonToSend = JsonConvert.SerializeObject(Data);
-            byte[] bytesToSend = new UTF8Encoding().GetBytes(jsonToSend);
-            request.uploadHandler = new UploadHandlerRaw(bytesToSend);
-
-            return request;
-        }
-        private static UnityWebRequest CreateRequest2(string Endpoint, string method = UnityWebRequest.kHttpVerbGET)
-        {
-            UnityWebRequest request = new UnityWebRequest(Endpoint);
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", "Bearer " + JWT);
-            request.timeout = Timeout;
-            request.method = method;
-            request.downloadHandler = new DownloadHandlerBuffer();
-
-            return request;
-        }
-
-
-        /*private static UnityWebRequest CreatePostRequest<T>(string Endpoint, T Data)
-        {
-            UnityWebRequest request = CreateRequest<T>(Endpoint);
-            request.method = "POST";
-
-            string jsonToSend = JsonConvert.SerializeObject(Data);
-            byte[] bytesToSend = new UTF8Encoding().GetBytes(jsonToSend);
-            request.uploadHandler = new UploadHandlerRaw(bytesToSend);
-            request.downloadHandler = new DownloadHandlerBuffer();
-
-            return request;
-        }
-
-        private static UnityWebRequest CreateRequest<T>(string Endpoint)
-        {
-            UnityWebRequest request = new UnityWebRequest(Endpoint);
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", "Bearer " + JWT);
-            request.timeout = Timeout;
-
-            return request;
-        }*/
     }
 }
