@@ -37,7 +37,7 @@ public class UserNameCreation : MonoBehaviour
     IEnumerator UsernameCreate() {
         User user = new User { Alias = usernameField.text };
         var task = UserService.PostUserAsync(user);
-        yield return new WaitUntil(()=>task.IsCompleted);
+        yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode == UnityEngine.Networking.UnityWebRequest.Result.Success) {
             PlayerPrefs.SetString("jwt", task.Result.Value);
