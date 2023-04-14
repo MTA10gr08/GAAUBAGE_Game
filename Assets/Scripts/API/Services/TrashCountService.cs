@@ -8,13 +8,13 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class TrashCountService
     {
-        public static async Task<RequestResult<TrashCount>> PostTrashCountAsync(TrashCount trashCount)
+        public static async Task<RequestResult<string>> PostTrashCountAsync(TrashCount trashCount)
         {
             string apiUrl = Endpoints.TrashCount.Post();
-            return await APIRequestHandler.PostAsync<TrashCount, TrashCount>(apiUrl, trashCount);
+            return await APIRequestHandler.PostAsync<string, TrashCount>(apiUrl, trashCount);
         }
 
-        public static void PostTrashCount(TrashCount trashCount, Action<RequestResult<TrashCount>>? onResponse = null)
+        public static void PostTrashCount(TrashCount trashCount, Action<RequestResult<string>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashCount.Post();
             APIRequestHandler.Post(apiUrl, trashCount, onResponse);
