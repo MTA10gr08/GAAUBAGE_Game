@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<ContextClassification>> PostContextClassificationAsync(ContextClassification contextClassification)
         {
-            string apiUrl = Endpoints.Users.Post();
+            string apiUrl = Endpoints.ContextClassification.Post();
             return await APIRequestHandler.PostAsync<ContextClassification, ContextClassification>(apiUrl, contextClassification);
         }
 
