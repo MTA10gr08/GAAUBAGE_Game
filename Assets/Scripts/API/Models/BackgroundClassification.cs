@@ -8,6 +8,6 @@ namespace GAAUBAGE_Game.API.Models
     {
         public Guid UserId { get; }
         public Guid ImageId { get; set; }
-        public ICollection<string> BackgroundCategory { get; set; }
+        public string BackgroundCategory { get; set; }
     }
 }
