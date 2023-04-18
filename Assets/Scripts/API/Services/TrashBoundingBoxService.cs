@@ -8,13 +8,13 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class TrashBoundingBoxService
     {
-        public static async Task<RequestResult<TrashBoundingBox>> PostTrashBoundingBoxAsync(TrashBoundingBox TrashBoundingBox)
+        public static async Task<RequestResult<string>> PostTrashBoundingBoxAsync(TrashBoundingBox TrashBoundingBox)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post();
-            return await APIRequestHandler.PostAsync<TrashBoundingBox, TrashBoundingBox>(apiUrl, TrashBoundingBox);
+            return await APIRequestHandler.PostAsync<string, TrashBoundingBox>(apiUrl, TrashBoundingBox);
         }
 
-        public static void PostTrashBoundingBox(TrashBoundingBox TrashBoundingBox, Action<RequestResult<TrashBoundingBox>>? onResponse = null)
+        public static void PostTrashBoundingBox(TrashBoundingBox TrashBoundingBox, Action<RequestResult<string>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post();
             APIRequestHandler.Post(apiUrl, TrashBoundingBox, onResponse);

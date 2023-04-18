@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GAAUBAGE_Game.Scripts.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,15 @@ namespace GAAUBAGE_Game.API.Networking
         private static string GetAll(string resource) => $"{BaseUrl}/{resource}";
         private static string Post(string resource) => $"{BaseUrl}/{resource}";
         private static string Get(string resource, Guid id) => $"{BaseUrl}/{resource}/{id}";
+        private static string Get(string resource) => $"{BaseUrl}/{resource}";
         private static string Update(string resource, Guid id) => $"{BaseUrl}/{resource}/{id}";
         private static string Delete(string resource, Guid id) => $"{BaseUrl}/{resource}/{id}";
         private static string Next(string resource) => $"{BaseUrl}/{resource}/next";
-        private static string Submit(string resource) => $"{BaseUrl}/{resource}/submit";
-
+        public static class Configuration
+        {
+            private const string Resource = "configuration/";
+            public static string Get() => Endpoints.Get(Resource + "categories");
+        }
         public static class Users
         {
             private const string Resource = "users";
