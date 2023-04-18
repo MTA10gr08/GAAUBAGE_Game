@@ -417,8 +417,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371537207}
+  - component: {fileID: 371537208}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SubImageTasker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,6 +440,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371537208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371537206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3452e75b6f2c0547a53b8708f141fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473677807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1402,7 @@ GameObject:
   - component: {fileID: 1839977016}
   - component: {fileID: 1839977018}
   m_Layer: 0
-  m_Name: Square
+  m_Name: LitterImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1471,12 +1484,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839977015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d378bd6e2916748b2e25abd3321e7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 84e835704d15bed489c718a7b1cbd2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImagePivot: {x: 0.5, y: 0.5}
-  spriteRenderer: {fileID: 0}
-  testURL: https://i.imgur.com/tJvxXyv.jpeg
+  ImagePivot: {x: 0, y: 0}
 --- !u!1 &1868909054
 GameObject:
   m_ObjectHideFlags: 0

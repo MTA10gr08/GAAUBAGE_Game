@@ -41,7 +41,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
     IEnumerator PostUserValues() {
         Debug.Log(currentID);
-        BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = bgSelector.CompileStringList()[0] };
+        BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = bgSelector.CompileStringList()[0]  };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
