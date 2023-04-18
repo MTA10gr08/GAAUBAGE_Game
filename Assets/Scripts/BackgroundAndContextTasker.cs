@@ -4,6 +4,7 @@ using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundAndContextTasker : MonoBehaviour
 {
@@ -12,13 +13,23 @@ public class BackgroundAndContextTasker : MonoBehaviour
     public BackgroundContextSelector bgSelector;
     public ContextSelector ctxSelector;
 
+    public Button submitBtn;
+
     Guid currentID;
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
-        Debug.Log(APIRequestHandler.JWT);
         spriteFromURL = GetComponent<SpriteFromURL>();
         StartCoroutine(GetTask());
+
+    }
+    private void Start() {
+        ctxSelector.contextDropdown.onValueChanged.AddListener(delegate { OnValueChanged(); });
+        foreach (var item in bgSelector.buttons) {
+            Debug.Log(item.name);
+            Debug.Log(item.button);
+            item.button.onClick.AddListener(delegate { OnValueChanged(); });
+        }
     }
 
     IEnumerator GetTask() {
@@ -57,6 +68,16 @@ public class BackgroundAndContextTasker : MonoBehaviour
         yield return null;
         StartCoroutine(GetTask());
     }
+    void OnValueChanged() {
+
+        if (ctxSelector.contextDropdown.value > 0 && bgSelector.CompileStringList().Count > 0) {
+            submitBtn.interactable = true;
+            return;
+        }
+        submitBtn.interactable = false;
+
+    }
+
 
 
 }

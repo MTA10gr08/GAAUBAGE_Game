@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BackgroundContextButton : MonoBehaviour
 {
-    Button button;
+    public Button button;
     public bool IsSelected = false;
     public Sprite SelectedImage, UnSelectedImage;
     //private int selectedColor = 100, unSelectedColor = 75;
