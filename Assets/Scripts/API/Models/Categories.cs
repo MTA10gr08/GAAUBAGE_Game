@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAAUBAGE_Game.Scripts.API.Models
+namespace GAAUBAGE_Game.API.Models
 {
-    internal class Categories
+    public class Categories
     {
         public string[] BackgroundCategories { get; set; }
         public string[] ContextCategories { get; set; }

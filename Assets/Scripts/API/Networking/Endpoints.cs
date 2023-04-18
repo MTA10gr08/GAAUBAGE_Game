@@ -1,4 +1,4 @@
-﻿using GAAUBAGE_Game.Scripts.API.Models;
+﻿using GAAUBAGE_Game.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

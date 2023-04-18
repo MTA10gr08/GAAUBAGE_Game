@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3848,7 +3848,7 @@ GameObject:
   - component: {fileID: 1899248416}
   - component: {fileID: 1899248415}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LitterImage and tasker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4329,7 +4329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc628d9bfd648f54bb21adaeeda655d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedContext: 
+  contextDropdown: {fileID: 593914702}
 --- !u!1 &1986399735
 GameObject:
   m_ObjectHideFlags: 0
