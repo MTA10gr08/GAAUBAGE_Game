@@ -46,11 +46,11 @@ namespace GAAUBAGE_Game.API.Networking
         {
             private const string Resource = "backgroundclassifications";
             public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
+            public static string Post() => $"/imageannotations/{BaseUrl}/backgroundclassifications";
             public static string Get(Guid id) => Endpoints.Get(Resource, id);
             public static string Update(Guid id) => Endpoints.Update(Resource, id);
             public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+            public static string Next() => $"{BaseUrl}/imageannotations/backgroundclassifications/next";
         }
         public static class ContextClassification
         {
