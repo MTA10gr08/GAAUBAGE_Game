@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BackgroundContextSelector : MonoBehaviour
 {
@@ -10,13 +11,7 @@ public class BackgroundContextSelector : MonoBehaviour
     List<string> categoriesToSubmit = new List<string>();
 
     private void Awake() {
-        categories.Add("category 1");
-        categories.Add("category 2");
-        categories.Add("category 3");
-        categories.Add("category 4");
-        categories.Add("category 5");
-        categories.Add("category 6");
-        categories.Add("category 7");
+        categories = (Configuration.categories.BackgroundCategories.ToList());
     }
 
     [ContextMenu("Compile String List")]

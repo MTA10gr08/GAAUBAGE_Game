@@ -1,5 +1,5 @@
 ﻿using GAAUBAGE_Game.API.Networking;
-using GAAUBAGE_Game.Scripts.API.Models;
+using GAAUBAGE_Game.API.Models;
 using System;
 using System.Threading.Tasks;
 
