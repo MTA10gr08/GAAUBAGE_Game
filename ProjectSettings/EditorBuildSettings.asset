@@ -18,17 +18,26 @@ EditorBuildSettings:
     path: Assets/Scenes/BLARP/BLAP_Profile.unity
     guid: 46ca17f926c82f44d8b153e7541e909d
   - enabled: 1
-    path: Assets/Scenes/Tasks/Classify Level 2.unity
-    guid: 3ebe65ee85b60bd459f656d99787a777
+    path: Assets/Scenes/Narrative/Narrative_Home.unity
+    guid: d51f99c7729809746958e69b283493d5
+  - enabled: 1
+    path: Assets/Scenes/Narrative/Narrative_Leaderboard.unity
+    guid: 182603f94d5dd434ebcd682b36bb0d2f
+  - enabled: 1
+    path: Assets/Scenes/Narrative/Narrative_Profile.unity
+    guid: eb9e7d022458b61418818629a2db5b3e
   - enabled: 1
     path: Assets/Scenes/Tasks/Classify Level 1.unity
     guid: d36274f47ebfdbe4a9fed3f78573c4aa
   - enabled: 1
-    path: Assets/Scenes/Tasks/Segmentation.unity
-    guid: 0d3351c6c2e42ea428dcd6624da8d0e4
-  - enabled: 1
     path: Assets/Scenes/Tasks/Sub-image.unity
     guid: 8d4c6851466586c4d9fd6c15261ff71a
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Classify Level 2.unity
+    guid: 3ebe65ee85b60bd459f656d99787a777
+  - enabled: 1
+    path: Assets/Scenes/Tasks/Segmentation.unity
+    guid: 0d3351c6c2e42ea428dcd6624da8d0e4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 94153566d9473844299d447ffdf2c591,
       type: 2}

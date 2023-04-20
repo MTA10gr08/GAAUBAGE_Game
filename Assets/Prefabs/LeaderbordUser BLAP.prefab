@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4200778053372564671}
   - component: {fileID: 4799942003151886580}
   m_Layer: 5
-  m_Name: LeaderbordUser
+  m_Name: LeaderbordUser BLAP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 100
+  m_Spacing: 50
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
