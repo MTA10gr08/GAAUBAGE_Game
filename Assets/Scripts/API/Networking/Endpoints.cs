@@ -42,25 +42,32 @@ namespace GAAUBAGE_Game.API.Networking
             public static string Update(Guid id) => Endpoints.Update(Resource, id);
             public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
         }
-        public static class BackgroundClassification
+        public static class ImageAnnotation
         {
-            private const string Resource = "backgroundclassifications";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => $"/imageannotations/{BaseUrl}/backgroundclassifications";
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => $"{BaseUrl}/imageannotations/backgroundclassifications/next";
-        }
-        public static class ContextClassification
-        {
-            private const string Resource = "contextclassifications";
+            private const string Resource = "imageannotation";
             public static string GetAll() => Endpoints.GetAll(Resource);
             public static string Post() => Endpoints.Post(Resource);
             public static string Get(Guid id) => Endpoints.Get(Resource, id);
             public static string Update(Guid id) => Endpoints.Update(Resource, id);
             public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+        }
+        public static class BackgroundClassification
+        {
+            private const string Resource = "backgroundclassifications";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/{Resource}/next";
+        }
+        public static class ContextClassification
+        {
+            private const string Resource = "contextclassifications";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/{Resource}/next";
+        }
+        public static class SubImageAnnotationGroup
+        {
+            private const string Resource = "subimages";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/{Resource}/next";
         }
         public static class TrashCount
         {

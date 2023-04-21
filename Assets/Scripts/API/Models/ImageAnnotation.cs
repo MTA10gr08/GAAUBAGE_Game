@@ -7,13 +7,17 @@ namespace GAAUBAGE_Game.API.Models
 {
     public class ImageAnnotation : BaseModel
     {
-        public Guid id { get; set; }
-        public DateTime created { get; set; }
-        public DateTime updated { get; set; }
-        public string imageID { get; set; }
-        public string[] backgroundClassifications { get; set; }
-        public string[] contextClassifications { get; set; }
-        public string[] subImages { get; set; }
-        public string[] subImagesConsensus { get; set; }
+        public Guid ImageID { get; set; }
+
+        public ICollection<Guid> BackgroundClassifications { get; set; }
+        public Guid? BackgroundClassificationConsensus;
+
+        public ICollection<Guid> ContextClassifications { get; set; }
+        public Guid? ContextClassificationConsensus;
+
+        public ICollection<Guid> SubImages { get; set; }
+        public Guid? SubImagesConsensus { get; set; }
+        public bool IsInProgress;
+        public bool IsComplete;
     }
 }
