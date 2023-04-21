@@ -8,25 +8,25 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class ContextClassificationService
     {
-        public static async Task<RequestResult<string>> PostContextClassificationAsync(ContextClassification contextClassification, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostContextClassificationAsync(ContextClassification contextClassification, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.ContextClassification.Post(ImageAnnotationID);
-            return await APIRequestHandler.PostAsync<string, ContextClassification>(apiUrl, contextClassification);
+            return await APIRequestHandler.PostAsync(apiUrl, contextClassification);
         }
 
-        public static void PostContextClassification(ContextClassification contextClassification, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
+        public static void PostContextClassification(ContextClassification contextClassification, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.ContextClassification.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, contextClassification, onResponse);
         }
 
-        public static async Task<RequestResult<BackgroundClassification>> NextContextClassificationAsync()
+        public static async Task<RequestResult<ImageAnnotation>> NextContextClassificationAsync()
         {
             string apiUrl = Endpoints.ContextClassification.Next();
-            return await APIRequestHandler.GetAsync<BackgroundClassification>(apiUrl);
+            return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
         }
 
-        public static void GetContextClassification(Action<RequestResult<BackgroundClassification>>? onResponse = null)
+        public static void GetContextClassification(Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.ContextClassification.Next();
             APIRequestHandler.Get(apiUrl, onResponse);
