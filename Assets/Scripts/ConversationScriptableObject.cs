@@ -13,7 +13,7 @@ public class ConversationScriptableObject : ScriptableObject
 public class DialogueContainer
 {
     public string name = "PlaceHolder";
-    [TextArea(5, 20)] public string speech = "Hello!";
+    [TextArea(4, 10)] public string speech = "Hello!";
     [field: SerializeField] private textSpeed textSpeed = textSpeed.normal;
     public float TextSpeed {
         get {
