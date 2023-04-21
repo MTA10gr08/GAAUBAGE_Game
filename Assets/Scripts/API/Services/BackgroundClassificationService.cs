@@ -8,25 +8,25 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal static class BackgroundClassificationService
     {
-        public static async Task<RequestResult<string>> PostBackgroundClassificationAsync(BackgroundClassification backgroundClassification, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostBackgroundClassificationAsync(BackgroundClassification backgroundClassification, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.BackgroundClassification.Post(ImageAnnotationID);
-            return await APIRequestHandler.PostAsync<string, BackgroundClassification>(apiUrl, backgroundClassification);
+            return await APIRequestHandler.PostAsync(apiUrl, backgroundClassification);
         }
 
-        public static void PostBackgroundClassification(BackgroundClassification backgroundClassification, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
+        public static void PostBackgroundClassification(BackgroundClassification backgroundClassification, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.BackgroundClassification.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, backgroundClassification, onResponse);
         }
 
-        public static async Task<RequestResult<Image>> NextBackgroundClassificationAsync()
+        public static async Task<RequestResult<ImageAnnotation>> NextBackgroundClassificationAsync()
         {
             string apiUrl = Endpoints.BackgroundClassification.Next();
-            return await APIRequestHandler.GetAsync<Image>(apiUrl);
+            return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
         }
 
-        public static void GetBackgroundClassification(Action<RequestResult<Image>>? onResponse = null)
+        public static void GetBackgroundClassification(Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.BackgroundClassification.Next();
             APIRequestHandler.Get(apiUrl, onResponse);
