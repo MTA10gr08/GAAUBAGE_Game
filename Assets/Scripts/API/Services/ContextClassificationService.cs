@@ -8,15 +8,15 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class ContextClassificationService
     {
-        public static async Task<RequestResult<string>> PostContextClassificationAsync(ContextClassification contextClassification)
+        public static async Task<RequestResult<string>> PostContextClassificationAsync(ContextClassification contextClassification, Guid ImageAnnotationID)
         {
-            string apiUrl = Endpoints.ContextClassification.Post();
+            string apiUrl = Endpoints.ContextClassification.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync<string, ContextClassification>(apiUrl, contextClassification);
         }
 
-        public static void PostContextClassification(ContextClassification contextClassification, Action<RequestResult<string>>? onResponse = null)
+        public static void PostContextClassification(ContextClassification contextClassification, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
         {
-            string apiUrl = Endpoints.ContextClassification.Post();
+            string apiUrl = Endpoints.ContextClassification.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, contextClassification, onResponse);
         }
 

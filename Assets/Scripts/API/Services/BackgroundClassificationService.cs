@@ -8,15 +8,15 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal static class BackgroundClassificationService
     {
-        public static async Task<RequestResult<string>> PostBackgroundClassificationAsync(BackgroundClassification backgroundClassification)
+        public static async Task<RequestResult<string>> PostBackgroundClassificationAsync(BackgroundClassification backgroundClassification, Guid ImageAnnotationID)
         {
-            string apiUrl = Endpoints.BackgroundClassification.Post();
+            string apiUrl = Endpoints.BackgroundClassification.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync<string, BackgroundClassification>(apiUrl, backgroundClassification);
         }
 
-        public static void PostBackgroundClassification(BackgroundClassification backgroundClassification, Action<RequestResult<string>>? onResponse = null)
+        public static void PostBackgroundClassification(BackgroundClassification backgroundClassification, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
         {
-            string apiUrl = Endpoints.BackgroundClassification.Post();
+            string apiUrl = Endpoints.BackgroundClassification.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, backgroundClassification, onResponse);
         }
 
