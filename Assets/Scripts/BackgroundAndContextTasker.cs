@@ -34,14 +34,15 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
     IEnumerator GetTask() {
         var task = BackgroundClassificationService.NextBackgroundClassificationAsync();
+
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        spriteFromURL.LoadImage(task.Result.Value.URI);
-        currentID = task.Result.Value.Id;
+        spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
+        currentID = task.Result.Value.ImageID;
 
     }
 
@@ -50,21 +51,22 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values");
-        //BackgroundClassification bgClass = new BackgroundClassification { ImageId = currentID, BackgroundCategory = bgSelector.CompileStringList()[0]};
-        //var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass);
-        //yield return new WaitUntil(() => task.IsCompleted);
-        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task.Result.ResponseCode);
-        //    yield break;
-        //}
-        //ContextClassification ctxClass = new ContextClassification { BackgroundClassificationId = new Guid(task.Result.Value), Category = ctxSelector.SelectedContext() };
-        //var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass);
-        //yield return new WaitUntil(() => task2.IsCompleted);
-        //if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task2.Result.ResponseCode);
-        //    yield break;
-        //}
+        Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
+        BackgroundClassification bgClass = new BackgroundClassification {BackgroundClassificationLabels = bgSelector.CompileStringList() };
+        var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            yield break;
+        }
+
+        ContextClassification ctxClass = new ContextClassification { Category = ctxSelector.SelectedContext() };
+        var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass, currentID);
+        yield return new WaitUntil(() => task2.IsCompleted);
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            yield break;
+        }
         yield return null;
         StartCoroutine(GetTask());
     }
