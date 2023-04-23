@@ -9,7 +9,7 @@ using GAAUBAGE_Game.API.Models;
 public class SegmentationTasker : MonoBehaviour
 {
     SpriteFromURLSegmentation spriteFromURL;
-    public Segmentation segmenter;
+    public Segmentation segmenter; 
     Guid currentID;
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");

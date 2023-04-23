@@ -45,12 +45,8 @@ public class Segmentation : MonoBehaviour
         UpdatePositions();
     }
     public void UpdatePositions() {
-        Debug.Log("Updating Outline" + outline.name);
-        
         outline.UpdateLine(points);
-        Debug.Log("Updating Polygon");
         polygon.UpdatePolygon(points);
-        Debug.Log("Done");
     }
     public void RemovePoint(PointBehaviour point) {
         points.Remove(point);

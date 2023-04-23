@@ -26,12 +26,11 @@ public class Outline : MonoBehaviour, IPointerClickHandler
         lr.SetPositions(pointsAsVector2.Select(x => new Vector3(x.x, x.y, Camera.main.nearClipPlane)).ToArray());
         pointsAsVector2.Add(pointsAsVector2[0]);
         edgeCollider.points = pointsAsVector2.ToArray();
-        edgeCollider.edgeRadius = lr.startWidth;
+        edgeCollider.edgeRadius = lr.startWidth * 2;
 
     }
     public void OnPointerClick(PointerEventData eventData) {
         var objToSpawn = new GameObject();
-        Debug.Log("Outline Pressed");
         objToSpawn.AddComponent<SpriteRenderer>();
         objToSpawn.transform.position = Camera.main.ScreenToWorldPoint(eventData.position);
         ClosestPoint(eventData.position);
