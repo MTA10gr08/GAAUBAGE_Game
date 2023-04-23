@@ -30,17 +30,19 @@ public class BoxManager : MonoBehaviour
         Destroy(boxObject.gameObject);
     }
 
-    List<Rectangle> ReturnBoxes() {
+    public List<Rectangle> ReturnBoxes() {
         int indexer = 0;
         List<Rectangle> boxes = new List<Rectangle>();
-        foreach ( var box in BoxObjects) {
-            //Rectangle rect = new Rectangle();
-            //rect.Width = box.BoxPoints[0].transform.position.x - box.BoxPoints[1].transform.position.x;
-            //rect.Height = 
-            //box.BoxPoints
-            //indexer++;
+        foreach (var box in BoxObjects) {
+            Rectangle rect = new Rectangle(
+                (int)Mathf.Ceil(box.BoxPoints[0].transform.position.x),
+                (int)Mathf.Ceil(box.BoxPoints[0].transform.position.y),
+                (int)Mathf.Ceil(box.BoxPoints[0].transform.position.x - box.BoxPoints[1].transform.position.x),
+                (int)Mathf.Ceil(box.BoxPoints[0].transform.position.y - box.BoxPoints[2].transform.position.y)
+            );
+            boxes.Add(rect);
+            indexer++;
         }
-
         return boxes;
     }
 }

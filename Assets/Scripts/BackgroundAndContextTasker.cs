@@ -49,7 +49,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
+        Debug.Log("You sure did post those values");
         BackgroundClassification bgClass = new BackgroundClassification { BackgroundClassificationLabels = bgSelector.CompileStringList() };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
