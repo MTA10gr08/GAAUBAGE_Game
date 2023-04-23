@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Drawing;
 
 public class BoxManager : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class BoxManager : MonoBehaviour
 
     private void Awake() {
         NewBoxBtn.onClick.AddListener(delegate { MakeNewBox(); });
-
-        SubmitButton.onClick.AddListener(delegate { SubmitBoxes(); });
         SubmitButton.interactable = false;
     }
     void MakeNewBox() {
@@ -31,7 +30,17 @@ public class BoxManager : MonoBehaviour
         Destroy(boxObject.gameObject);
     }
 
-    void SubmitBoxes() {
+    List<Rectangle> ReturnBoxes() {
+        int indexer = 0;
+        List<Rectangle> boxes = new List<Rectangle>();
+        foreach ( var box in BoxObjects) {
+            //Rectangle rect = new Rectangle();
+            //rect.Width = box.BoxPoints[0].transform.position.x - box.BoxPoints[1].transform.position.x;
+            //rect.Height = 
+            //box.BoxPoints
+            //indexer++;
+        }
 
+        return boxes;
     }
 }

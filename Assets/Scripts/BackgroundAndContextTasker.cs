@@ -21,7 +21,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         spriteFromURL = GetComponent<SpriteFromURL>();
         StartCoroutine(GetTask());
-
     }
     private void Start() {
         ctxSelector.contextDropdown.onValueChanged.AddListener(delegate { OnValueChanged(); });
@@ -43,7 +42,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
         }
         spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
         currentID = task.Result.Value.ImageID;
-
     }
 
     public void submitValuesToServer() {
@@ -52,7 +50,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
-        BackgroundClassification bgClass = new BackgroundClassification {BackgroundClassificationLabels = bgSelector.CompileStringList() };
+        BackgroundClassification bgClass = new BackgroundClassification { BackgroundClassificationLabels = bgSelector.CompileStringList() };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -77,9 +75,5 @@ public class BackgroundAndContextTasker : MonoBehaviour
             return;
         }
         submitBtn.interactable = false;
-
     }
-
-
-
 }

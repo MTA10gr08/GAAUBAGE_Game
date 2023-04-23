@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UserNameCreation : MonoBehaviour
 {
-    public bool UserHasToken = false;
+    public bool UserHasToken = false, submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField;
 
@@ -32,10 +32,13 @@ public class UserNameCreation : MonoBehaviour
 
         //    } else Debug.LogError(response.ToString());
         //});
-
-        StartCoroutine(UsernameCreate());
+        if (submitting != true) {
+            submitting = true;
+            StartCoroutine(UsernameCreate());
+        }
     }
     IEnumerator UsernameCreate() {
+        PlayerPrefs.SetString("Alias", usernameField.text);
         User user = new User { Alias = usernameField.text };
         var task = UserService.PostUserAsync(user);
         yield return new WaitUntil(() => task.IsCompleted);

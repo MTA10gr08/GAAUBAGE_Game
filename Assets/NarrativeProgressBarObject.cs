@@ -5,34 +5,17 @@ using UnityEngine;
 
 public class NarrativeProgressBarObject : MonoBehaviour
 {
-    public TMP_Text taskText;
-    string assignmentText = "TASK 1: xxxxxxxxxx";
-    public int curr = 7, max = 10;
-
+    TMP_Text taskText;
     int maxChars = 20;
     string zero = " -", one = "█";
-    private void Awake() {
-        taskText.text = assignmentText + "\n";
-        taskText.text += "|";
-
-        int proogress =  Mathf.CeilToInt(maxChars / max) * curr;
-        Debug.Log(proogress);
-        for (int i = 0; i < maxChars; i++) {
-            if (i <= proogress && proogress != 0) {
-                taskText.text += one;
-            } else {
-                taskText.text += zero;
-            }
-        }
-        taskText.text += "| ";
-        taskText.text += curr + " / " + max;
+    private void Awake() {;
+        taskText = GetComponent<TMP_Text>();
     }
-    public void UpdateProgresBar(float value, float maxValue, string assignment) {
-        taskText.text = assignmentText + "\n";
+    public void UpdateProgresBar(int value, int maxValue, string assignment) {
+        taskText.text = assignment + "\n";
         taskText.text += "|";
 
-        int proogress = Mathf.CeilToInt(maxChars / max) * curr;
-        Debug.Log(proogress);
+        int proogress = Mathf.CeilToInt(maxChars / maxValue) * value;
         for (int i = 0; i < maxChars; i++) {
             if (i <= proogress && proogress != 0) {
                 taskText.text += one;
@@ -41,6 +24,6 @@ public class NarrativeProgressBarObject : MonoBehaviour
             }
         }
         taskText.text += "| ";
-        taskText.text += curr + " / " + max;
+        taskText.text += value + " / " + maxValue;
     }
 }

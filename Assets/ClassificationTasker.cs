@@ -1,12 +1,13 @@
-using GAAUBAGE_Game.API.Models;
-using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
-using System;
+using GAAUBAGE_Game.API.Models;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using GAAUBAGE_Game.API.Networking;
 
-public class SubImageTasker : MonoBehaviour
+public class ClassificationTasker : MonoBehaviour
 {
     SpriteFromURLSegmentation spriteFromURL;
     public CategoryPopulator categoryPopulator;
@@ -18,29 +19,42 @@ public class SubImageTasker : MonoBehaviour
 
     }
 
-    public void submitValuesToServer() {
-        StartCoroutine(PostUserValues());
-    }
     IEnumerator GetTask() {
-        var task = TrashBoundingBoxService.NextTrashBoundingBoxAsync();
+        var task = TrashSuperCategoryService.NextTrashSuperCategoryAsync();
+
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
+        //spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
+        //currentID = task.Result.Value.ImageID;
+
+    }
+    public void submitValuesToServer() {
+        StartCoroutine(PostUserValues());
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
-       // TrashBoundingBox sCategory = new TrashBoundingBox { BoundingBoxs =  };
+        TrashSuperCategory sCategory = new TrashSuperCategory { SuperCategory = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
+        Debug.Log(sCategory.SuperCategory);
         //var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
         //yield return new WaitUntil(() => task.IsCompleted);
         //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
         //    Debug.LogError(task.Result.ResponseCode);
         //    yield break;
         //}
+
+        TrashCategory category = new TrashCategory { Category = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
+        Debug.Log(category.Category);
+        //var task2 = TrashCategoryService.PostTrashCategoryAsync(category, currentID);
+        //yield return new WaitUntil(() => task2.IsCompleted);
+        //if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        //    Debug.LogError(task2.Result.ResponseCode);
+        //    yield break;
+        //}
         yield return null;
         StartCoroutine(GetTask());
     }
-
 }

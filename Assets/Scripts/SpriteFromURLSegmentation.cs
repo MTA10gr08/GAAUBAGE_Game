@@ -33,6 +33,21 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 		LoadImage(testURL);
 	}
 
+	public void GetImageFromID(Guid imageID) {
+		StartCoroutine(GetImage(imageID));
+	}
+
+	IEnumerator GetImage(Guid imageID) {
+		var task = ""; //ImageService.GetImageAsync(imageID);
+					   //yield return new WaitUntil(() => task.IsCompleted);
+
+		//if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+		//    Debug.LogError(task.Result.ResponseCode);
+		yield break;
+		//}
+		//LoadImage(task.Result.Value.URI);
+	}
+
 	public void LoadImage(string URL) {
 		StartCoroutine(GetTexture(URL));
 		//LoadingObject.SetActive(true);
@@ -69,7 +84,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 					Camera.main.orthographicSize = width + (width / 10);
 				}
 				mask.updateImageMask(width, height);
-				segmentation.UpdatePositions();
+				segmentation?.UpdatePositions();
 				spriteRenderer.enabled = true;
 				//LoadingObject.SetActive(false);
 			}
