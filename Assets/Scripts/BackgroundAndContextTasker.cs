@@ -25,8 +25,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
     private void Start() {
         ctxSelector.contextDropdown.onValueChanged.AddListener(delegate { OnValueChanged(); });
         foreach (var item in bgSelector.buttons) {
-            Debug.Log(item.name);
-            Debug.Log(item.button);
+
             item.button.onClick.AddListener(delegate { OnValueChanged(); });
         }
     }

@@ -1,3 +1,4 @@
+using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,14 +43,14 @@ public class SpriteFromURL : MonoBehaviour
         StartCoroutine(GetImage(imageID));
     }
     IEnumerator GetImage(Guid imageID) {
-        var task = ""; //ImageService.GetImageAsync(imageID);
-        //yield return new WaitUntil(() => task.IsCompleted);
+        var task = ImageService.GetImageAsync(imageID);
+        yield return new WaitUntil(() => task.IsCompleted);
 
-        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task.Result.ResponseCode);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
             yield break;
-        //}
-        //LoadImage(task.Result.Value.URI);
+        }
+        LoadImage(task.Result.Value.URI);
     }
 
     IEnumerator GetTexture(string URL) {

@@ -63,7 +63,9 @@ public class UserNameCreation : MonoBehaviour
             yield break;
         }
 
+
         tag = task2.Result.Value.Tag;
+        Debug.Log(tag);
 
         if (tag.Equals("BLAP")) {
             SceneManager.LoadSceneAsync("BLAP_Home");
@@ -71,6 +73,7 @@ public class UserNameCreation : MonoBehaviour
             SceneManager.LoadSceneAsync("Narrative_Home");
         } else {
             Debug.LogError("No Valid Tag");
+            SceneManager.LoadSceneAsync("BLAP_Home");
             yield break;
         }
     }
