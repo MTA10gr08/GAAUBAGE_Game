@@ -44,8 +44,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
         }
         spriteFromURL.GetImageFromID(task.Result.Value.Image);
         currentID = task.Result.Value.ID;
-        //currentID = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
-        Debug.Log(currentID.ToString());
     }
 
     public void submitValuesToServer() {
