@@ -6,7 +6,7 @@ namespace GAAUBAGE_Game.API.Models
         /// <summary>
         /// Unique identifier for the object. This property is read-only.
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid ID { get; private set; }
         /// <summary>
         /// Creation date of the object. This property is read-only.
         /// </summary>
