@@ -11,6 +11,7 @@ public class Segmentation : MonoBehaviour
     public GameObject canvas;
 
     public List<PointBehaviour> points = new List<PointBehaviour>();
+
     private void Awake() {
         outline = Instantiate(outlinePrefab, transform).GetComponent<Outline>();
         outline.Segmentation = this;
@@ -19,11 +20,10 @@ public class Segmentation : MonoBehaviour
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 - 50));
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 + 50));
         AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 + 50));
-
     }
+
     private void Start() {
         UpdatePositions();
-        
     }
 
     public void AddPoint(Vector2 pos) {
