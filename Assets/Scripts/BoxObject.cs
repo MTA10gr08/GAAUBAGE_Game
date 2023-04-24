@@ -28,7 +28,7 @@ public class BoxObject : MonoBehaviour
         Anchors[0].position = new Vector2(Screen.width / 2 + 50, Screen.height / 2 + 50);
         Anchors[1].position = new Vector2(Screen.width / 2 - 50, Screen.height / 2 - 50);
 
-        var lo =  Instantiate(LineObject);
+        var lo = Instantiate(LineObject);
         lr = lo.GetComponent<LineRenderer>();
         lr.positionCount = BoxPoints.Count();
 
@@ -36,7 +36,7 @@ public class BoxObject : MonoBehaviour
 
         lr.positionCount = pointsAsVector2.Count();
         lr.SetPositions(pointsAsVector2.Select(x => new Vector3(x.x, x.y, Camera.main.nearClipPlane)).ToArray());
-       
+
         Handles[0].GetComponent<BoxPoint>().boxObject = this;
         Handles[1].GetComponent<BoxPoint>().boxObject = this;
     }
@@ -46,12 +46,17 @@ public class BoxObject : MonoBehaviour
         Anchors[1].position = new Vector3(Handles[0].position.x, Handles[1].position.y, Anchors[1].position.z);
 
         List<Vector2> pointsAsVector2 = BoxPoints.Select(x => (Vector2)Camera.main.ScreenToWorldPoint(x.transform.position)).ToList();
-   
+
         lr.positionCount = pointsAsVector2.Count();
         lr.SetPositions(pointsAsVector2.Select(x => new Vector3(x.x, x.y, Camera.main.nearClipPlane)).ToArray());
     }
     public void DeleteBox() {
         Destroy(lr.gameObject);
         boxManager.RemoveBox(this);
+    }
+    private void OnDestroy() {
+        if (lr != null) {
+            Destroy(lr.gameObject);
+        }
     }
 }

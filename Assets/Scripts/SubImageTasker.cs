@@ -1,4 +1,3 @@
-using Assets.Scripts.API.Models;
 using GAAUBAGE_Game.API.Models;
 using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
@@ -35,7 +34,7 @@ public class SubImageTasker : MonoBehaviour
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
-        SubImageGroup trashBoxes = new SubImageGroup { SubImages =  boxManager.ReturnBoxes()};
+        SubImageGroup trashBoxes = new SubImageGroup { SubImages = boxManager.ReturnBoxes()};
         var task = SubImageGroupService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {

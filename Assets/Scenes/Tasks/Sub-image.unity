@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e835704d15bed489c718a7b1cbd2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImagePivot: {x: 0, y: 0}
+  ImagePivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839977019
 MonoBehaviour:
   m_ObjectHideFlags: 0
