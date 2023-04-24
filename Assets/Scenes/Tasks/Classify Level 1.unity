@@ -925,7 +925,6 @@ GameObject:
   - component: {fileID: 743686225}
   - component: {fileID: 743686224}
   - component: {fileID: 743686223}
-  - component: {fileID: 743686227}
   - component: {fileID: 743686228}
   m_Layer: 5
   m_Name: CategoryButtonContainer
@@ -1039,26 +1038,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743686221}
   m_CullTransparentMesh: 1
---- !u!114 &743686227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743686221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4362abd9a79ab46ad171d233330197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 891096900}
-  - {fileID: 1142660911}
-  - {fileID: 1865470419}
-  - {fileID: 1679809676}
-  - {fileID: 1486073618}
-  - {fileID: 1541278683}
-  - {fileID: 1968168303}
 --- !u!114 &743686228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,6 +3365,7 @@ GameObject:
   - component: {fileID: 1816924170}
   - component: {fileID: 1816924169}
   - component: {fileID: 1816924168}
+  - component: {fileID: 1816924171}
   m_Layer: 5
   m_Name: Content Layout
   m_TagString: Untagged
@@ -3478,6 +3458,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816924166}
   m_CullTransparentMesh: 1
+--- !u!114 &1816924171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816924166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4362abd9a79ab46ad171d233330197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 891096900}
+  - {fileID: 1142660911}
+  - {fileID: 1865470419}
+  - {fileID: 1679809676}
+  - {fileID: 1486073618}
+  - {fileID: 1541278683}
+  - {fileID: 1968168303}
 --- !u!1001 &1865470417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3866,7 +3866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b17aec498bd28545b47928c7f7eca3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgSelector: {fileID: 743686227}
+  bgSelector: {fileID: 1816924171}
   ctxSelector: {fileID: 1979743955}
   submitBtn: {fileID: 565990452}
 --- !u!114 &1899248416
