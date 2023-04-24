@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 #nullable enable
 namespace GAAUBAGE_Game.API.Services
 {
-    internal class TrashBoundingBoxService
+    internal class SubImageGroupService
     {
         public static async Task<RequestResult> PostTrashBoundingBoxAsync(SubImageGroup TrashBoundingBox, Guid ImageAnnotationID)
         {

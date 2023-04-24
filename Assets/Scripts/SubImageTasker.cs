@@ -23,7 +23,7 @@ public class SubImageTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator GetTask() {
-        var task = TrashBoundingBoxService.NextTrashBoundingBoxAsync();
+        var task = SubImageGroupService.NextTrashBoundingBoxAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -38,7 +38,7 @@ public class SubImageTasker : MonoBehaviour
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
         SubImageGroup trashBoxes = new SubImageGroup { SubImages =  boxManager.ReturnBoxes()};
-        var task = TrashBoundingBoxService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
+        var task = SubImageGroupService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);

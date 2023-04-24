@@ -21,7 +21,7 @@ public class SegmentationTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator GetTask() {
-        var task = TrashBoundingBoxService.NextTrashBoundingBoxAsync();
+        var task = SubImageGroupService.NextTrashBoundingBoxAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
