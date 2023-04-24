@@ -29,7 +29,11 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
-        spriteFromURL.GetImageFromID(task.Result.Value.Image);
+
+        var task2 = ImageAnnotationService()
+        spriteFromURL.GetImageFromID();
+
+
 
     }
     public void submitValuesToServer() {
