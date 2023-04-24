@@ -42,9 +42,9 @@ public class BackgroundAndContextTasker : MonoBehaviour
             Debug.LogError(task.Result.ResultCode);
             yield break;
         }
-        spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
-        currentID = task.Result.Value.Id;
-        currentID = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+        spriteFromURL.GetImageFromID(task.Result.Value.Image);
+        currentID = task.Result.Value.ID;
+        //currentID = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
         Debug.Log(currentID.ToString());
     }
 
