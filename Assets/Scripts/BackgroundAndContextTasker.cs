@@ -61,7 +61,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
             yield break;
         }
 
-        ContextClassification ctxClass = new ContextClassification { Category = ctxSelector.SelectedContext() };
+        ContextClassification ctxClass = new ContextClassification { ContextClassificationLabel = ctxSelector.SelectedContext() };
         var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass, currentID);
         yield return new WaitUntil(() => task2.IsCompleted);
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
