@@ -1793,6 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UserHasToken: 0
+  submitting: 0
   UsernameContent: {fileID: 847719487}
   usernameField: {fileID: 1235399092}
 --- !u!1 &1476036084

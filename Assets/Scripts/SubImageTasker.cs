@@ -28,19 +28,20 @@ public class SubImageTasker : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        //spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
-        //currentID = task.Result.Value.ImageID;
+        //ImageAnnotation image = new ImageAnnotation();
+        //var task2 = ContextClassificationService.GetContextClassification();
+        ////currentID = task.Result.Value.imageID;
+        //spriteFromURL.GetImageFromID(currentID);
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
         TrashBoundingBox trashBoxes = new TrashBoundingBox { BoundingBoxs =  boxManager.ReturnBoxes()};
-        //var task = TrashBoundingBoxService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
-        //yield return new WaitUntil(() => task.IsCompleted);
-        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task.Result.ResponseCode);
-        //    yield break;
-        //}
-        yield return null;
+        var task = TrashBoundingBoxService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            yield break;
+        }
         StartCoroutine(GetTask());
     }
 

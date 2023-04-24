@@ -1,3 +1,4 @@
+using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
 using System.Collections;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class CategoriesFromServer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         DontDestroyOnLoad(gameObject);
         StartCoroutine(GetCategories());
     }
