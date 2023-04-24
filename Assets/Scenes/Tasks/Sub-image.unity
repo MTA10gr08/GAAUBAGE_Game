@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 1839977018}
   - component: {fileID: 1839977019}
   m_Layer: 0
-  m_Name: LitterImage
+  m_Name: LitterImage and Tasker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
