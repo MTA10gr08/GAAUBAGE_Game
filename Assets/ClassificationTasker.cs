@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using GAAUBAGE_Game.API.Networking;
+using Assets.Scripts.API.Services;
 
 public class ClassificationTasker : MonoBehaviour
 {
@@ -30,11 +31,14 @@ public class ClassificationTasker : MonoBehaviour
         }
         currentID = task.Result.Value.ID;
 
-        var task2 = ImageAnnotationService()
-        spriteFromURL.GetImageFromID();
+        var task2 = ImageAnnotationService.GetImageAnnotationAsync(currentID);
+        yield return new WaitUntil(() => task2.IsCompleted);
 
-
-
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            yield break;
+        }
+        spriteFromURL.GetImageFromID(task2.Result.Value.Image);
     }
     public void submitValuesToServer() {
         StartCoroutine(PostUserValues());

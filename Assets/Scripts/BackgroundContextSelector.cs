@@ -24,6 +24,7 @@ public class BackgroundContextSelector : MonoBehaviour
             }
             indexer++;
         }
+        Debug.Log(categoriesToSubmit.Count());
         return categoriesToSubmit;
     }
 
