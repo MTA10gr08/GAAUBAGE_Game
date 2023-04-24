@@ -21,11 +21,11 @@ namespace GAAUBAGE_Game.API.Networking
         private static string Next(string resource) => $"{BaseUrl}/{resource}/next";
         public static class Configuration
         {
-            private const string Resource = "/configuration";
+            private const string Resource = "configuration";
             public static string Get() => Endpoints.Get(Resource + "/categories");
         }public static class Leaderboard
         {
-            private const string Resource = "/leaderboard";
+            private const string Resource = "leaderboard";
             public static string Get() => Endpoints.Get(Resource);
         }
         public static class Users
