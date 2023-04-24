@@ -32,8 +32,8 @@ public class SubImageTasker : MonoBehaviour
         }
         //ImageAnnotation image = new ImageAnnotation();
         //var task2 = ContextClassificationService.GetContextClassification();
-        ////currentID = task.Result.Value.imageID;
-        //spriteFromURL.GetImageFromID(currentID);
+        currentID = task.Result.Value.Id;
+        spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");

@@ -15,7 +15,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
     public Button submitBtn;
 
-    Guid currentID;
+    Guid currentID = new Guid();
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
@@ -23,11 +23,13 @@ public class BackgroundAndContextTasker : MonoBehaviour
         StartCoroutine(GetTask());
     }
     private void Start() {
-        ctxSelector.contextDropdown.onValueChanged.AddListener(delegate { OnValueChanged(); });
-        foreach (var item in bgSelector.buttons) {
 
-            item.button.onClick.AddListener(delegate { OnValueChanged(); });
+        ctxSelector.contextDropdown.onValueChanged.AddListener(delegate { OnValueChanged(); });
+        bgSelector.gameObject.SetActive(true);
+        foreach (var item in bgSelector.buttons) {
+            item.GetComponent<Button>().onClick.AddListener(delegate { OnValueChanged(); });
         }
+        bgSelector.gameObject.SetActive(true);
     }
 
     IEnumerator GetTask() {
@@ -37,6 +39,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            Debug.LogError(task.Result.ResultCode);
             yield break;
         }
         spriteFromURL.GetImageFromID(task.Result.Value.Image);
@@ -54,6 +57,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            Debug.LogError(task.Result.ResultCode);
             yield break;
         }
 
@@ -68,7 +72,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
         StartCoroutine(GetTask());
     }
     void OnValueChanged() {
-
+        Debug.Log("value Changed");
         if (ctxSelector.contextDropdown.value > 0 && bgSelector.CompileStringList().Count > 0) {
             submitBtn.interactable = true;
             return;
