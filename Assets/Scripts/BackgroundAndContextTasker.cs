@@ -39,8 +39,8 @@ public class BackgroundAndContextTasker : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        spriteFromURL.GetImageFromID(task.Result.Value.ImageID);
-        currentID = task.Result.Value.ImageID;
+        spriteFromURL.GetImageFromID(task.Result.Value.Image);
+        currentID = task.Result.Value.ID;
     }
 
     public void submitValuesToServer() {

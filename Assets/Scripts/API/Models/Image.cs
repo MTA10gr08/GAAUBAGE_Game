@@ -4,8 +4,8 @@ namespace GAAUBAGE_Game.API.Models
 {
     public class Image : BaseModel
     {
-        public Guid UserID { get; set; }
-        public Guid ImageAnnotationID { get; set; }
+        public Guid User { get; set; }
+        public Guid ImageAnnotation { get; set; }
         public string URI { get; set; } = string.Empty;
     }
 }

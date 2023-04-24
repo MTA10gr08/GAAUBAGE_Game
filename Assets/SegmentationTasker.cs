@@ -28,8 +28,8 @@ public class SegmentationTasker : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        currentID = task.Result.Value.ImageID;
-        spriteFromURL.GetImageFromID(currentID);
+        currentID = task.Result.Value.ID;
+        spriteFromURL.GetImageFromID(task.Result.Value.Image);
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
