@@ -9,8 +9,8 @@ namespace Assets.Scripts.API.Models
 {
     public class SubImageAnnotation : BaseModel
     {
-        public Guid UserID { get; set; }
-        public Guid ImageAnnotationID { get; set; }
-        public ICollection<BoundingBox> SubImages { get; set; }
+        public List<Guid> Users { get; set; }
+        public Guid ImageAnnotation { get; set; }
+        public List<BoundingBox> SubImages { get; set; }
     }
 }

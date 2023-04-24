@@ -4,6 +4,7 @@ using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SubImageTasker : MonoBehaviour
@@ -33,7 +34,7 @@ public class SubImageTasker : MonoBehaviour
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
-        TrashBoundingBox trashBoxes = new TrashBoundingBox { BoundingBoxs =  boxManager.ReturnBoxes()};
+        SubImagesAnnotation trashBoxes = new SubImagesAnnotation { SubImages =  boxManager.ReturnBoxes()};
         //var task = TrashBoundingBoxService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
         //yield return new WaitUntil(() => task.IsCompleted);
         //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {

@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.API.Models;
 
 namespace GAAUBAGE_Game.API.Models
 {
-    public class Segmentation : BaseModel
+    public class SubImagesAnnotation : BaseModel
     {
         public List<Guid> Users { get; set; }
         public Guid ImageAnnotation { get; set; }
-        public MultiPolygon SegmentationPolygon { get; set; } = null!;
+        public List<BoundingBox> SubImages { get; set; } = null!;
     }
 }

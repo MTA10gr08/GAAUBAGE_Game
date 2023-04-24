@@ -9,13 +9,13 @@ namespace GAAUBAGE_Game.API.Models
     {
         public Guid ImageID { get; set; }
 
-        public ICollection<Guid> BackgroundClassifications { get; set; }
+        public List<Guid> BackgroundClassifications { get; set; }
         public Guid? BackgroundClassificationConsensus;
 
-        public ICollection<Guid> ContextClassifications { get; set; }
+        public List<Guid> ContextClassifications { get; set; }
         public Guid? ContextClassificationConsensus;
 
-        public ICollection<Guid> SubImages { get; set; }
+        public List<Guid> SubImages { get; set; }
         public Guid? SubImagesConsensus { get; set; }
         public bool IsInProgress;
         public bool IsComplete;

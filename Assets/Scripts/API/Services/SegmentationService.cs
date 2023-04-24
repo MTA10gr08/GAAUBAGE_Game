@@ -20,13 +20,13 @@ namespace GAAUBAGE_Game.API.Services
             APIRequestHandler.Post(apiUrl, Segmentation, onResponse);
         }
 
-        public static async Task<RequestResult<TrashCategory>> NextSegmentationAsync()
+        public static async Task<RequestResult<TrashSubCategory>> NextSegmentationAsync()
         {
             string apiUrl = Endpoints.Segmentation.Next();
-            return await APIRequestHandler.GetAsync<TrashCategory>(apiUrl);
+            return await APIRequestHandler.GetAsync<TrashSubCategory>(apiUrl);
         }
 
-        public static void NextSegmentation(Action<RequestResult<TrashCategory>>? onResponse = null)
+        public static void NextSegmentation(Action<RequestResult<TrashSubCategory>>? onResponse = null)
         {
             string apiUrl = Endpoints.Segmentation.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

@@ -46,7 +46,7 @@ public class ClassificationTasker : MonoBehaviour
         //    yield break;
         //}
 
-        TrashCategory category = new TrashCategory { Category = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
+        TrashSubCategory category = new TrashSubCategory { Category = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
         Debug.Log(category.Category);
         //var task2 = TrashCategoryService.PostTrashCategoryAsync(category, currentID);
         //yield return new WaitUntil(() => task2.IsCompleted);

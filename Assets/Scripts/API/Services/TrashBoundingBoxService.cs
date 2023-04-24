@@ -8,25 +8,25 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class TrashBoundingBoxService
     {
-        public static async Task<RequestResult> PostTrashBoundingBoxAsync(TrashBoundingBox TrashBoundingBox, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostTrashBoundingBoxAsync(SubImagesAnnotation TrashBoundingBox, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync(apiUrl, TrashBoundingBox);
         }
 
-        public static void PostTrashBoundingBox(TrashBoundingBox TrashBoundingBox, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
+        public static void PostTrashBoundingBox(SubImagesAnnotation TrashBoundingBox, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, TrashBoundingBox, onResponse);
         }
 
-        public static async Task<RequestResult<TrashCount>> NextTrashBoundingBoxAsync()
+        public static async Task<RequestResult<ImageAnnotation>> NextTrashBoundingBoxAsync()
         {
             string apiUrl = Endpoints.TrashBoundingBox.Next();
-            return await APIRequestHandler.GetAsync<TrashCount>(apiUrl);
+            return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
         }
 
-        public static void NextTrashBoundingBox(Action<RequestResult<TrashCount>>? onResponse = null)
+        public static void NextTrashBoundingBox(Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Next();
             APIRequestHandler.Get(apiUrl, onResponse);
