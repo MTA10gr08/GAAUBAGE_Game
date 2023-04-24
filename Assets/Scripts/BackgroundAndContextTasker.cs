@@ -70,6 +70,8 @@ public class BackgroundAndContextTasker : MonoBehaviour
             yield break;
         }
         yield return null;
+        bgSelector.ClearSelection();
+        ctxSelector.ClearSelection();
         StartCoroutine(GetTask());
     }
     void OnValueChanged() {

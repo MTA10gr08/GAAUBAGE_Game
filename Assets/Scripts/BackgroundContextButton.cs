@@ -23,7 +23,7 @@ public class BackgroundContextButton : MonoBehaviour
         SelectionStatusImage.sprite = UnSelectedImage;
     }
 
-    void ChangeSelection() {
+    public void ChangeSelection() {
         IsSelected = !IsSelected;
 
         if (IsSelected == true) {

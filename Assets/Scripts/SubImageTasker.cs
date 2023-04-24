@@ -10,12 +10,12 @@ using UnityEngine;
 
 public class SubImageTasker : MonoBehaviour
 {
-    SpriteFromURLSegmentation spriteFromURL;
+    SpriteFromURL spriteFromURL;
     public BoxManager boxManager;
     Guid currentID;
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
-        spriteFromURL = GetComponent<SpriteFromURLSegmentation>();
+        spriteFromURL = GetComponent<SpriteFromURL>();
         StartCoroutine(GetTask());
     }
 
@@ -30,10 +30,7 @@ public class SubImageTasker : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        //ImageAnnotation image = new ImageAnnotation();
-        //var task2 = ContextClassificationService.GetContextClassification();
         currentID = task.Result.Value.ID;
-
         spriteFromURL.GetImageFromID(task.Result.Value.Image);
     }
     IEnumerator PostUserValues() {
@@ -45,6 +42,7 @@ public class SubImageTasker : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
+        boxManager.ClearBoxes();
         StartCoroutine(GetTask());
     }
 

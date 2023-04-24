@@ -27,5 +27,13 @@ public class BackgroundContextSelector : MonoBehaviour
         Debug.Log(categoriesToSubmit.Count());
         return categoriesToSubmit;
     }
+    public void ClearSelection() {
+        foreach (var item in buttons) {
+            if (item.IsSelected == true) {
+                item.GetComponent<BackgroundContextButton>().ChangeSelection();
+            }
+        }
+        categoriesToSubmit.Clear();
+    }
 
 }

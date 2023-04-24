@@ -20,5 +20,9 @@ public class ContextSelector : MonoBehaviour
     public string SelectedContext() {
         return contextDropdown.options[contextDropdown.value].text;
     }
+    public void ClearSelection() {
+        contextDropdown.value = 0;
+        contextDropdown.RefreshShownValue();
+    }
 }
 

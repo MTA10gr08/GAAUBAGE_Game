@@ -46,4 +46,10 @@ public class BoxManager : MonoBehaviour
             Height = (uint)Mathf.Ceil(x.BoxPoints[0].transform.position.y - x.BoxPoints[2].transform.position.y)
         }).ToList();
     }
+    public void ClearBoxes() {
+        foreach (var item in BoxObjects) {
+            Destroy(item.gameObject);
+        }
+        BoxObjects.Clear();
+    }
 }
