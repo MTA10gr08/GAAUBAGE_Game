@@ -3,8 +3,17 @@ namespace GAAUBAGE_Game.API.Models
 {
     public class BaseModel
     {
-        public Guid Id { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime Updated { get; set; } = DateTime.Now;
+        /// <summary>
+        /// Unique identifier for the object. This property is read-only.
+        /// </summary>
+        public Guid Id { get; private set; }
+        /// <summary>
+        /// Creation date of the object. This property is read-only.
+        /// </summary>
+        public DateTime Created { get; private set; } = DateTime.Now;
+        /// <summary>
+        /// Updated date of the object. This property is read-only.
+        /// </summary>
+        public DateTime Updated { get; private set; } = DateTime.Now;
     }
 }

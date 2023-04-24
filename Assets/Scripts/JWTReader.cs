@@ -10,14 +10,44 @@ public class JWTReader
         return JsonConvert.DeserializeObject<Payload>(payloadJson);
     }
 
+    /// <summary>
+    /// Represents the payload of a JSON Web Token (JWT).
+    /// </summary>
     public class Payload
     {
+        /// <summary>
+        /// Name Identifier claim, which is a unique identifier for the user.
+        /// </summary>
         public string nameid { get; set; }
+
+        /// <summary>
+        /// Role claim, which represents the role(s) assigned to the user.
+        /// </summary>
         public string role { get; set; }
+
+        /// <summary>
+        /// Not Before claim, which is a UNIX timestamp indicating when the token should start being considered valid.
+        /// </summary>
         public int nbf { get; set; }
+
+        /// <summary>
+        /// Expiration Time claim, which is a UNIX timestamp indicating when the token should stop being considered valid.
+        /// </summary>
         public int exp { get; set; }
+
+        /// <summary>
+        /// Issued At claim, which is a UNIX timestamp indicating when the token was issued.
+        /// </summary>
         public int iat { get; set; }
+
+        /// <summary>
+        /// Issuer claim, which is a string that identifies the issuer of the token.
+        /// </summary>
         public string iss { get; set; }
+
+        /// <summary>
+        /// Audience claim, which is a string that identifies the intended recipient of the token.
+        /// </summary>
         public string aud { get; set; }
     }
 

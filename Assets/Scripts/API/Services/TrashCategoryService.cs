@@ -26,7 +26,7 @@ namespace GAAUBAGE_Game.API.Services
             return await APIRequestHandler.GetAsync<TrashSuperCategory>(apiUrl);
         }
 
-        public static void GetTrashCategory(Action<RequestResult<TrashSuperCategory>>? onResponse = null)
+        public static void NextTrashCategory(Action<RequestResult<TrashSuperCategory>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashCategory.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

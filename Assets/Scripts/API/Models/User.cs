@@ -6,12 +6,11 @@ namespace GAAUBAGE_Game.API.Models
     {
         public string Alias { get; set; } = string.Empty;
         public string Tag { get; set; } = string.Empty;
-        public ICollection<Guid> UserContextCategoryIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserBackgroundContextIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserTrashCountIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserTrashBoundingBoxIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserTrashSuperCategoryIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserTrashCategoryIds { get; set; } = new List<Guid>();
-        public ICollection<Guid> UserSegmentationIds { get; set; } = new List<Guid>();
+        public ICollection<Guid> ContextCategories { get; set; } = new List<Guid>();
+        public ICollection<Guid> BackgroundContexts { get; set; } = new List<Guid>();
+        public ICollection<Guid> SubImageGroups { get; set; } = new List<Guid>();
+        public ICollection<Guid> TrashSuperCategories { get; set; } = new List<Guid>();
+        public ICollection<Guid> TrashSubCategories { get; set; } = new List<Guid>();
+        public ICollection<Guid> Segmentations { get; set; } = new List<Guid>();
     }
 }

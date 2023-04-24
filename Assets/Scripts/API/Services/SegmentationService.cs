@@ -26,7 +26,7 @@ namespace GAAUBAGE_Game.API.Services
             return await APIRequestHandler.GetAsync<TrashCategory>(apiUrl);
         }
 
-        public static void GetSegmentation(Action<RequestResult<TrashCategory>>? onResponse = null)
+        public static void NextSegmentation(Action<RequestResult<TrashCategory>>? onResponse = null)
         {
             string apiUrl = Endpoints.Segmentation.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

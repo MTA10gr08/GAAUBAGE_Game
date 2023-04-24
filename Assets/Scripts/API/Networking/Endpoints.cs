@@ -21,8 +21,12 @@ namespace GAAUBAGE_Game.API.Networking
         private static string Next(string resource) => $"{BaseUrl}/{resource}/next";
         public static class Configuration
         {
-            private const string Resource = "configuration/";
-            public static string Get() => Endpoints.Get(Resource + "categories");
+            private const string Resource = "/configuration";
+            public static string Get() => Endpoints.Get(Resource + "/categories");
+        }public static class Leaderboard
+        {
+            private const string Resource = "/leaderboard";
+            public static string Get() => Endpoints.Get(Resource);
         }
         public static class Users
         {
@@ -36,11 +40,7 @@ namespace GAAUBAGE_Game.API.Networking
         public static class Images
         {
             private const string Resource = "images";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
             public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
         }
         public static class ImageAnnotation
         {
@@ -81,13 +81,9 @@ namespace GAAUBAGE_Game.API.Networking
         }
         public static class TrashBoundingBox
         {
-            private const string Resource = "trashboundingboxes";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+            private const string Resource = "subimages";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/{Resource}/next";
         }
         public static class TrashSuperCategory
         {
