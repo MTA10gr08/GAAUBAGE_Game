@@ -28,9 +28,7 @@ public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     }
 
     public void OnDrag(PointerEventData eventData) {
-        Debug.Log("WERE YOU FKN DRAGGING");
         transform.position = pInput.PlayerActions.pos.ReadValue<Vector2>();
-        Debug.Log(pInput.PlayerActions.pos.ReadValue<Vector2>());
 
         //segmentContainer?.UpdatePoints();
         segmentation?.UpdatePositions();

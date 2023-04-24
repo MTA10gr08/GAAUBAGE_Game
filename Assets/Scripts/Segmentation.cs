@@ -45,12 +45,8 @@ public class Segmentation : MonoBehaviour
         UpdatePositions();
     }
     public void UpdatePositions() {
-        Debug.Log("Updating Outline" + outline.name);
-        
         outline.UpdateLine(points);
-        Debug.Log("Updating Polygon");
         polygon.UpdatePolygon(points);
-        Debug.Log("Done");
     }
     public void RemovePoint(PointBehaviour point) {
         points.Remove(point);
@@ -58,4 +54,24 @@ public class Segmentation : MonoBehaviour
 
         UpdatePositions();
     }
+    public GAAUBAGE_Game.API.Models.MultiPolygon CompileMultiPolygon() {
+        GAAUBAGE_Game.API.Models.MultiPolygon mp = new GAAUBAGE_Game.API.Models.MultiPolygon();
+
+        GAAUBAGE_Game.API.Models.Polygon polygon = new GAAUBAGE_Game.API.Models.Polygon();
+
+        GAAUBAGE_Game.API.Models.LinearRing ring = new GAAUBAGE_Game.API.Models.LinearRing();
+
+        foreach (var point in points) {
+            GAAUBAGE_Game.API.Models.Coordinate coord = new GAAUBAGE_Game.API.Models.Coordinate();
+
+            coord.Longitude = point.transform.position.x;
+            coord.Latitude = point.transform.position.y;
+            ring.Coordinates.Add(coord);
+        }
+        polygon.Shell = ring;
+        mp.Polygons.Add(polygon);
+
+        return mp;
+    }
+
 }

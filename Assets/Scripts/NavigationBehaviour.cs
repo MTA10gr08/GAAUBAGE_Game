@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class NavigationBehaviour : MonoBehaviour
 {
     bool isNGame = false;
+    private void Awake() {
+        
+    }
     // Start is called before the first frame update
     public void NavigateTo(string scene) {
         if (SceneManager.GetActiveScene().name == scene) {
