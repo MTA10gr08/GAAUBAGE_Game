@@ -7,6 +7,6 @@ public class EmployeeCodeWriter : MonoBehaviour
     public bool addFrontBit = true;
     // Start is called before the first frame update
     private void Awake() {
-        GetComponent<TMPro.TMP_Text>().text = addFrontBit == true ?  "Employee Code: \n" : "" + PlayerPrefs.GetString("Alias");
+        GetComponent<TMPro.TMP_Text>().text = addFrontBit == true ? "Employee Code: \n"+PlayerPrefs.GetString("Alias") : "" + PlayerPrefs.GetString("Alias");
     }
 }

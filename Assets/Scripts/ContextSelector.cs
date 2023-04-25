@@ -13,7 +13,7 @@ public class ContextSelector : MonoBehaviour
     void PopulateDropDown() {
         contextDropdown.ClearOptions();
         var list = Configuration.categories.ContextCategories.ToList();
-        list.Insert(0, "Select");
+        list.Insert(0, "Select Litter Context");
         contextDropdown.AddOptions(list);
     }
 

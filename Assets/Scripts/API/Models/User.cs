@@ -12,5 +12,7 @@ namespace GAAUBAGE_Game.API.Models
         public List<Guid> TrashSuperCategories { get; set; } = new List<Guid>();
         public List<Guid> TrashSubCategories { get; set; } = new List<Guid>();
         public List<Guid> Segmentations { get; set; } = new List<Guid>();
+        public uint Score { get; set; }
+        public uint Level { get; set; }
     }
 }

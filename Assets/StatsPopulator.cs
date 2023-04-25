@@ -14,6 +14,7 @@ public class StatsPopulator : MonoBehaviour
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
+        PopulateStats();
     }
     [ContextMenu("Populate Stats")]
     void PopulateStats() {
@@ -34,14 +35,18 @@ public class StatsPopulator : MonoBehaviour
         if (addUserName) {
             StatsText.text += "Username:\t\t" + user.Alias + "\n";
         }
-        StatsText.text +=
-            dateJoinedText(user.Created)
-            + "Context Classifications:\t" + user.BackgroundContexts.Count + " | " + user.BackgroundContexts.Count * 1 + "p\n"
-            + "Sub - Images made:\t\t" + user.SubImageGroups.Count + " | " + user.SubImageGroups.Count * 2 + "p\n"
-            + "Categories assigned:\t\t" + user.TrashSuperCategories.Count + " | " + user.TrashSuperCategories.Count * 3 + "p\n"
-            + "Segmentation drawn:\t\t" + user.Segmentations.Count + " | " + user.Segmentations.Count * 4 + "p\n"
-            + "Daily tasks compleated:\t" + "0 | 0" + "p\n\n" //fix?
-            + "Total Points:\t" + "NYI"; //Fix?
+        StatsText.text += dateJoinedText(user.Created);
+        if (addUserName) {
+            StatsText.text += "Current Level:\t\t" + user.Level + "\n";
+        } else {
+            StatsText.text += "Access Level:\t\t" + user.Level + "\n";
+        }
+        StatsText.text += "Context Classifications:\t" + user.BackgroundContexts.Count + " | " + user.BackgroundContexts.Count * 1 + "p\n"
+              + "Sub - Images made:\t\t" + user.SubImageGroups.Count + " | " + user.SubImageGroups.Count * 2 + "p\n"
+              + "Categories assigned:\t\t" + user.TrashSuperCategories.Count + " | " + user.TrashSuperCategories.Count * 3 + "p\n"
+              + "Segmentation drawn:\t\t" + user.Segmentations.Count + " | " + user.Segmentations.Count * 4 + "p\n\n"
+              + "Daily tasks compleated:\t" + "0 | 0" + "p\n\n" //fix?
+              + "Total Points:\t" + user.Score; //Fix?
         //Maybe score/leaderboardpos?
         LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
         /*Context Classifications: 56 | 56p
