@@ -7,6 +7,6 @@ namespace GAAUBAGE_Game.API.Models
     {
         public List<Guid> Users { get; set; }
         public Guid ImageAnnotation { get; set; }
-        public List<BoundingBox> SubImageAnnotations { get; set; } = null!;
+        public List<SubImageAnnotation> SubImageAnnotations { get; set; } = new List<SubImageAnnotation>();
     }
 }

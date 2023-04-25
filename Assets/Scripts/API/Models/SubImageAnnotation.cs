@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GAAUBAGE_Game.API.Models
 {
-    internal class SubImageAnnotation
+    public class SubImageAnnotation : BaseModel
     {
         public uint X { get; set; }
         public uint Y { get; set; }
