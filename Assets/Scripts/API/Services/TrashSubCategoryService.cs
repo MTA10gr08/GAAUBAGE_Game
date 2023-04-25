@@ -8,25 +8,25 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class TrashSubCategoryService
     {
-        public static async Task<RequestResult<string>> PostTrashSubCategoryAsync(TrashSubCategory TrashCategory, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostTrashSubCategoryAsync(TrashSubCategory TrashCategory, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.TrashSubCategory.Post(ImageAnnotationID);
-            return await APIRequestHandler.PostAsync<string, TrashSubCategory>(apiUrl, TrashCategory);
+            return await APIRequestHandler.PostAsync(apiUrl, TrashCategory);
         }
 
-        public static void PostTrashSubCategory(TrashSubCategory TrashCategory, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
+        public static void PostTrashSubCategory(TrashSubCategory TrashCategory, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashSubCategory.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, TrashCategory, onResponse);
         }
 
-        public static async Task<RequestResult<TrashSuperCategory>> NextTrashSubCategoryAsync()
+        public static async Task<RequestResult<SubImageAnnotation>> NextTrashSubCategoryAsync()
         {
             string apiUrl = Endpoints.TrashSubCategory.Next();
-            return await APIRequestHandler.GetAsync<TrashSuperCategory>(apiUrl);
+            return await APIRequestHandler.GetAsync<SubImageAnnotation>(apiUrl);
         }
 
-        public static void NextTrashSubCategory(Action<RequestResult<TrashSuperCategory>>? onResponse = null)
+        public static void NextTrashSubCategory(Action<RequestResult<SubImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashSubCategory.Next();
             APIRequestHandler.Get(apiUrl, onResponse);
