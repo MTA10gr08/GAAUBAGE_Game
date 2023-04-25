@@ -75,11 +75,11 @@ public class BackgroundAndContextTasker : MonoBehaviour
         StartCoroutine(GetTask());
     }
     void OnValueChanged() {
-        Debug.Log("value Changed");
         if (ctxSelector.contextDropdown.value > 0 && bgSelector.CompileStringList().Count > 0) {
             submitBtn.interactable = true;
             return;
         }
+        Debug.Log(ctxSelector.contextDropdown.value + " : " + bgSelector.CompileStringList().Count);
         submitBtn.interactable = false;
     }
 }

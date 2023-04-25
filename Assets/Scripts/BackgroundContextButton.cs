@@ -18,7 +18,7 @@ public class BackgroundContextButton : MonoBehaviour
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
         //buttonImage.color = Color.HSVToRGB(0,0,unSelectedColor);
-        button.onClick.AddListener(delegate { ChangeSelection(); });
+        //button.onClick.AddListener(delegate { ChangeSelection(); });
         //SelectionStatusImage = button.GetComponentInChildren<Image>();
         SelectionStatusImage.sprite = UnSelectedImage;
     }

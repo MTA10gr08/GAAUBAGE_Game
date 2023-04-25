@@ -17,7 +17,7 @@ public class NavigationBehaviour : MonoBehaviour
         SceneManager.LoadSceneAsync(scene);
     }
     public void ReturnHome() {
-        if (isNGame) {//Blarp/Game
+        if (PlayerPrefs.GetString("Tag") == "Narr") {//Blarp/Game
             SceneManager.LoadSceneAsync("Narrative_Home");
             return;
         }

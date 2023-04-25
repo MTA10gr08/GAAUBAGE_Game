@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UserNameCreation : MonoBehaviour
 {
-    public bool UserHasToken = false, submitting = false;
+    bool UserHasToken = false, submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField;
 
@@ -19,8 +19,12 @@ public class UserNameCreation : MonoBehaviour
             //load a different scene dependent on the user tag read from thier token
             //But for now just load BLAP
             UsernameContent.SetActive(true);
+        } else if (string.IsNullOrEmpty(PlayerPrefs.GetString("Tag"))) {
+
         } else {
-            SceneManager.LoadSceneAsync("BLAP_Home");
+            UsernameContent.SetActive(false);
+            string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
+            SceneManager.LoadSceneAsync(home);
         }
 
     }
@@ -65,11 +69,12 @@ public class UserNameCreation : MonoBehaviour
 
 
         tag = task2.Result.Value.Tag;
+        PlayerPrefs.SetString("Tag", tag);
         Debug.Log(tag);
 
-        if (tag.Equals("BLAP")) {
+        if (tag.Equals("Blap")) {
             SceneManager.LoadSceneAsync("BLAP_Home");
-        } else if (tag.Equals("Narative")) {
+        } else if (tag.Equals("Narr")) {
             SceneManager.LoadSceneAsync("Narrative_Home");
         } else {
             Debug.LogError("No Valid Tag");

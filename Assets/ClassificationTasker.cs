@@ -17,7 +17,6 @@ public class ClassificationTasker : MonoBehaviour
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         spriteFromURL = GetComponent<SpriteFromURLSegmentation>();
         StartCoroutine(GetTask());
-
     }
 
     IEnumerator GetTask() {

@@ -34,7 +34,6 @@ public class DialogueBox : MonoBehaviour
         if (index + 1 == convo.Dialogues.Count) {
             //Finish Convo if no more dialogue
             ButtonIcon.sprite = endSprite;
-            Debug.Log("Sprite change!");
         }
 
         if (index >= convo.Dialogues.Count) {
@@ -43,7 +42,7 @@ public class DialogueBox : MonoBehaviour
             return;
         }
 
-        nameBox.text = convo.Dialogues[index].name;
+        nameBox.text = convo.Dialogues[index].name == "[You]" ? PlayerPrefs.GetString("Alias") : convo.Dialogues[index].name;
 
         if (writing) {
             StopCoroutine(writer);

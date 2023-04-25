@@ -199,7 +199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2860186173846930422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2860186173846930416}
+        m_TargetAssemblyTypeName: BackgroundContextButton, Assembly-CSharp
+        m_MethodName: ChangeSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2860186173846930416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a80f28cb5751c49baebe73b542a109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 2860186173846930421}
   IsSelected: 0
   SelectedImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   UnSelectedImage: {fileID: 21300000, guid: 9aa4348290784b2468144a97eb15d8d7, type: 3}
@@ -309,13 +322,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 30
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
