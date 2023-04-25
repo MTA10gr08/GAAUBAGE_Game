@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Drawing;
-using Assets.Scripts.API.Models;
+using GAAUBAGE_Game.API.Models;
 using System.Linq;
 
 public class BoxManager : MonoBehaviour
