@@ -1,3 +1,4 @@
+using GAAUBAGE_Game.API.Models;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -63,10 +64,8 @@ public class Segmentation : MonoBehaviour
 
         UpdatePositions();
     }
-    public MultiPolygon CompileMultiPolygon()
-    {
-        MultiPolygon mp = new MultiPolygon()
-        {
+    public MultiPolygon CompileMultiPolygon() {
+        MultiPolygon mp = new MultiPolygon() {
             Polygons = new List<GAAUBAGE_Game.API.Models.Polygon>()
             {
                 new GAAUBAGE_Game.API.Models.Polygon()
@@ -74,8 +73,7 @@ public class Segmentation : MonoBehaviour
                     Shell = new LinearRing()
                     {
                         Coordinates = points.ConvertAll(x => new Coordinate() { X = x.transform.position.x, Y = x.transform.position.y })
-                    },
-                    Holes = new()
+                    }
                 }
             }
         };

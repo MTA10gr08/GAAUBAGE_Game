@@ -42,7 +42,7 @@ public class Polygon : MonoBehaviour
 		if (!TryGetComponent(out spriteShapeController)) {
 			spriteShapeController = gameObject.AddComponent<SpriteShapeController>();
 		}
-		spriteShapeController.hideFlags = HideFlags.HideInInspector;
+		//spriteShapeController.hideFlags = HideFlags.HideInInspector;
 
 		if (!TryGetComponent(out polygonCollider2D)) {
 			polygonCollider2D = gameObject.AddComponent<PolygonCollider2D>();
@@ -52,7 +52,7 @@ public class Polygon : MonoBehaviour
 		if (!TryGetComponent(out spriteShapeRenderer)) {
 			spriteShapeRenderer = gameObject.AddComponent<SpriteShapeRenderer>();
 		}
-		spriteShapeRenderer.hideFlags = HideFlags.HideInInspector;
+		//spriteShapeRenderer.hideFlags = HideFlags.HideInInspector;
 
 
 		spriteShapeController.spline.Clear();

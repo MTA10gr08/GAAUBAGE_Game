@@ -2,29 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NavigationBehaviour : MonoBehaviour
 {
-    bool isNGame = false;
+    public Animator fader;
     private void Awake() {
-        
     }
-    // Start is called before the first frame update
+
     public void NavigateTo(string scene) {
         if (SceneManager.GetActiveScene().name == scene) {
             return;
         }
-        SceneManager.LoadSceneAsync(scene);
+        StartCoroutine(Fading(scene));
+        //SceneManager.LoadSceneAsync(scene);
     }
     public void ReturnHome() {
-        if (isNGame) {//Blarp/Game
-            SceneManager.LoadSceneAsync("Narrative_Home");
+        if (PlayerPrefs.GetString("Tag") == "Narr") {
+            StartCoroutine(Fading("Narrative_Home"));
+            //SceneManager.LoadSceneAsync("Narrative_Home");
             return;
         }
-        SceneManager.LoadSceneAsync("BLAP_Home");
+        StartCoroutine(Fading("BLAP_Home"));
+        //SceneManager.LoadSceneAsync("BLAP_Home");
     }
-    public void ReturnToPrevious() {
-        //Loade previous Scene if Feature is implemented
-        Debug.Log("ReturnToPrevious : NYI");
+    //public void ReturnToPrevious() {
+    //    //Loade previous Scene if Feature is implemented
+    //    Debug.Log("ReturnToPrevious : NYI");
+    //}
+
+    IEnumerator Fading(string sceneToLoad) {
+        fader.SetBool("Fade", true);
+        yield return new WaitUntil(() => fader.gameObject.GetComponent<Image>().color.a == 1);
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 }

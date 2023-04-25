@@ -52,7 +52,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values");
         BackgroundClassification bgClass = new BackgroundClassification { BackgroundClassificationLabels = bgSelector.CompileStringList() };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
@@ -75,7 +74,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
         StartCoroutine(GetTask());
     }
     void OnValueChanged() {
-        Debug.Log("value Changed");
         if (ctxSelector.contextDropdown.value > 0 && bgSelector.CompileStringList().Count > 0) {
             submitBtn.interactable = true;
             return;
