@@ -21,7 +21,7 @@ public class ClassificationTasker : MonoBehaviour
 
     IEnumerator GetTask() {
         var task = TrashSuperCategoryService.NextTrashSuperCategoryAsync();
-
+        Debug.Log(Endpoints.TrashSuperCategory.Next());
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -29,6 +29,7 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
+
 
         var task2 = ImageAnnotationService.GetImageAnnotationAsync(currentID);
         yield return new WaitUntil(() => task2.IsCompleted);
