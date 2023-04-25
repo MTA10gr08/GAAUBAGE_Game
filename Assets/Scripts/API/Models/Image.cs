@@ -1,5 +1,4 @@
 using System;
-using static Unity.Collections.NativeArray<T>;
 using System.Collections.Generic;
 
 namespace GAAUBAGE_Game.API.Models

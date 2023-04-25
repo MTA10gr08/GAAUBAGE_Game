@@ -1,3 +1,4 @@
+using GAAUBAGE_Game.API.Models;
 using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
@@ -37,12 +38,16 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 	public void GetImageFromID(Guid imageID) {
 		StartCoroutine(GetImage(imageID));
 	}
+	public void GetImageFromTask(SubImageAnnotation annotation) {
+		//Do something with Annotation width/height
+		StartCoroutine(GetImage(annotation.Image));
+	}
 
-    IEnumerator GetImage(Guid imageID) {
+	IEnumerator GetImage(Guid imageID) {
         var task = ImageService.GetImageAsync(imageID);
         yield return new WaitUntil(() => task.IsCompleted);
 
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        if (task.Result.ResultCode != UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }

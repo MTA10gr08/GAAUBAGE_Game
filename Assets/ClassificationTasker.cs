@@ -28,7 +28,9 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
+        Debug.Log(task.Result.Value.Image.ToString());
         spriteFromURL.GetImageFromID(task.Result.Value.Image);
+        task.Result.Value.
     }
     public void submitValuesToServer() {
         StartCoroutine(PostUserValues());
