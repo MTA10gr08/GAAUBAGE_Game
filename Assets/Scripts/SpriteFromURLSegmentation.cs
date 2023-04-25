@@ -58,8 +58,8 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 		StartCoroutine(GetTexture(URL));
 		//LoadingObject.SetActive(true);
 		spriteRenderer.enabled = false;
-		var pos = Camera.main.transform.position;
-		Camera.main.transform.position = new Vector3(0, 0, pos.z);
+		//var pos = Camera.main.transform.position;
+		//Camera.main.transform.position = new Vector3(0, 0, pos.z);
 	}
 
 	IEnumerator GetTexture(string URL) {
