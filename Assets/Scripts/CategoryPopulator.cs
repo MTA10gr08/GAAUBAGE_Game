@@ -17,7 +17,6 @@ public class CategoryPopulator : MonoBehaviour
 
         List<string> superCategories = new List<string>(data.Keys);
         superCategories.Insert(0, defaultDropdownOption);
-        Debug.Log(superCategories[0]);
         superCategoryDropdown.ClearOptions();
         superCategoryDropdown.AddOptions(superCategories);
 

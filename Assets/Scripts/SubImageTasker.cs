@@ -33,7 +33,6 @@ public class SubImageTasker : MonoBehaviour
         spriteFromURL.GetImageFromID(task.Result.Value.Image);
     }
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values");
         SubImageGroup trashBoxes = new SubImageGroup { SubImages = boxManager.ReturnBoxes()};
         var task = SubImageGroupService.PostTrashBoundingBoxAsync(trashBoxes, currentID);
         yield return new WaitUntil(() => task.IsCompleted);

@@ -22,7 +22,6 @@ public class CategoriesFromServer : MonoBehaviour
             yield break;
         }
         Configuration.categories = task.Result.Value;
-        Debug.Log(Configuration.categories.BackgroundCategories[0]);
         Destroy(gameObject);
     }
 }
