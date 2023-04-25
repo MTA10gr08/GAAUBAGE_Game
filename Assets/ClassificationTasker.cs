@@ -28,16 +28,7 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
-
-
-        var task2 = ImageAnnotationService.GetImageAnnotationAsync(currentID);
-        yield return new WaitUntil(() => task2.IsCompleted);
-
-        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            Debug.LogError(task2.Result.ResponseCode);
-            yield break;
-        }
-        spriteFromURL.GetImageFromID(task.Result.Value.ID);
+        spriteFromURL.GetImageFromID(task.Result.Value.Image);
     }
     public void submitValuesToServer() {
         StartCoroutine(PostUserValues());
@@ -46,21 +37,21 @@ public class ClassificationTasker : MonoBehaviour
         Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
         TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
         Debug.Log(sCategory.TrashSuperCategoryLabel);
-        //var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
-        //yield return new WaitUntil(() => task.IsCompleted);
-        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task.Result.ResponseCode);
-        //    yield break;
-        //}
+        var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            yield break;
+        }
 
         TrashSubCategory category = new TrashSubCategory { TrashSubCategoryLabel = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
         Debug.Log(category.TrashSubCategoryLabel);
-        //var task2 = TrashCategoryService.PostTrashCategoryAsync(category, currentID);
-        //yield return new WaitUntil(() => task2.IsCompleted);
-        //if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task2.Result.ResponseCode);
-        //    yield break;
-        //}
+        var task2 = TrashSubCategoryService.PostTrashSubCategoryAsync(category, currentID);
+        yield return new WaitUntil(() => task2.IsCompleted);
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            yield break;
+        }
         yield return null;
         StartCoroutine(GetTask());
     }

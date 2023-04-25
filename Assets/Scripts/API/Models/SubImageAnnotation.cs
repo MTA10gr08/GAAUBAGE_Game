@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static Unity.Collections.NativeArray<T>;
 
 namespace GAAUBAGE_Game.API.Models
 {
