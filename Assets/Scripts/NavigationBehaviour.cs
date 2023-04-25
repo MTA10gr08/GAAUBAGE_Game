@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class NavigationBehaviour : MonoBehaviour
 {
-    bool isNGame = false;
     private void Awake() {
         
     }
-    // Start is called before the first frame update
+
     public void NavigateTo(string scene) {
         if (SceneManager.GetActiveScene().name == scene) {
             return;
@@ -17,7 +16,7 @@ public class NavigationBehaviour : MonoBehaviour
         SceneManager.LoadSceneAsync(scene);
     }
     public void ReturnHome() {
-        if (PlayerPrefs.GetString("Tag") == "Narr") {//Blarp/Game
+        if (PlayerPrefs.GetString("Tag") == "Narr") {
             SceneManager.LoadSceneAsync("Narrative_Home");
             return;
         }

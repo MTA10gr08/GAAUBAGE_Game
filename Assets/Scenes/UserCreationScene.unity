@@ -1792,8 +1792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5337a85ba274df1468f2fe5564eea948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserHasToken: 0
-  submitting: 0
   UsernameContent: {fileID: 847719487}
   usernameField: {fileID: 1235399092}
 --- !u!1 &1476036084

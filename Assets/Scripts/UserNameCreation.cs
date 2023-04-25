@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UserNameCreation : MonoBehaviour
 {
-    bool UserHasToken = false, submitting = false;
+    bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField;
 
@@ -53,8 +53,6 @@ public class UserNameCreation : MonoBehaviour
         }
 
         PlayerPrefs.SetString("JWT", task.Result.Value);
-        Debug.Log(task.Result.Value);
-        Debug.Log(PlayerPrefs.GetString("JWT"));
 
         //get token tag
         var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
@@ -70,7 +68,6 @@ public class UserNameCreation : MonoBehaviour
 
         tag = task2.Result.Value.Tag;
         PlayerPrefs.SetString("Tag", tag);
-        Debug.Log(tag);
 
         if (tag.Equals("Blap")) {
             SceneManager.LoadSceneAsync("BLAP_Home");

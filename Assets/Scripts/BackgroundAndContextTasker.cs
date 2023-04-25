@@ -79,7 +79,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
             submitBtn.interactable = true;
             return;
         }
-        Debug.Log(ctxSelector.contextDropdown.value + " : " + bgSelector.CompileStringList().Count);
         submitBtn.interactable = false;
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class RankedUser : MonoBehaviour
 {
-    public TMPro.TMP_Text name, rank, score;
+    public TMPro.TMP_Text username, rank, score;
 }

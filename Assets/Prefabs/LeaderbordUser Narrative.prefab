@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adef676c38546e941b043e578a0b1889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 8177165980695794960}
+  username: {fileID: 8177165980695794960}
   rank: {fileID: 2909562388004968021}
   score: {fileID: 8637888161124956132}
 --- !u!114 &2909562388004968021 stripped

@@ -6,16 +6,20 @@ using UnityEngine;
 
 public class LeaderboardPopulator : MonoBehaviour
 {
-    public GameObject RankedUserPrefab;
+    public GameObject RankedUserPrefab, loadingObject;
+    List<GameObject> RankedUserList = new List<GameObject>();
+    public int siblingIndexStart = -1;
+
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
-        //PopulateLeaderboardFromServer();
+        PopulateLeaderboardFromServer();
     }
     [ContextMenu("populate")]
     public void PopulateLeaderboardFromServer() {
         StartCoroutine(GetLeaderboard());
     }
     IEnumerator GetLeaderboard() {
+        loadingObject.SetActive(true);
         var task = LeaderboardService.GetLeaderboardAsync();
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -24,19 +28,28 @@ public class LeaderboardPopulator : MonoBehaviour
             yield break;
         }
         int index = 1;
+        if (RankedUserList.Count !=0) {
+            foreach (var user in RankedUserList) {
+                Destroy(user);
+            }
+        }
+
         foreach (var entry in task.Result.Value.Entries) {
             var newEntry = Instantiate(RankedUserPrefab, gameObject.transform);
-            newEntry.transform.SetSiblingIndex(index - 1);
+            newEntry.transform.SetSiblingIndex(index + siblingIndexStart);
+            RankedUserList.Add(newEntry);
             var user = newEntry.GetComponent<RankedUser>();
-            user.name.text =  entry.Alias;
-            user.rank.text =  ""+index;
-            user.score.text =  ""+entry.Score;
+            user.username.text = entry.Alias;
+            user.rank.text = "" + index;
+            user.score.text = "" + entry.Score;
             index++;
         }
+
         var currSpot = transform.GetChild(task.Result.Value.CurrentUserSpot);
         var currUser = currSpot.gameObject.GetComponent<RankedUser>();
-        currUser.name.fontStyle = TMPro.FontStyles.Bold;
+        currUser.username.fontStyle = TMPro.FontStyles.Bold;
         currUser.rank.fontStyle = TMPro.FontStyles.Bold;
         currUser.score.fontStyle = TMPro.FontStyles.Bold;
+        loadingObject.SetActive(false);
     }
 }
