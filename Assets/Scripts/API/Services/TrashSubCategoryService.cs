@@ -8,15 +8,15 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class TrashSubCategoryService
     {
-        public static async Task<RequestResult<string>> PostTrashSubCategoryAsync(TrashSubCategory TrashCategory)
+        public static async Task<RequestResult<string>> PostTrashSubCategoryAsync(TrashSubCategory TrashCategory, Guid ImageAnnotationID)
         {
-            string apiUrl = Endpoints.TrashSubCategory.Post();
+            string apiUrl = Endpoints.TrashSubCategory.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync<string, TrashSubCategory>(apiUrl, TrashCategory);
         }
 
-        public static void PostTrashSubCategory(TrashSubCategory TrashCategory, Action<RequestResult<string>>? onResponse = null)
+        public static void PostTrashSubCategory(TrashSubCategory TrashCategory, Guid ImageAnnotationID, Action<RequestResult<string>>? onResponse = null)
         {
-            string apiUrl = Endpoints.TrashSubCategory.Post();
+            string apiUrl = Endpoints.TrashSubCategory.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, TrashCategory, onResponse);
         }
 
