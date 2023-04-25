@@ -88,22 +88,14 @@ namespace GAAUBAGE_Game.API.Networking
         public static class TrashSuperCategory
         {
             private const string Resource = "trashsupercategories";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/next";
         }
-        public static class TrashCategory
+        public static class TrashSubCategory
         {
-            private const string Resource = "trashcategory";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+            private const string Resource = "trashsubcategories";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/next";
         }
         public static class Segmentation
         {
