@@ -20,13 +20,13 @@ namespace GAAUBAGE_Game.API.Services
             APIRequestHandler.Post(apiUrl, TrashSuperCategory, onResponse);
         }
 
-        public static async Task<RequestResult<SubImageGroup>> NextTrashSuperCategoryAsync()
+        public static async Task<RequestResult<SubImageAnnotationGroup>> NextTrashSuperCategoryAsync()
         {
             string apiUrl = Endpoints.TrashSuperCategory.Next();
-            return await APIRequestHandler.GetAsync<SubImageGroup>(apiUrl);
+            return await APIRequestHandler.GetAsync<SubImageAnnotationGroup>(apiUrl);
         }
 
-        public static void NextTrashSuperCategory(Action<RequestResult<SubImageGroup>>? onResponse = null)
+        public static void NextTrashSuperCategory(Action<RequestResult<SubImageAnnotationGroup>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashSuperCategory.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

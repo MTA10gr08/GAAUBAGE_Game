@@ -8,13 +8,13 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class SubImageGroupService
     {
-        public static async Task<RequestResult> PostTrashBoundingBoxAsync(SubImageGroup TrashBoundingBox, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostTrashBoundingBoxAsync(SubImageAnnotationGroup TrashBoundingBox, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync(apiUrl, TrashBoundingBox);
         }
 
-        public static void PostTrashBoundingBox(SubImageGroup TrashBoundingBox, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
+        public static void PostTrashBoundingBox(SubImageAnnotationGroup TrashBoundingBox, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashBoundingBox.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, TrashBoundingBox, onResponse);

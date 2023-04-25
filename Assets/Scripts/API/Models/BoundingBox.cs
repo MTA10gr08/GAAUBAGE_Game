@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.API.Models
+namespace GAAUBAGE_Game.API.Models
 {
     public class BoundingBox : BaseModel
     {
