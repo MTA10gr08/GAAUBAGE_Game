@@ -21,7 +21,6 @@ public class ClassificationTasker : MonoBehaviour
 
     IEnumerator GetTask() {
         var task = TrashSuperCategoryService.NextTrashSuperCategoryAsync();
-        Debug.Log(Endpoints.TrashSuperCategory.Next());
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -38,7 +37,7 @@ public class ClassificationTasker : MonoBehaviour
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
         }
-        spriteFromURL.GetImageFromID(task2.Result.Value.Image);
+        spriteFromURL.GetImageFromID(task.Result.Value.ID);
     }
     public void submitValuesToServer() {
         StartCoroutine(PostUserValues());
