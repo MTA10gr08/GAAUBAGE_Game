@@ -6,7 +6,7 @@ namespace GAAUBAGE_Game.API.Models
     public class TrashSubCategory : BaseModel
     {
         public List<Guid> Users { get; set; }
-        public Guid ImageAnnotation { get; set; }
-        public string Category { get; set; } = string.Empty;
+        public Guid SubImageAnnotation { get; set; }
+        public string TrashSubCategoryLabel { get; set; } = string.Empty;
     }
 }

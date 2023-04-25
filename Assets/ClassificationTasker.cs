@@ -44,8 +44,8 @@ public class ClassificationTasker : MonoBehaviour
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
-        TrashSuperCategory sCategory = new TrashSuperCategory { SuperCategory = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
-        Debug.Log(sCategory.SuperCategory);
+        TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
+        Debug.Log(sCategory.TrashSuperCategoryLabel);
         //var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
         //yield return new WaitUntil(() => task.IsCompleted);
         //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -53,8 +53,8 @@ public class ClassificationTasker : MonoBehaviour
         //    yield break;
         //}
 
-        TrashSubCategory category = new TrashSubCategory { Category = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
-        Debug.Log(category.Category);
+        TrashSubCategory category = new TrashSubCategory { TrashSubCategoryLabel = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
+        Debug.Log(category.TrashSubCategoryLabel);
         //var task2 = TrashCategoryService.PostTrashCategoryAsync(category, currentID);
         //yield return new WaitUntil(() => task2.IsCompleted);
         //if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
