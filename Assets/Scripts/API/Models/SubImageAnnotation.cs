@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Unity.Collections.NativeArray<T>;
 
 namespace GAAUBAGE_Game.API.Models
 {
@@ -9,6 +10,8 @@ namespace GAAUBAGE_Game.API.Models
         public uint Y { get; set; }
         public uint Width { get; set; }
         public uint Height { get; set; }
+
+        public Guid Image { get; set; }
 
         public Guid? SubImageAnnotationGroup { get; set; }
 
