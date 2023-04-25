@@ -11,7 +11,7 @@ public class BoxManager : MonoBehaviour
     public GameObject BoxObjectPrefab, BoxCanvas;
     List<BoxObject> BoxObjects = new List<BoxObject>();
     public Button NewBoxBtn, SubmitButton;
-    public Image image;
+    //public Image image;
 
     private void Awake() {
         NewBoxBtn.onClick.AddListener(delegate { MakeNewBox(); });
