@@ -1,4 +1,6 @@
 using System;
+using static Unity.Collections.NativeArray<T>;
+using System.Collections.Generic;
 
 namespace GAAUBAGE_Game.API.Models
 {
@@ -6,6 +8,7 @@ namespace GAAUBAGE_Game.API.Models
     {
         public Guid User { get; set; }
         public Guid ImageAnnotation { get; set; }
+        public List<Guid> SubImageAnnotations { get; set; }
         public string URI { get; set; } = string.Empty;
     }
 }
