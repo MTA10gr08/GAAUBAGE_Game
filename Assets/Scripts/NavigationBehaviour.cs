@@ -14,24 +14,18 @@ public class NavigationBehaviour : MonoBehaviour
         if (SceneManager.GetActiveScene().name == scene) {
             return;
         }
-        StartCoroutine(Fading(scene));
+        StartCoroutine(FadingTo(scene));
         //SceneManager.LoadSceneAsync(scene);
     }
     public void ReturnHome() {
         if (PlayerPrefs.GetString("Tag") == "Narr") {
-            StartCoroutine(Fading("Narrative_Home"));
-            //SceneManager.LoadSceneAsync("Narrative_Home");
+            StartCoroutine(FadingTo("Narrative_Home"));
             return;
         }
-        StartCoroutine(Fading("BLAP_Home"));
-        //SceneManager.LoadSceneAsync("BLAP_Home");
+        StartCoroutine(FadingTo("BLAP_Home"));
     }
-    //public void ReturnToPrevious() {
-    //    //Loade previous Scene if Feature is implemented
-    //    Debug.Log("ReturnToPrevious : NYI");
-    //}
 
-    IEnumerator Fading(string sceneToLoad) {
+    IEnumerator FadingTo(string sceneToLoad) {
         fader.SetBool("Fade", true);
         yield return new WaitUntil(() => fader.gameObject.GetComponent<Image>().color.a == 1);
         SceneManager.LoadSceneAsync(sceneToLoad);

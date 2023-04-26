@@ -12,6 +12,7 @@ public class SubImageTasker : MonoBehaviour
     SpriteFromURL spriteFromURL;
     public BoxManager boxManager;
     Guid currentID;
+
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         spriteFromURL = GetComponent<SpriteFromURL>();
@@ -22,6 +23,7 @@ public class SubImageTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator GetTask() {
+        spriteFromURL.LoadingObject.SetActive(true);
         var task = SubImageGroupService.NextTrashBoundingBoxAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 

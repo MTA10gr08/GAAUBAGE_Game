@@ -33,6 +33,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator GetTask() {
+        spriteFromURL.LoadingObject.SetActive(true);
         var task = BackgroundClassificationService.NextBackgroundClassificationAsync();
 
         yield return new WaitUntil(() => task.IsCompleted);

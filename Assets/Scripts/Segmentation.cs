@@ -74,4 +74,21 @@ public class Segmentation : MonoBehaviour
         return mp;
     }
 
+    public void ClearPolygon() {
+        Debug.Log("Resetting Polygon");
+        Destroy(polygon.gameObject);
+
+        foreach (var point in points) {
+            Destroy(point.gameObject, .2f);
+        }
+        points.Clear();
+
+
+        polygon = Instantiate(polygonPrefab, transform).GetComponent<Polygon>();
+        AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 - 50));
+        AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 - 50));
+        AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 + 50));
+        AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 + 50));
+    }
+
 }
