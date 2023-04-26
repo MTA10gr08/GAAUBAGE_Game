@@ -41,6 +41,11 @@ public class BoxObject : MonoBehaviour
         Handles[1].GetComponent<BoxPoint>().boxObject = this;
     }
 
+    public List<Vector2> WorldSpacePoints() {
+        var flipVecotr = new Vector2(1, -1);
+        return BoxPoints.Select(x => Vector2.Scale(flipVecotr, x.transform.position)).ToList();
+    }
+
     public void UpdatePoints() {
         Anchors[0].position = new Vector3(Handles[1].position.x, Handles[0].position.y, Anchors[0].position.z);
         Anchors[1].position = new Vector3(Handles[0].position.x, Handles[1].position.y, Anchors[1].position.z);

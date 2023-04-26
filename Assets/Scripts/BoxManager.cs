@@ -11,6 +11,7 @@ public class BoxManager : MonoBehaviour
     public GameObject BoxObjectPrefab, BoxCanvas;
     List<BoxObject> BoxObjects = new List<BoxObject>();
     public Button NewBoxBtn, SubmitButton;
+    public SpriteRenderer imagegeg;
     //public Image image;
 
     private void Awake() {
@@ -42,11 +43,11 @@ public class BoxManager : MonoBehaviour
         //}).ToList();
         foreach (var box in BoxObjects) {
             SubImageAnnotation boundingBox = new SubImageAnnotation();
-            var vector = box.BoxPoints.OrderBy(x => x.transform.position.magnitude);
-            boundingBox.X = (uint)Mathf.Ceil(vector.First().transform.position.x);
-            boundingBox.Y = (uint)Mathf.Ceil(vector.First().transform.position.y);
-            boundingBox.Width = (uint)Mathf.Ceil(vector.First().transform.position.x - vector.Last().transform.position.x);
-            boundingBox.Height = (uint)Mathf.Ceil(vector.First().transform.position.y - vector.Last().transform.position.y);
+            var vector = box.WorldSpacePoints().OrderBy(x => x.magnitude);
+            boundingBox.X = (uint)Mathf.Ceil(Mathf.Clamp(vector.First().x, 0, imagegeg.sprite.texture.width));
+            boundingBox.Y = (uint)Mathf.Ceil(Mathf.Clamp(vector.First().y, 0, imagegeg.sprite.texture.height));
+            boundingBox.Width = (uint)Mathf.Ceil(vector.Last().x - vector.First().x);
+            boundingBox.Height = (uint)Mathf.Ceil(vector.Last().y - vector.First().y);
             boxes.Add(boundingBox);
         }
         return boxes;

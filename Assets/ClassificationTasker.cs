@@ -29,7 +29,7 @@ public class ClassificationTasker : MonoBehaviour
         }
         currentID = task.Result.Value.ID;
         Debug.Log(task.Result.Value.Image.ToString());
-        spriteFromURL.GetImageFromID(task.Result.Value.Image);
+        spriteFromURL.GetImageFromTask(task.Result.Value);
         //task.Result.Value.
     }
     public void submitValuesToServer() {

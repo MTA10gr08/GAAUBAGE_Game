@@ -71,7 +71,7 @@ public class SpriteFromURL : MonoBehaviour
                 } else {
                     Camera.main.orthographicSize = width + (width / 5);
                 }
-
+                Camera.main.transform.position = new Vector3(width/2, -height/2, Camera.main.transform.position.z);
                 spriteRenderer.enabled = true;
                 //LoadingObject.SetActive(false);
             }

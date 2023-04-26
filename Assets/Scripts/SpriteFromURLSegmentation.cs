@@ -18,6 +18,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
     private string testURL = "https://i.imgur.com/tJvxXyv.jpeg";
     public ImageMask mask;
     public Segmentation segmentation;
+    private SubImageAnnotation subAnnotation;
 
 
     private void Awake()
@@ -44,7 +45,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
     }
     public void GetImageFromTask(SubImageAnnotation annotation)
     {
-        //Do something with Annotation width/height
+        subAnnotation = annotation;
         StartCoroutine(GetImage(annotation.Image));
     }
 
@@ -66,8 +67,8 @@ public class SpriteFromURLSegmentation : MonoBehaviour
         StartCoroutine(GetTexture(URL));
         //LoadingObject.SetActive(true);
         spriteRenderer.enabled = false;
-        var pos = Camera.main.transform.position;
-        Camera.main.transform.position = new Vector3(0, 0, pos.z);
+        //var pos = Camera.main.transform.position;
+        //Camera.main.transform.position = new Vector3(0, 0, pos.z);
     }
 
     IEnumerator GetTexture(string URL)
@@ -96,37 +97,41 @@ public class SpriteFromURLSegmentation : MonoBehaviour
                 var center = CenterOfVectors(vList);
                 var pos = Camera.main.transform.position;
 
-                var test = new SubImageAnnotation()
-                {
-                    X = 50,
-                    Y = 50,
-                    Width = 50,
-                    Height = 50,
-                };
+                //var subAnnotation = new SubImageAnnotation()
+                //{
+                //    X = 50,
+                //    Y = 50,
+                //    Width = 50,
+                //    Height = 50,
+                //};
+                Debug.Log(subAnnotation.X);
+                Debug.Log(subAnnotation.Y);
+                Debug.Log(subAnnotation.Width);
+                Debug.Log(subAnnotation.Height);
 
-                Camera.main.transform.position = new Vector3(test.X + test.Width / 2, test.Y + test.Height / 2, pos.z);
+                Camera.main.transform.position = new Vector3(subAnnotation.X + subAnnotation.Width / 2, subAnnotation.Y + subAnnotation.Height / 2, pos.z);
                 var imageAspect = texture.width / texture.height;
                 var screenAspect = Camera.main.aspect;
                 var heightDiff = texture.height / Camera.main.pixelHeight;
 
                 if (imageAspect > screenAspect)
                 {
-                    Camera.main.orthographicSize = (test.Height / 2);
+                    Camera.main.orthographicSize = (subAnnotation.Height / 2);
                 }
                 else
                 {
-                    Camera.main.orthographicSize = (test.Height / 2) * heightDiff;
+                    Camera.main.orthographicSize = (subAnnotation.Height / 2) * heightDiff;
                 }
 
                 //collider2D.size = new Vector2(width, height);
-                if (width * 2 < height)
-                {
-                    Camera.main.orthographicSize = (height / 2) + (height / 5);
-                }
-                else
-                {
-                    Camera.main.orthographicSize = width + (width / 10);
-                }
+                //if (width * 2 < height)
+                //{
+                //    Camera.main.orthographicSize = (height / 2) + (height / 5);
+                //}
+                //else
+                //{
+                //    Camera.main.orthographicSize = width + (width / 10);
+                //}
                 mask.updateImageMask(width, height);
                 segmentation?.UpdatePositions();
                 spriteRenderer.enabled = true;
