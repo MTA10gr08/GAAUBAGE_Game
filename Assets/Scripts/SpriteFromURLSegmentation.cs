@@ -96,8 +96,8 @@ public class SpriteFromURLSegmentation : MonoBehaviour
                 Debug.Log(subAnnotation.Width);
                 Debug.Log(subAnnotation.Height);
 
-                Camera.main.transform.position = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), -subAnnotation.Y + (subAnnotation.Height / 2), pos.z);
-                var imageAspect = texture.width / texture.height;
+                Camera.main.transform.position = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), (-subAnnotation.Y + (subAnnotation.Height / 2)) - subAnnotation.Height, pos.z);
+                float imageAspect = (float)subAnnotation.Width / (float)subAnnotation.Height;//texture.width / texture.height;;//texture.width / texture.height;
                 var screenAspect = Camera.main.aspect;
                 var heightDiff = texture.height / Camera.main.pixelHeight;
                 Debug.Log(heightDiff);
@@ -107,22 +107,16 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 
                 if (imageAspect < screenAspect) {
                     Camera.main.orthographicSize = (subAnnotation.Height / 2);
+                    Debug.Log("Height/2");
 
                 } else {
                     //Camera.main.orthographicSize = subAnnotation.Width;
-                    Camera.main.orthographicSize = (subAnnotation.Height * screenAspect) / 2 ;
+                    Debug.Log(imageAspect + " | " + subAnnotation.Width + " | " + subAnnotation.Height + " | " + (float)(subAnnotation.Width / subAnnotation.Height));
+                    //Camera.main.orthographicSize = (subAnnotation.Height * (1/ imageAspect))/2;
+                    Camera.main.orthographicSize = ((1 / screenAspect) * subAnnotation.Width)/2;
+                    Debug.Log("OtherOption");
                 }
                 //Camera.main.transform.position = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), subAnnotation.Height - (subAnnotation.Y + (subAnnotation.Height / 2)), pos.z);
-
-                //collider2D.size = new Vector2(width, height);
-                //if (width * 2 < height)
-                //{
-                //    Camera.main.orthographicSize = (height / 2) + (height / 5);
-                //}
-                //else
-                //{
-                //    Camera.main.orthographicSize = width + (width / 10);
-                //}
                 mask.updateImageMask(subAnnotation.Width, subAnnotation.Height);
                 segmentation?.UpdatePositions();
                 spriteRenderer.enabled = true;
@@ -144,7 +138,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
     }
 
     private void OnDrawGizmos() {
-        var center = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), -subAnnotation.Y + (subAnnotation.Height / 2), 0);
+        var center = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), (-subAnnotation.Y + (subAnnotation.Height / 2) - subAnnotation.Height), 0);
         var size = new Vector3(subAnnotation.Width, subAnnotation.Height, 0);
         Gizmos.DrawWireCube(center, size);
     }

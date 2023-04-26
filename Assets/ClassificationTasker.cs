@@ -30,7 +30,6 @@ public class ClassificationTasker : MonoBehaviour
         currentID = task.Result.Value.ID;
         Debug.Log(task.Result.Value.Image.ToString());
         spriteFromURL.GetImageFromTask(task.Result.Value);
-        //task.Result.Value.
     }
     public void submitValuesToServer() {
         StartCoroutine(PostUserValues());

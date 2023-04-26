@@ -41,9 +41,10 @@ public class BoxObject : MonoBehaviour
         Handles[1].GetComponent<BoxPoint>().boxObject = this;
     }
 
-    public List<Vector2> WorldSpacePoints() {
-        var flipVecotr = new Vector2(1, -1);
-        return BoxPoints.Select(x => (Vector2)Camera.main.ScreenToWorldPoint(Vector3.Scale(flipVecotr, x.transform.position))).ToList();
+    public List<Vector3> WorldSpacePoints() {
+        var flipVecotr = new Vector3(1, -1, 1);
+        //return BoxPoints.Select(x => Camera.main.ScreenToWorldPoint(Vector3.Scale(flipVecotr, x.transform.position))).ToList();
+        return BoxPoints.Select(x => Camera.main.ScreenToWorldPoint(x.transform.position)).ToList();
     }
 
     public void UpdatePoints() {
