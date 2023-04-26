@@ -8,13 +8,13 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class SegmentationService
     {
-        public static async Task<RequestResult> PostSegmentationAsync(Segmentation Segmentation, Guid ImageAnnotationID)
+        public static async Task<RequestResult> PostSegmentationAsync(Models.Segmentation Segmentation, Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.Segmentation.Post(ImageAnnotationID);
             return await APIRequestHandler.PostAsync(apiUrl, Segmentation);
         }
 
-        public static void PostSegmentation(Segmentation Segmentation, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
+        public static void PostSegmentation(Models.Segmentation Segmentation, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.Segmentation.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, Segmentation, onResponse);
