@@ -34,7 +34,8 @@ public class SegmentationTasker : MonoBehaviour
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
-        GAAUBAGE_Game.API.Models.Segmentation segmentation = new GAAUBAGE_Game.API.Models.Segmentation { SegmentationPolygon =  segmenter.CompileMultiPolygon() };
+        Debug.Log("You sure did post those values");
+        GAAUBAGE_Game.API.Models.Segmentation segmentation = new GAAUBAGE_Game.API.Models.Segmentation { SegmentationMultiPolygon =  segmenter.CompileMultiPolygon() };
         var task = SegmentationService.PostSegmentationAsync(segmentation, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
