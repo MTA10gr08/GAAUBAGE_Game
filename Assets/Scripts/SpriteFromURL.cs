@@ -66,10 +66,11 @@ public class SpriteFromURL : MonoBehaviour
                 spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
                 var width = spriteRenderer.sprite.texture.width;
                 var height = spriteRenderer.sprite.texture.height;
+                Debug.Log(width + " w|h " + height);
                 if (width * 2 < height) {
-                    Camera.main.orthographicSize = (height / 2) + (height / 5);
+                    Camera.main.orthographicSize = (height / 2);// + (height / 5);
                 } else {
-                    Camera.main.orthographicSize = width + (width / 5);
+                    Camera.main.orthographicSize = width; // + (width / 5);
                 }
                 Camera.main.transform.position = new Vector3(width/2, -height/2, Camera.main.transform.position.z);
                 spriteRenderer.enabled = true;

@@ -109,7 +109,6 @@ public class SpriteFromURLSegmentation : MonoBehaviour
                 Debug.Log(subAnnotation.Width);
                 Debug.Log(subAnnotation.Height);
 
-                Camera.main.transform.position = new Vector3(subAnnotation.X + subAnnotation.Width / 2, subAnnotation.Y + subAnnotation.Height / 2, pos.z);
                 var imageAspect = texture.width / texture.height;
                 var screenAspect = Camera.main.aspect;
                 var heightDiff = texture.height / Camera.main.pixelHeight;
@@ -122,6 +121,8 @@ public class SpriteFromURLSegmentation : MonoBehaviour
                 {
                     Camera.main.orthographicSize = (subAnnotation.Height / 2) * heightDiff;
                 }
+                //Camera.main.transform.position = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), -(subAnnotation.Y + (subAnnotation.Height / 2)), pos.z);
+                Camera.main.transform.position = new Vector3(subAnnotation.X + (subAnnotation.Width / 2) * 2, -(subAnnotation.Y + (subAnnotation.Height / 2)), pos.z);
 
                 //collider2D.size = new Vector2(width, height);
                 //if (width * 2 < height)
