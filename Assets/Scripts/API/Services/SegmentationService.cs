@@ -8,25 +8,25 @@ namespace GAAUBAGE_Game.API.Services
 {
     internal class SegmentationService
     {
-        public static async Task<RequestResult<string>> PostSegmentationAsync(Segmentation Segmentation)
+        public static async Task<RequestResult> PostSegmentationAsync(Segmentation Segmentation, Guid ImageAnnotationID)
         {
-            string apiUrl = Endpoints.Segmentation.Post();
-            return await APIRequestHandler.PostAsync<string, Segmentation>(apiUrl, Segmentation);
+            string apiUrl = Endpoints.Segmentation.Post(ImageAnnotationID);
+            return await APIRequestHandler.PostAsync(apiUrl, Segmentation);
         }
 
-        public static void PostSegmentation(Segmentation Segmentation, Action<RequestResult<string>>? onResponse = null)
+        public static void PostSegmentation(Segmentation Segmentation, Guid ImageAnnotationID, Action<RequestResult>? onResponse = null)
         {
-            string apiUrl = Endpoints.Segmentation.Post();
+            string apiUrl = Endpoints.Segmentation.Post(ImageAnnotationID);
             APIRequestHandler.Post(apiUrl, Segmentation, onResponse);
         }
 
-        public static async Task<RequestResult<TrashSubCategory>> NextSegmentationAsync()
+        public static async Task<RequestResult<SubImageAnnotation>> NextSegmentationAsync()
         {
             string apiUrl = Endpoints.Segmentation.Next();
-            return await APIRequestHandler.GetAsync<TrashSubCategory>(apiUrl);
+            return await APIRequestHandler.GetAsync<SubImageAnnotation>(apiUrl);
         }
 
-        public static void NextSegmentation(Action<RequestResult<TrashSubCategory>>? onResponse = null)
+        public static void NextSegmentation(Action<RequestResult<SubImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.Segmentation.Next();
             APIRequestHandler.Get(apiUrl, onResponse);

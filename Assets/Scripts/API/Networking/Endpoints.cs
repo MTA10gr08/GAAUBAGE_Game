@@ -99,13 +99,9 @@ namespace GAAUBAGE_Game.API.Networking
         }
         public static class Segmentation
         {
-            private const string Resource = "Segmentations";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
-            public static string Next() => Endpoints.Next(Resource);
+            private const string Resource = "segmentations";
+            public static string Post(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}";
+            public static string Next() => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/next";
         }
     }
 }
