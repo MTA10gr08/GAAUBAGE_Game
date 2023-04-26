@@ -44,11 +44,12 @@ public class BoxManager : MonoBehaviour
         foreach (var box in BoxObjects) {
             SubImageAnnotation boundingBox = new SubImageAnnotation();
             var vector = box.WorldSpacePoints().OrderBy(x => x.magnitude);
-            boundingBox.X = (uint)Mathf.Ceil(Mathf.Clamp(vector.First().x, 0, imagegeg.sprite.texture.width));
-            boundingBox.Y = (uint)Mathf.Ceil(-Mathf.Clamp(vector.First().y, -imagegeg.sprite.texture.height, 0));
+            Debug.Log(vector.First().magnitude + " | " + vector.Last().magnitude);
+            boundingBox.X = (uint)Mathf.Clamp(vector.First().x, 0, imagegeg.sprite.texture.width);
+            boundingBox.Y = (uint)-Mathf.Clamp(vector.First().y, -imagegeg.sprite.texture.height, 0);
             Debug.Log(boundingBox.X +" x|y "+ boundingBox.Y);
-            boundingBox.Width = (uint)Mathf.Ceil(vector.Last().x - vector.First().x);
-            boundingBox.Height = (uint)Mathf.Ceil(vector.First().y - vector.Last().y);
+            boundingBox.Width = (uint)Mathf.Clamp(vector.Last().x - vector.First().x, 0, imagegeg.sprite.texture.width);
+            boundingBox.Height = (uint)Mathf.Clamp(vector.First().y - vector.Last().y, 0, imagegeg.sprite.texture.height);
             Debug.Log(boundingBox.Width + " W|H " + boundingBox.Height);
             boxes.Add(boundingBox);
         }

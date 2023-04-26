@@ -43,7 +43,7 @@ public class BoxObject : MonoBehaviour
 
     public List<Vector2> WorldSpacePoints() {
         var flipVecotr = new Vector2(1, -1);
-        return BoxPoints.Select(x => Vector2.Scale(flipVecotr, x.transform.position)).ToList();
+        return BoxPoints.Select(x => (Vector2)Camera.main.ScreenToWorldPoint(Vector3.Scale(flipVecotr, x.transform.position))).ToList();
     }
 
     public void UpdatePoints() {
