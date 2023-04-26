@@ -26,20 +26,23 @@ public class SegmentationTasker : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            Debug.Log(Endpoints.Segmentation.Next());
             yield break;
         }
+
         currentID = task.Result.Value.ID;
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
         GAAUBAGE_Game.API.Models.Segmentation segmentation = new GAAUBAGE_Game.API.Models.Segmentation { SegmentationPolygon =  segmenter.CompileMultiPolygon() };
-        //var task = SegmentationService.PostSegmentationAsync(segmentation, currentID);
-        //yield return new WaitUntil(() => task.IsCompleted);
-        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //    Debug.LogError(task.Result.ResponseCode);
-        //    yield break;
-        //}
+        var task = SegmentationService.PostSegmentationAsync(segmentation, currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            Debug.LogError(Endpoints.Segmentation.Post(currentID));
+            yield break;
+        }
         yield return null; //yeet when uncommented
         StartCoroutine(GetTask());
     }
