@@ -15,8 +15,7 @@ public class Segmentation : MonoBehaviour
 
     public List<PointBehaviour> points = new List<PointBehaviour>();
 
-    private void Awake()
-    {
+    private void Awake() {
         outline = Instantiate(outlinePrefab, transform).GetComponent<Outline>();
         outline.Segmentation = this;
         polygon = Instantiate(polygonPrefab, transform).GetComponent<Polygon>();
@@ -26,20 +25,16 @@ public class Segmentation : MonoBehaviour
         AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 + 50));
     }
 
-    private void Start()
-    {
+    private void Start() {
         UpdatePositions();
     }
 
-    public void AddPoint(Vector2 pos)
-    {
+    public void AddPoint(Vector2 pos) {
         InsertPoint(pos, points.Count);
     }
 
-    public void InsertPoint(Vector2 pos, int atIndex)
-    {
-        if (points.Count < atIndex)
-        {
+    public void InsertPoint(Vector2 pos, int atIndex) {
+        if (points.Count < atIndex) {
             Debug.LogError("Tried to insert point outside bound");
             return;
         }
@@ -52,32 +47,33 @@ public class Segmentation : MonoBehaviour
         points.Insert(atIndex, newPoint);
         UpdatePositions();
     }
-    public void UpdatePositions()
-    {
+    public void UpdatePositions() {
         outline.UpdateLine(points);
         polygon.UpdatePolygon(points);
     }
-    public void RemovePoint(PointBehaviour point)
-    {
+    public void RemovePoint(PointBehaviour point) {
         points.Remove(point);
         Destroy(point.gameObject);
 
         UpdatePositions();
     }
     public MultiPolygon CompileMultiPolygon() {
+        var Coordinates = points.ConvertAll(x => new Coordinate() { X = x.transform.position.x, Y = x.transform.position.y });
+        var Shell = new LinearRing { Coordinates = Coordinates };
+        //var Polygon = new Polygon { Shell.};
+        Debug.Log(Coordinates.Count());
         MultiPolygon mp = new MultiPolygon() {
             Polygons = new List<GAAUBAGE_Game.API.Models.Polygon>()
             {
                 new GAAUBAGE_Game.API.Models.Polygon()
                 {
-                    Shell = new LinearRing()
-                    {
-                        Coordinates = points.ConvertAll(x => new Coordinate() { X = x.transform.position.x, Y = x.transform.position.y })
-                    }
+                    Shell = Shell,
+                    Holes = new()
+
                 }
             }
         };
-
+        Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(mp));
         return mp;
     }
 
