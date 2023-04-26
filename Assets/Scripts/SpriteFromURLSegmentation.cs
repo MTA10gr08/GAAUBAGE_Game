@@ -23,7 +23,6 @@ public class SpriteFromURLSegmentation : MonoBehaviour
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        LoadTestUrl();
     }
 
     public Vector2 WorldPointToImageCord(Vector2 point) {
@@ -121,6 +120,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
                 segmentation?.UpdatePositions();
                 spriteRenderer.enabled = true;
                 //LoadingObject.SetActive(false);
+                subAnnotation = null; //questionable
             }
         }
     }

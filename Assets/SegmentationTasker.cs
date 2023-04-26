@@ -21,7 +21,7 @@ public class SegmentationTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator GetTask() {
-        var task = SubImageGroupService.NextTrashBoundingBoxAsync();
+        var task = SegmentationService.NextSegmentationAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -29,7 +29,7 @@ public class SegmentationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
-        spriteFromURL.GetImageFromID(task.Result.Value.Image);
+        spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
         Debug.Log("You sure did post those values");
