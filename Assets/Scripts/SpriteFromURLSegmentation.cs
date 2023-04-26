@@ -137,9 +137,9 @@ public class SpriteFromURLSegmentation : MonoBehaviour
         return sum / vectors.Length;
     }
 
-    private void OnDrawGizmos() {
-        var center = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), (-subAnnotation.Y + (subAnnotation.Height / 2) - subAnnotation.Height), 0);
-        var size = new Vector3(subAnnotation.Width, subAnnotation.Height, 0);
-        Gizmos.DrawWireCube(center, size);
-    }
+    //private void OnDrawGizmos() {
+    //    var center = new Vector3(subAnnotation.X + (subAnnotation.Width / 2), (-subAnnotation.Y + (subAnnotation.Height / 2) - subAnnotation.Height), 0);
+    //    var size = new Vector3(subAnnotation.Width, subAnnotation.Height, 0);
+    //    Gizmos.DrawWireCube(center, size);
+    //}
 }
