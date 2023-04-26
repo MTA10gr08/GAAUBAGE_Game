@@ -59,21 +59,18 @@ public class Segmentation : MonoBehaviour
     }
     public MultiPolygon CompileMultiPolygon() {
         var Coordinates = points.ConvertAll(x => new Coordinate() { X = x.transform.position.x, Y = x.transform.position.y });
-        var Shell = new LinearRing { Coordinates = Coordinates };
-        //var Polygon = new Polygon { Shell.};
-        Debug.Log(Coordinates.Count());
+        Coordinates.Add(Coordinates.First());
         MultiPolygon mp = new MultiPolygon() {
             Polygons = new List<GAAUBAGE_Game.API.Models.Polygon>()
             {
                 new GAAUBAGE_Game.API.Models.Polygon()
                 {
-                    Shell = Shell,
+                    Shell = new LinearRing { Coordinates = Coordinates },
                     Holes = new()
 
                 }
             }
         };
-        Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(mp));
         return mp;
     }
 
