@@ -11,6 +11,7 @@ public class SegmentationTasker : MonoBehaviour
     SpriteFromURLSegmentation spriteFromURL;
     public Segmentation segmenter; 
     Guid currentID;
+    public TMPro.TMP_Text taskText;
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
@@ -33,6 +34,7 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
+        taskText.text = task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {

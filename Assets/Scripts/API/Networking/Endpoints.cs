@@ -10,7 +10,7 @@ namespace GAAUBAGE_Game.API.Networking
 {
     public static class Endpoints
     {
-        private const string BaseUrl = "https://localhost:7000";
+        private const string BaseUrl = "https://gaaubage.ludumite.com";
 
         private static string GetAll(string resource) => $"{BaseUrl}/{resource}";
         private static string Post(string resource) => $"{BaseUrl}/{resource}";

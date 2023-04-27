@@ -18,6 +18,11 @@ public class Polygon : MonoBehaviour
 		polygonCollider2D = GetComponent<PolygonCollider2D>();
 		spriteShapeController = GetComponent<SpriteShapeController>();
 		spriteShapeRenderer = GetComponent<SpriteShapeRenderer>();
+
+
+		var color = Color.HSVToRGB(Random.Range(0f, 1f), 1, 1);
+		color.a = SegmentTransparency;
+		spriteShapeRenderer.color = color;
 	}
 	public void UpdatePolygon(List<PointBehaviour> points) {
 		var pointsAsVector2 = points.Select(x => Camera.main.ScreenToWorldPoint(x.pos)).ToList();
@@ -62,8 +67,5 @@ public class Polygon : MonoBehaviour
 		polygonCollider2D.enabled = false;
 
 		spriteShapeRenderer.sortingLayerName = spriteShapeRendererSortingLayer;
-		var color = Color.HSVToRGB(Random.Range(0f, 1f), 1, 1);
-		color.a = SegmentTransparency;
-		spriteShapeRenderer.color = color;
 	}
 }
