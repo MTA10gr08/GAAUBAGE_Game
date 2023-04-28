@@ -23,9 +23,20 @@ namespace GAAUBAGE_Game.API.Networking
         {
             private const string Resource = "configuration";
             public static string Get() => Endpoints.Get(Resource + "/categories");
-        }public static class Leaderboard
+        }
+        public static class Leaderboard
         {
             private const string Resource = "leaderboard";
+            public static string Get() => Endpoints.Get(Resource);
+        }
+        public static class UserGoal
+        {
+            private const string Resource = "usergoal";
+            public static string Get() => Endpoints.Get(Resource);
+        }
+        public static class ComunityGoal
+        {
+            private const string Resource = "communitygoal";
             public static string Get() => Endpoints.Get(Resource);
         }
         public static class Users
