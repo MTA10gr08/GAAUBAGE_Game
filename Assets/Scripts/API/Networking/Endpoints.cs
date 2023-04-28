@@ -57,11 +57,8 @@ namespace GAAUBAGE_Game.API.Networking
         public static class ImageAnnotation
         {
             private const string Resource = "imageannotation";
-            public static string GetAll() => Endpoints.GetAll(Resource);
-            public static string Post() => Endpoints.Post(Resource);
             public static string Get(Guid id) => Endpoints.Get(Resource, id);
-            public static string Update(Guid id) => Endpoints.Update(Resource, id);
-            public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
+            public static string VoteSkip(Guid id) => $"{BaseUrl}/{Resource}/{id}/voteskip";
         }
         public static class BackgroundClassification
         {
@@ -108,6 +105,7 @@ namespace GAAUBAGE_Game.API.Networking
             private const string Resource = "trashsubcategories";
             public static string Post(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}";
             public static string Next() => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/next";
+            public static string Get(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/{id}";
         }
         public static class Segmentation
         {
