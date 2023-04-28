@@ -53,6 +53,7 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         yield return null;
+        categoryPopulator.ClearSelection();
         StartCoroutine(GetTask());
     }
 }
