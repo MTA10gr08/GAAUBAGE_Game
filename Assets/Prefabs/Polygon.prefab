@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteShapeProfile: {fileID: 11400000, guid: 3831704a409a3a14db031bd11093719d, type: 2}
   spriteShapeRendererSortingLayer: 
-  SegmentTransparency: 0.15
+  SegmentTransparency: 0.1
 --- !u!1971053207 &3738695734976445827
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Color: {r: 1, g: 0, b: 0.17036915, a: 0.15}
+  m_Color: {r: 1, g: 0, b: 0.38002777, a: 0.15}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []

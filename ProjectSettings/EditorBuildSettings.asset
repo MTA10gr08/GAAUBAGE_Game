@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Narrative/Narrative_Profile.unity
     guid: eb9e7d022458b61418818629a2db5b3e
   - enabled: 1
+    path: Assets/Scenes/Narrative/Narrative_Dialogue.unity
+    guid: 9d223000ad494f34fbb5375676ee8163
+  - enabled: 1
     path: Assets/Scenes/Tasks/Classify Level 1.unity
     guid: d36274f47ebfdbe4a9fed3f78573c4aa
   - enabled: 1

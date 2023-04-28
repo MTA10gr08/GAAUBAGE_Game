@@ -11,6 +11,8 @@ public class SegmentationTasker : MonoBehaviour
     SpriteFromURLSegmentation spriteFromURL;
     public Segmentation segmenter; 
     Guid currentID;
+    public TMPro.TMP_Text taskText;
+
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         spriteFromURL = GetComponent<SpriteFromURLSegmentation>();
@@ -21,6 +23,7 @@ public class SegmentationTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator GetTask() {
+        spriteFromURL.LoadingObject.SetActive(true);
         var task = SegmentationService.NextSegmentationAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
@@ -31,11 +34,12 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
+        taskText.text = task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values");
         GAAUBAGE_Game.API.Models.Segmentation segmentation = new GAAUBAGE_Game.API.Models.Segmentation { SegmentationMultiPolygon =  segmenter.CompileMultiPolygon() };
+        segmenter.ClearPolygon();
         var task = SegmentationService.PostSegmentationAsync(segmentation, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -43,7 +47,7 @@ public class SegmentationTasker : MonoBehaviour
             Debug.LogError(Endpoints.Segmentation.Post(currentID));
             yield break;
         }
-        yield return null; //yeet when uncommented
+
         StartCoroutine(GetTask());
     }
 

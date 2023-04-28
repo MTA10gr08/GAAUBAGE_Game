@@ -1,18 +1,17 @@
 using GAAUBAGE_Game.API.Services;
 using GAAUBAGE_Game.API.Models;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using GAAUBAGE_Game.API.Networking;
-using Assets.Scripts.API.Services;
 
 public class ClassificationTasker : MonoBehaviour
 {
     SpriteFromURLSegmentation spriteFromURL;
     public CategoryPopulator categoryPopulator;
     Guid currentID;
+
+
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         spriteFromURL = GetComponent<SpriteFromURLSegmentation>();
@@ -20,6 +19,7 @@ public class ClassificationTasker : MonoBehaviour
     }
 
     IEnumerator GetTask() {
+        spriteFromURL.LoadingObject.SetActive(true);
         var task = TrashSuperCategoryService.NextTrashSuperCategoryAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
@@ -35,7 +35,6 @@ public class ClassificationTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator PostUserValues() {
-        Debug.Log("You sure did post those values"); //Skal jeg efterlade ImageAnnotation tom? eller hvad skal i den?
         TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
         Debug.Log(sCategory.TrashSuperCategoryLabel);
         var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
