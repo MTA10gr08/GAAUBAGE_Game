@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#nullable enable
 namespace Assets.Scripts.API.Services
 {
     internal class ImageAnnotationService
@@ -19,6 +20,18 @@ namespace Assets.Scripts.API.Services
         public static void GetImageImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.ImageAnnotation.Get(id);
+            APIRequestHandler.Get(apiUrl, onResponse);
+        }
+
+        public static async Task<RequestResult<ImageAnnotation>> VoteSkipImageAnnotationAsync(Guid id)
+        {
+            string apiUrl = Endpoints.ImageAnnotation.VoteSkip(id);
+            return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
+        }
+
+        public static void VoteSkipImageImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
+        {
+            string apiUrl = Endpoints.ImageAnnotation.VoteSkip(id);
             APIRequestHandler.Get(apiUrl, onResponse);
         }
     }
