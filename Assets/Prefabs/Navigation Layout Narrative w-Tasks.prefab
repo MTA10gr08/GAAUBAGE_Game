@@ -964,7 +964,6 @@ GameObject:
   - component: {fileID: 7935651073113347856}
   - component: {fileID: 7935651073113347854}
   - component: {fileID: 7935651073113347857}
-  - component: {fileID: 7935651073113347855}
   m_Layer: 5
   m_Name: TaskKeyCaps
   m_TagString: Untagged
@@ -1030,24 +1029,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7935651073113347855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935651073113347859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3496c0e4958478d429fdae05c00a3233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 3
-  taskButtons:
-  - {fileID: 7935651073416708022}
-  - {fileID: 7935651072740999025}
-  - {fileID: 7935651074485498624}
-  - {fileID: 7935651073661222781}
 --- !u!1 &7935651073218596881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2822,7 @@ RectTransform:
   - {fileID: 7935651073113347856}
   - {fileID: 7935651072754309114}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}

@@ -10,7 +10,7 @@ public class LevelAccessController : MonoBehaviour
     //Level needs to be adjusted by server somehow
     public int level;
     public List<Button> taskButtons = new List<Button>();
-    void Start() {
+    void Awake() {
         StartCoroutine(GetLevelFromServer());
     }
 
