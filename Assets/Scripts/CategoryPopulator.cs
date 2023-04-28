@@ -29,6 +29,14 @@ public class CategoryPopulator : MonoBehaviour
         // Get selected super category
         string selectedSuperCategory = "";
         if (superCategoryDropdown.options.Count <= 0) {
+
+            return;
+        }
+        if (superCategoryDropdown.value == 0) {
+            categoryDropdown.ClearOptions();
+            categoryDropdown.RefreshShownValue();
+            categoryDropdown.value = 0;
+            categoryDropdown.interactable = false;
             return;
         }
 
@@ -59,6 +67,13 @@ public class CategoryPopulator : MonoBehaviour
         SubmitBtn.interactable = false;
 
     }
+    public void ClearSelection() {
+        categoryDropdown.value = 0;
+        categoryDropdown.RefreshShownValue();
+        superCategoryDropdown.value = 0;
+        superCategoryDropdown.RefreshShownValue();
+    }
+
 }
 
 

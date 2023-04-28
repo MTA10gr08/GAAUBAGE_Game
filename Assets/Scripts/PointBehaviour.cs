@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PointBehaviour : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler//  IPointerClickHandler
 {
     [HideInInspector]
     public Segmentation segmentation;
 
     PlayerInput pInput;
-    float clickTime = 0f, doubleClickThreshhold = 0.5f;
+    //float clickTime = 0f, doubleClickThreshhold = 0.5f;
+    float clickTime = 0f, tapClickThreshold = 0.2f;
 
     private void Awake() {
         pInput = new PlayerInput();
@@ -15,13 +16,30 @@ public class PointBehaviour : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        if (Time.time - clickTime < doubleClickThreshhold) {
+        Debug.Log("Pointer Click");
+        //if (Time.time - clickTime < doubleClickThreshhold) {
+        //    if (segmentation.points.Count < 4) {
+        //        return;
+        //    }
+        //    segmentation.RemovePoint(this);
+        //}
+        //clickTime = Time.time;
+    }
+
+
+    public void OnPointerDown(PointerEventData eventData) {
+        clickTime = Time.time;
+    }
+
+    public void OnPointerUp(PointerEventData eventData) {
+        float clickDuration = Time.time - clickTime;
+        if (clickDuration < tapClickThreshold) // check if the click duration is less than 0.2 seconds
+        {
             if (segmentation.points.Count < 4) {
                 return;
             }
             segmentation.RemovePoint(this);
         }
-        clickTime = Time.time;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {

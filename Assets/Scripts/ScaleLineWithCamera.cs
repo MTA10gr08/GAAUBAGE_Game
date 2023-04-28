@@ -13,6 +13,6 @@ public class ScaleLineWithCamera : MonoBehaviour
     }
 
     private void Update() {
-        //rendere.startWidth = (Camera.main.orthographicSize * 2 * Scale);
+        rendere.startWidth = (Camera.main.orthographicSize * 2 * Scale);
     }
 }

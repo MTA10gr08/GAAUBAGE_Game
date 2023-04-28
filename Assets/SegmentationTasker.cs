@@ -34,20 +34,23 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
-        taskText.text = task.Result.Value.TrashSubCategoriesConsensus.ToString();
+        taskText.text = "Segment the focal trash piece"; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
         GAAUBAGE_Game.API.Models.Segmentation segmentation = new GAAUBAGE_Game.API.Models.Segmentation { SegmentationMultiPolygon =  segmenter.CompileMultiPolygon() };
-        segmenter.ClearPolygon();
+
         var task = SegmentationService.PostSegmentationAsync(segmentation, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             Debug.LogError(Endpoints.Segmentation.Post(currentID));
+            if (task.Result.ResultCode == UnityEngine.Networking.UnityWebRequest.Result.ProtocolError) {
+                //No more Images in backlog
+            }
             yield break;
         }
-
+        segmenter.ClearPolygon();
         StartCoroutine(GetTask());
     }
 
