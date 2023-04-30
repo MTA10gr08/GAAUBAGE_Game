@@ -15,7 +15,7 @@ public class NarrativeProgressBarObject : MonoBehaviour
         taskText.text = assignment + "\n";
         taskText.text += "|";
 
-        int proogress = Mathf.CeilToInt(maxChars / maxValue) * value;
+        int proogress = Mathf.CeilToInt(maxChars / maxValue) * (value);
         for (int i = 0; i < maxChars; i++) {
             if (i <= proogress && proogress != 0) {
                 taskText.text += one;
