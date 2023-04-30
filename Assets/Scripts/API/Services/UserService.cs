@@ -20,15 +20,15 @@ namespace GAAUBAGE_Game.API.Services
             APIRequestHandler.Post(apiUrl, user, onResponse);
         }
 
-        public static async Task<RequestResult<User>> GetUserAsync(Guid id)
+        public static async Task<RequestResult<User>> GetCurrentUserAsync()
         {
-            string apiUrl = Endpoints.Users.Get(id);
+            string apiUrl = Endpoints.Users.GetCurrent();
             return await APIRequestHandler.GetAsync<User>(apiUrl);
         }
 
-        public static void GetUser(Guid id, Action<RequestResult<User>>? onResponse = null)
+        public static void GetUser(Action<RequestResult<User>>? onResponse = null)
         {
-            string apiUrl = Endpoints.Users.Get(id);
+            string apiUrl = Endpoints.Users.GetCurrent();
             APIRequestHandler.Get(apiUrl, onResponse);
         }
     }

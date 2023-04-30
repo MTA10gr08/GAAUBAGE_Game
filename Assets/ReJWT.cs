@@ -27,7 +27,7 @@ public class ReJWT : MonoBehaviour
         PlayerPrefs.SetString("JWT", task.Result.Value);
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task2 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
 
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
