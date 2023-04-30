@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 593914703}
   - component: {fileID: 593914702}
   - component: {fileID: 593914701}
+  - component: {fileID: 593914705}
   m_Layer: 5
   m_Name: LitterTypeButton
   m_TagString: Untagged
@@ -1070,6 +1071,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593914699}
   m_CullTransparentMesh: 1
+--- !u!114 &593914705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593914699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc628d9bfd648f54bb21adaeeda655d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contextDropdown: {fileID: 593914702}
 --- !u!1 &601357581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,6 +3855,7 @@ GameObject:
   - component: {fileID: 1687558613}
   - component: {fileID: 1687558612}
   - component: {fileID: 1687558616}
+  - component: {fileID: 1687558617}
   m_Layer: 5
   m_Name: BackgroundContextButton
   m_TagString: Untagged
@@ -3997,6 +4012,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcfb3e779fe1c1438cf76899978dd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1687558617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687558610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4362abd9a79ab46ad171d233330197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 891096900}
+  - {fileID: 1142660911}
+  - {fileID: 1865470419}
+  - {fileID: 1679809676}
+  - {fileID: 1486073618}
+  - {fileID: 1541278683}
+  - {fileID: 1968168303}
 --- !u!1 &1699352188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,7 +4356,6 @@ GameObject:
   - component: {fileID: 1816924170}
   - component: {fileID: 1816924169}
   - component: {fileID: 1816924168}
-  - component: {fileID: 1816924171}
   m_Layer: 5
   m_Name: Content Layout
   m_TagString: Untagged
@@ -4414,26 +4448,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816924166}
   m_CullTransparentMesh: 1
---- !u!114 &1816924171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816924166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4362abd9a79ab46ad171d233330197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 891096900}
-  - {fileID: 1142660911}
-  - {fileID: 1865470419}
-  - {fileID: 1679809676}
-  - {fileID: 1486073618}
-  - {fileID: 1541278683}
-  - {fileID: 1968168303}
 --- !u!1001 &1865470417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4822,8 +4836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b17aec498bd28545b47928c7f7eca3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgSelector: {fileID: 1816924171}
-  ctxSelector: {fileID: 1979743955}
+  bgSelector: {fileID: 1687558617}
+  ctxSelector: {fileID: 593914705}
   submitBtn: {fileID: 565990452}
 --- !u!114 &1899248416
 MonoBehaviour:
@@ -4839,6 +4853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImagePivot: {x: 0, y: 1}
   LoadingObject: {fileID: 195106702}
+  ErrorImage: {fileID: 21300000, guid: cc172c4b217855e4da160a66d03f086a, type: 3}
 --- !u!212 &1899248417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5218,7 +5233,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1979743952}
   - component: {fileID: 1979743954}
-  - component: {fileID: 1979743955}
   m_Layer: 5
   m_Name: ContextLogicContent
   m_TagString: Untagged
@@ -5275,19 +5289,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1979743955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979743951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc628d9bfd648f54bb21adaeeda655d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contextDropdown: {fileID: 593914702}
 --- !u!1 &1986399735
 GameObject:
   m_ObjectHideFlags: 0

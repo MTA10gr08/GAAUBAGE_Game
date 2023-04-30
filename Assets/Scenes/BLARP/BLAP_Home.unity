@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402188, g: 0.4931649, b: 0.57223135, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -723,8 +723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 540, y: 0}
+  m_SizeDelta: {x: 1040, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &520360394
 MonoBehaviour:
@@ -756,6 +756,8 @@ MonoBehaviour:
     type: 3}
   DailyTasks: []
   lac: {fileID: 1690842743}
+  isNarrative: 0
+  childIndexOffset: 0
 --- !u!114 &520360396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,8 +1374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
+  m_SizeDelta: {x: 1040, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &775810480
 MonoBehaviour:
@@ -1492,8 +1494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 540, y: 0}
+  m_SizeDelta: {x: 1040, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803547052
 MonoBehaviour:
@@ -1582,11 +1584,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 803547050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bef3e40ecf64ff4f8b129749cd01ca5, type: 3}
+  m_Script: {fileID: 11500000, guid: cfe3616ca61873f4789132b1f2095bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalProgressObject: {fileID: 1466577618242428283, guid: 25cdf418029252f409c75dbc2230c13f,
+  progressObject: {fileID: 1466577618242428283, guid: 25cdf418029252f409c75dbc2230c13f,
     type: 3}
+  isNarrative: 0
+  childIndexOffset: 1
 --- !u!1 &1115508713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,8 +2468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 540, y: 0}
+  m_SizeDelta: {x: 1040, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656148602
 MonoBehaviour:
@@ -2554,11 +2558,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1656148600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b45bd21aa044b42be357a2b7e3d4e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8543cf79f0bb849b12947fc5f87b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeeklyGoalObject: {fileID: 2777301457513997853, guid: 8d017f44928117d4f9d7fe9cf329f030,
+  progressObject: {fileID: 1466577618242428283, guid: 25cdf418029252f409c75dbc2230c13f,
     type: 3}
+  isNarrative: 0
+  childIndexOffset: 1
   personalContribution: {fileID: 1172766397}
 --- !u!1 &1690842740
 GameObject:

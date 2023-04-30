@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2508,6 +2508,7 @@ MonoBehaviour:
   LoadingObject: {fileID: 1112061599}
   mask: {fileID: 1255105606}
   segmentation: {fileID: 5293694086831900140}
+  ErrorImage: {fileID: 21300000, guid: cc172c4b217855e4da160a66d03f086a, type: 3}
 --- !u!212 &2036197100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2589,6 +2590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmenter: {fileID: 5293694086831900140}
   taskText: {fileID: 30242472}
+  submitButton: {fileID: 1544832924}
 --- !u!1 &3637468947286621714
 GameObject:
   m_ObjectHideFlags: 0

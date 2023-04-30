@@ -25,6 +25,10 @@ public class ClassificationTasker : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            categoryPopulator.superCategoryDropdown.interactable = false;
+            categoryPopulator.categoryDropdown.interactable = false;
+            categoryPopulator.SubmitBtn.interactable = false;
+            spriteFromURL.ImageUnavailable();
             yield break;
         }
         currentID = task.Result.Value.ID;

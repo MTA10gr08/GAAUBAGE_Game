@@ -5,6 +5,7 @@ using System;
 using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
 using GAAUBAGE_Game.API.Models;
+using UnityEngine.UI;
 
 public class SegmentationTasker : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SegmentationTasker : MonoBehaviour
     public Segmentation segmenter; 
     Guid currentID;
     public TMPro.TMP_Text taskText;
+    public Button submitButton;
 
     private void Awake() {
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
@@ -29,7 +31,9 @@ public class SegmentationTasker : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
-            Debug.Log(Endpoints.Segmentation.Next());
+            Destroy(segmenter);
+            submitButton.interactable = false;
+            spriteFromURL.ImageUnavailable();
             yield break;
         }
 

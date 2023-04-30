@@ -19,7 +19,7 @@ public class SpriteFromURLSegmentation : MonoBehaviour
     public ImageMask mask;
     public Segmentation segmentation;
     private SubImageAnnotation subAnnotation = new SubImageAnnotation();
-
+    public Sprite ErrorImage;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,6 +33,18 @@ public class SpriteFromURLSegmentation : MonoBehaviour
     [UnityEngine.ContextMenu("LoadTestUrl")]
     public void LoadTestUrl() {
         LoadImage(testURL);
+    }
+    public void ImageUnavailable() {
+        //mask.enabled = false;
+        spriteRenderer.enabled = true;
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+        LoadingObject.SetActive(false);
+        var texture = ErrorImage.texture;
+
+        var rect = new Rect(0, 0, texture.width, texture.height);
+        spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
+        Camera.main.orthographicSize = (((1 / Camera.main.aspect) * texture.width) / 2);// * 1.1f;
+        Camera.main.transform.position = new Vector3(texture.width / 2, -texture.height / 2, Camera.main.transform.position.z);
     }
 
     public void GetImageFromID(Guid imageID) {

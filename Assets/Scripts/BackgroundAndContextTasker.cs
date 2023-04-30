@@ -41,6 +41,10 @@ public class BackgroundAndContextTasker : MonoBehaviour
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
             Debug.LogError(task.Result.ResultCode);
+            spriteFromURL.ImageUnavailable();
+            submitBtn.interactable = false;
+            ctxSelector.contextDropdown.interactable = false;
+            bgSelector.GetComponent<Button>().interactable = false;
             yield break;
         }
         spriteFromURL.GetImageFromID(task.Result.Value.Image);

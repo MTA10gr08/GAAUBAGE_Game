@@ -2,7 +2,6 @@ using GAAUBAGE_Game.API.Models;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using GAAUBAGE_Game.API.Models;
 
 public class Segmentation : MonoBehaviour
 {
@@ -89,6 +88,15 @@ public class Segmentation : MonoBehaviour
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 - 50));
         AddPoint(new Vector2(Screen.width / 2 + 50, Screen.height / 2 + 50));
         AddPoint(new Vector2(Screen.width / 2 - 50, Screen.height / 2 + 50));
+    }
+
+    private void OnDestroy() {
+        Destroy(polygon.gameObject);
+        Destroy(outline.gameObject);
+        foreach (var point in points) {
+            Destroy(point.gameObject, .2f);
+        }
+        points.Clear();
     }
 
 }

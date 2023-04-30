@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2248,6 +2248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImagePivot: {x: 0, y: 1}
   LoadingObject: {fileID: 1069150306}
+  ErrorImage: {fileID: 21300000, guid: cc172c4b217855e4da160a66d03f086a, type: 3}
 --- !u!114 &1839977019
 MonoBehaviour:
   m_ObjectHideFlags: 0

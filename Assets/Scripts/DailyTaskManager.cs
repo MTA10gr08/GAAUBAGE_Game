@@ -9,6 +9,8 @@ public class DailyTaskManager : MonoBehaviour
     public GameObject DailyTaskObject;
     public List<GameObject> DailyTasks;
     public LevelAccessController lac;
+    public bool isNarrative = false;
+    public int childIndexOffset = 0;
 
 
     private void Start() {
@@ -18,7 +20,7 @@ public class DailyTaskManager : MonoBehaviour
     void PopulateTasks(List<UserGoal> tasks) {
         for (int i = 0; i <= lac.level; i++) {
             var tmp = Instantiate(DailyTaskObject, transform);
-            tmp.transform.SetSiblingIndex(i+1);
+            tmp.transform.SetSiblingIndex(i + childIndexOffset);
             string Assignment;
             switch (tasks[i].TaskType) {
                 case "CC":
@@ -37,9 +39,18 @@ public class DailyTaskManager : MonoBehaviour
                     Assignment = "ERROR";
                     break;
             }
-            tmp.GetComponent<ProgressBarObject>().UpdateProgresBar((int)tasks[i].Done,
-                                                                            (int)tasks[i].TotalToDo,
-                                                                            Assignment);
+            if (isNarrative) {
+                tmp.GetComponent<NarrativeProgressBarObject>().UpdateProgresBar((int)tasks[i].Done,
+                                                                    (int)tasks[i].TotalToDo,
+                                                                    Assignment);
+            } else {
+                tmp.GetComponent<ProgressBarObject>().UpdateProgresBar((int)tasks[i].Done,
+                                                                    (int)tasks[i].TotalToDo,
+                                                                    Assignment);
+            }
+            //tmp.GetComponent<ProgressBarObject>().UpdateProgresBar((int)tasks[i].Done,
+            //                                                                (int)tasks[i].TotalToDo,
+            //                                                                Assignment);
 
             DailyTasks.Add(tmp);
         }

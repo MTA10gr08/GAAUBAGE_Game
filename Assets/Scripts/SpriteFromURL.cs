@@ -13,6 +13,7 @@ public class SpriteFromURL : MonoBehaviour
     private SpriteRenderer spriteRenderer = null;
     //public new BoxCollider2D collider2D = null;
     public GameObject LoadingObject = null;
+    public Sprite ErrorImage;
 
     private string testURL = "https://i.imgur.com/B5FcIac.jpeg";
     //private string testURL = "https://i.imgur.com/tJvxXyv.jpeg";
@@ -32,9 +33,22 @@ public class SpriteFromURL : MonoBehaviour
         LoadImage(testURL);
     }
 
+    public void ImageUnavailable() {
+        spriteRenderer.enabled = true;
+        LoadingObject.SetActive(false);
+        var texture = ErrorImage.texture;
+
+        var rect = new Rect(0, 0, texture.width, texture.height);
+        spriteRenderer.sprite = Sprite.Create(texture, rect, ImagePivot, 1f);
+        Camera.main.orthographicSize = (((1 / Camera.main.aspect) * texture.width) / 2);// * 1.1f;
+        Camera.main.transform.position = new Vector3(texture.width / 2, -texture.height / 2, Camera.main.transform.position.z);
+    }
+
+
     public void LoadImage(string URL) {
         StartCoroutine(GetTexture(URL));
         spriteRenderer.enabled = false;
+
     }
     public void GetImageFromID(Guid imageID) {
         StartCoroutine(GetImage(imageID));

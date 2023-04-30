@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SubImageTasker : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class SubImageTasker : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            spriteFromURL.ImageUnavailable();
+            boxManager.NewBoxBtn.interactable = false;
+            boxManager.SubmitButton.interactable = false;
+
             yield break;
         }
         currentID = task.Result.Value.ID;
