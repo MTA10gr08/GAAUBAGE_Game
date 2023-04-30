@@ -12,8 +12,7 @@ public class BlapLevelController : MonoBehaviour
         StartCoroutine(GetLevelFromServer());
     }
     IEnumerator GetLevelFromServer() {
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
@@ -46,6 +45,6 @@ public class BlapLevelController : MonoBehaviour
                 LevelDescription.text = "Welcome to the app"; //maybe
                 break;
         }
-
+        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 }

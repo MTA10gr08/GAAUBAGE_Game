@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 #nullable enable
-namespace Assets.Scripts.API.Services
+namespace GAAUBAGE_Game.API.Services
 {
     internal class ImageAnnotationService
     {

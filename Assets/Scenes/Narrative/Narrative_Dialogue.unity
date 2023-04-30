@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2795,6 +2795,9 @@ MonoBehaviour:
   DailyTaskObject: {fileID: 1466577618242428283, guid: 25cdf418029252f409c75dbc2230c13f,
     type: 3}
   DailyTasks: []
+  lac: {fileID: 0}
+  isNarrative: 0
+  childIndexOffset: 0
 --- !u!114 &1468662172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3423,7 +3426,11 @@ MonoBehaviour:
   nameBox: {fileID: 1963141026}
   nextSprite: {fileID: 21300000, guid: 6edd6fc051f80104e9dac213728e6fcf, type: 3}
   endSprite: {fileID: 21300000, guid: bcc43475e2ba253458a3377d046a4f11, type: 3}
-  convo: {fileID: 11400000, guid: 8156158bf4f582e48bfb2a438f487842, type: 2}
+  convos:
+  - {fileID: 11400000, guid: e459907b7d1ead04194a751cb1e6685c, type: 2}
+  - {fileID: 11400000, guid: 080da5eec84834b4499e14f062d7835d, type: 2}
+  - {fileID: 11400000, guid: b0c6a1e07d2e29d48a38b19c09b2014a, type: 2}
+  - {fileID: 11400000, guid: de3624db89bbdfb47b0a3816a55f9b44, type: 2}
   ButtonIcon: {fileID: 1140691609}
 --- !u!4 &1890810390
 Transform:

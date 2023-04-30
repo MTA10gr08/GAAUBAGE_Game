@@ -56,8 +56,7 @@ public class SegmentationTasker : MonoBehaviour
         }
         segmenter.ClearPolygon();
 
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task3 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
         if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task3.Result.ResponseCode);

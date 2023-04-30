@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BLARP/BLAP_Profile.unity
     guid: 46ca17f926c82f44d8b153e7541e909d
   - enabled: 1
+    path: Assets/Scenes/BLARP/BLAP_LevelUp.unity
+    guid: cafcc3e74cf5fa9498851a15dde3af0e
+  - enabled: 1
     path: Assets/Scenes/Narrative/Narrative_Home.unity
     guid: 0f552f73d3af23140a6350abd702b5cb
   - enabled: 1
