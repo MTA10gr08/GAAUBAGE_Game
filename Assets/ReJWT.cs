@@ -23,7 +23,6 @@ public class ReJWT : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-
         PlayerPrefs.SetString("JWT", task.Result.Value);
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));

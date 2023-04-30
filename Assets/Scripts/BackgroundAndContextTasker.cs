@@ -73,9 +73,28 @@ public class BackgroundAndContextTasker : MonoBehaviour
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
         }
-        yield return null;
         bgSelector.ClearSelection();
         ctxSelector.ClearSelection();
+
+        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
+        var task3 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        yield return new WaitUntil(() => task3.IsCompleted);
+        if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task3.Result.ResponseCode);
+            yield break;
+        }
+
+        if ((int)task3.Result.Value.Level != PlayerPrefs.GetInt("Level")) {
+            PlayerPrefs.SetInt("Level", (int)task3.Result.Value.Level);
+
+            if (PlayerPrefs.GetString("Tag") == "Narr") {
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Narrative_Dialogue");
+            } else {
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("BLAP_LevelUp");
+            }
+            yield break;
+        }
+
         StartCoroutine(GetTask());
     }
     void OnValueChanged() {

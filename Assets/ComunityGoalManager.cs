@@ -12,6 +12,7 @@ public class ComunityGoalManager : MonoBehaviour
     public TMPro.TMP_Text personalContribution;
 
     private void Start() {
+        personalContribution.text = "";
         StartCoroutine(GetGoalFromServer());
     }
 
