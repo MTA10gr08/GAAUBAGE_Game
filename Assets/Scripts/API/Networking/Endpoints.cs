@@ -61,7 +61,7 @@ namespace GAAUBAGE_Game.API.Networking
         }
         public static class ImageAnnotation
         {
-            private const string Resource = "imageannotation";
+            private const string Resource = "imageannotations";
             public static string Get(Guid id) => Endpoints.Get(Resource, id);
             public static string VoteSkip(Guid id) => $"{BaseUrl}/{Resource}/{id}/voteskip";
         }

@@ -29,7 +29,7 @@ namespace Assets.Scripts.API.Services
             return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
         }
 
-        public static void VoteSkipImageImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
+        public static void VoteSkipImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.ImageAnnotation.VoteSkip(id);
             APIRequestHandler.Get(apiUrl, onResponse);
