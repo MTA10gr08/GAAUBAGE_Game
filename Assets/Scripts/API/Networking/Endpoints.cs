@@ -40,6 +40,11 @@ namespace GAAUBAGE_Game.API.Networking
             private const string Resource = "communitygoal";
             public static string Get() => Endpoints.Get(Resource);
         }
+        public static class DatabaseInfo
+        {
+            private const string Resource = "databaseinfo";
+            public static string Get() => Endpoints.Get(Resource);
+        }
         public static class Users
         {
             private const string Resource = "users";
