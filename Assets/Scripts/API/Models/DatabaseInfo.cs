@@ -1,5 +1,3 @@
-using static Unity.Collections.NativeArray<T>;
-
 namespace GAAUBAGE_Game.API.Models
 {
     public class DatabaseInfo
