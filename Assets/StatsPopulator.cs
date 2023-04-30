@@ -23,7 +23,7 @@ public class StatsPopulator : MonoBehaviour
 
     IEnumerator GetStatsFromServer() {
         var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {

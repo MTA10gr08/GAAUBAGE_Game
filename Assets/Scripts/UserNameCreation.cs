@@ -56,7 +56,7 @@ public class UserNameCreation : MonoBehaviour
 
         //get token tag
         var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task2 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
         string tag = "";
 

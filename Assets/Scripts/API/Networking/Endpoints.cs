@@ -50,7 +50,7 @@ namespace GAAUBAGE_Game.API.Networking
             private const string Resource = "users";
             public static string GetAll() => Endpoints.GetAll(Resource);
             public static string Post() => Endpoints.Post(Resource);
-            public static string Get(Guid id) => Endpoints.Get(Resource, id);
+            public static string GetCurrent() => $"{BaseUrl}/{Resource}/me";
             public static string Update(Guid id) => Endpoints.Update(Resource, id);
             public static string Delete(Guid id) => Endpoints.Delete(Resource, id);
         }
