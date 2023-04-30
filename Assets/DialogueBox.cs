@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,8 @@ public class DialogueBox : MonoBehaviour
     public TMPro.TMP_Text speechBox, nameBox;
     public Sprite nextSprite, endSprite;
     int index = 0;
-    public ConversationScriptableObject convo;
+    public List<ConversationScriptableObject> convos = new List<ConversationScriptableObject>();
+    ConversationScriptableObject convo;
     bool writing;
     Coroutine writer;
     public Image ButtonIcon;
@@ -16,8 +18,7 @@ public class DialogueBox : MonoBehaviour
         //speech = GetComponent<TMPro.TMP_Text>();
         speechBox.text = "";
         nameBox.text = "";
-
-        ButtonIcon.sprite = nextSprite;
+        convo = convos[PlayerPrefs.GetInt("Level")];
     }
 
     IEnumerator PlayText() {

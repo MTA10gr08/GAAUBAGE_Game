@@ -76,8 +76,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
         bgSelector.ClearSelection();
         ctxSelector.ClearSelection();
 
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
-        var task3 = UserService.GetUserAsync(Guid.Parse(payload.nameid));
+        var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
         if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task3.Result.ResponseCode);
@@ -103,5 +102,20 @@ public class BackgroundAndContextTasker : MonoBehaviour
             return;
         }
         submitBtn.interactable = false;
+    }
+
+    public void Skip() {
+        StartCoroutine(SkipImageAnnotation());
+    }
+
+    IEnumerator SkipImageAnnotation() {
+        var task = ImageAnnotationService.VoteSkipImageAnnotationAsync(currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            Debug.LogError(task.Result.ResultCode);
+            yield break;
+        }
+        StartCoroutine(GetTask());
     }
 }

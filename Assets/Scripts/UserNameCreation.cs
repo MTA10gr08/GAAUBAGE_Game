@@ -1,4 +1,5 @@
 using GAAUBAGE_Game.API.Models;
+using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
@@ -53,9 +54,8 @@ public class UserNameCreation : MonoBehaviour
         }
 
         PlayerPrefs.SetString("JWT", task.Result.Value);
-
+        APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
         //get token tag
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
         var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
         string tag = "";
@@ -69,14 +69,10 @@ public class UserNameCreation : MonoBehaviour
         tag = task2.Result.Value.Tag;
         PlayerPrefs.SetString("Tag", tag);
 
-        if (tag.Equals("Blap")) {
-            SceneManager.LoadSceneAsync("BLAP_Home");
-        } else if (tag.Equals("Narr")) {
-            SceneManager.LoadSceneAsync("Narrative_Home");
+        if (tag.Equals("Narr")) {
+            SceneManager.LoadSceneAsync("Narrative_Dialogue");
         } else {
-            Debug.LogError("No Valid Tag");
-            SceneManager.LoadSceneAsync("BLAP_Home");
-            yield break;
-        }
+            SceneManager.LoadSceneAsync("BLAP_LevelUp");
+        } 
     }
 }
