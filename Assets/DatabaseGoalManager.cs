@@ -36,5 +36,6 @@ public class DatabaseGoalManager : MonoBehaviour
                                                                 1000,
                                                                 Assignment);
         }
+        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 }
