@@ -11,13 +11,13 @@ namespace GAAUBAGE_Game.API.Services
     {
         public static async Task<RequestResult<CommunityGoal>> GetCommunityGoalAsync()
         {
-            string apiUrl = Endpoints.UserGoal.Get();
+            string apiUrl = Endpoints.ComunityGoal.Get();
             return await APIRequestHandler.GetAsync<CommunityGoal>(apiUrl);
         }
 
         public static void GetCommunityGoal(Action<RequestResult<CommunityGoal>>? onResponse = null)
         {
-            string apiUrl = Endpoints.UserGoal.Get();
+            string apiUrl = Endpoints.ComunityGoal.Get();
             APIRequestHandler.Get(apiUrl, onResponse);
         }
     }
