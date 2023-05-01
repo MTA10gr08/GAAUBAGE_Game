@@ -13,8 +13,7 @@ public class DialogueBox : MonoBehaviour
     bool writing;
     Coroutine writer;
     public Image ButtonIcon;
-    public GameObject SpriteObject;
-    public GameObject Parent;
+    public GameObject SpriteObject, Parent, AIFacePrefab;
 
     void Awake() {
         //speech = GetComponent<TMPro.TMP_Text>();
@@ -46,7 +45,8 @@ public class DialogueBox : MonoBehaviour
         }
 
         nameBox.text = convo.Dialogues[index].name == "[You]" ? PlayerPrefs.GetString("Alias") : convo.Dialogues[index].name;
-
+        nameBox.fontSharedMaterial = convo.Dialogues[index].fontMaterial;
+        nameBox.color = convo.Dialogues[index].textColor;
         if (writing) {
             StopCoroutine(writer);
             speechBox.text = convo.Dialogues[index].speech;
@@ -58,6 +58,8 @@ public class DialogueBox : MonoBehaviour
 
         writing = true;
         speechBox.text = string.Empty;
+        speechBox.fontSharedMaterial = convo.Dialogues[index].fontMaterial;
+        speechBox.color = convo.Dialogues[index].textColor;
         Destroy(SpriteObject);
         if (convo.Dialogues[index].AnimatedSprite != null) {
             SpriteObject = Instantiate(convo.Dialogues[index].AnimatedSprite, Parent.transform);
@@ -66,8 +68,9 @@ public class DialogueBox : MonoBehaviour
             SpriteObject = Instantiate(convo.Dialogues[index].StillSprite, Parent.transform);
             SpriteObject.transform.SetAsFirstSibling();
         } else if(convo.Dialogues[index].AIFace != "") {
-            //Display AI face somehow
-            //Sprite
+            SpriteObject = Instantiate(AIFacePrefab, Parent.transform);
+            SpriteObject.transform.SetAsFirstSibling();
+            SpriteObject.GetComponent<AIFaceObject>().SetFace(convo.Dialogues[index].AIFace);
         } else {
             //Diplay nothing
         }

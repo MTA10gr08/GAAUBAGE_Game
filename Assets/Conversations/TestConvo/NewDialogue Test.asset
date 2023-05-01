@@ -13,19 +13,31 @@ MonoBehaviour:
   m_Name: NewDialogue Test
   m_EditorClassIdentifier: 
   Dialogues:
-  - name: 
-    speech: 
-    textSpeed: 0
+  - name: Jerimiah
+    speech: tetetetettetststetst
+    textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 564433751609612250, guid: f0d51d20dd3d22d498c240ef418ed3df,
       type: 3}
     StillSprite: {fileID: 0}
-    textColor: {r: 0, g: 0, b: 0, a: 0}
-  - name: 
-    speech: 
-    textSpeed: 0
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 1, g: 0, b: 0, a: 1}
+  - name: '[You]'
+    speech: stetsttesttes
+    textSpeed: 2
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 2121453765288578219, guid: 6afe0ce7947b0dc459327cbfd84ada04,
+    StillSprite: {fileID: 1591336863750735983, guid: 641c0db7ab472344daa59a43f39f572f,
       type: 3}
-    textColor: {r: 0, g: 0, b: 0, a: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: AI
+    speech: ofhdskhfsjkfj
+    textSpeed: 0
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}

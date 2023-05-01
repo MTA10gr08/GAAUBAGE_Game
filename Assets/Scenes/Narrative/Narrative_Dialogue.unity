@@ -3532,6 +3532,8 @@ MonoBehaviour:
   ButtonIcon: {fileID: 1140691609}
   SpriteObject: {fileID: 0}
   Parent: {fileID: 1716308645}
+  AIFacePrefab: {fileID: 3877854578023055612, guid: 67fe751619e435143bdb5afd3b7a9f86,
+    type: 3}
 --- !u!4 &1890810390
 Transform:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class ComunityGoalManager : MonoBehaviour
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
-        string Assignment = "Comunity Goal:\n";
+        string Assignment = string.Empty;
         var value = task.Result.Value;
         switch (task.Result.Value.TaskType) {
             case "CC":
