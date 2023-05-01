@@ -15,7 +15,6 @@ public class LevelAccessController : MonoBehaviour
     }
 
     IEnumerator GetLevelFromServer() {
-        var payload = JWTReader.GetPayload(PlayerPrefs.GetString("JWT"));
         var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 

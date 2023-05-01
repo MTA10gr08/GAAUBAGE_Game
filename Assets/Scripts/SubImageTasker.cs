@@ -69,4 +69,18 @@ public class SubImageTasker : MonoBehaviour
         StartCoroutine(GetTask());
     }
 
+    public void Skip() {
+        StartCoroutine(SkipImageAnnotation());
+    }
+
+    IEnumerator SkipImageAnnotation() {
+        var task = ImageAnnotationService.VoteSkipImageAnnotationAsync(currentID);
+        yield return new WaitUntil(() => task.IsCompleted);
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            Debug.LogError(task.Result.ResultCode);
+            yield break;
+        }
+        StartCoroutine(GetTask());
+    }
 }

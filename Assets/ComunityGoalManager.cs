@@ -58,6 +58,6 @@ public class ComunityGoalManager : MonoBehaviour
         if (personalContribution != null) {
             personalContribution.text = "Personal Contribution: " + value.DoneYou;
         }
-
+        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 }

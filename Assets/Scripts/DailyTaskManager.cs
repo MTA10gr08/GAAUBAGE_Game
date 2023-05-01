@@ -18,7 +18,7 @@ public class DailyTaskManager : MonoBehaviour
     }
 
     void PopulateTasks(List<UserGoal> tasks) {
-        for (int i = 0; i <= lac.level; i++) {
+        for (int i = 0; i <= Mathf.Clamp(lac.level, 0, 3); i++) {
             var tmp = Instantiate(DailyTaskObject, transform);
             tmp.transform.SetSiblingIndex(i + childIndexOffset);
             string Assignment;
