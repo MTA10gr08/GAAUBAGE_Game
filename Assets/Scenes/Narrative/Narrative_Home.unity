@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402188, g: 0.4931649, b: 0.57223135, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 54977277}
   - component: {fileID: 54977276}
   m_Layer: 5
-  m_Name: Info Screen
+  m_Name: InfoScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Resets at 12:00'
+  m_text: Resets at 12:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aed51565332094f4da40750b7f2971bf, type: 2}
   m_sharedMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 253271543}
   - component: {fileID: 253271542}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 422827734}
   - component: {fileID: 422827733}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,6 +1196,50 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 1
+--- !u!1 &635542471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 635542473}
+  - component: {fileID: 635542472}
+  m_Layer: 0
+  m_Name: Notifier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &635542472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635542471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6c15df4e860fe4aa3cd28404c6e87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &635542473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635542471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 228.05498, y: 893.29443, z: -1.0307921}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &658812678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1251,7 @@ GameObject:
   - component: {fileID: 658812679}
   - component: {fileID: 658812681}
   - component: {fileID: 658812680}
+  - component: {fileID: 658812682}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1332,6 +1377,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658812678}
   m_CullTransparentMesh: 1
+--- !u!114 &658812682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658812678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa51e7c863cbfb4d91792c4e358a047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &667232760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1657,7 @@ GameObject:
   - component: {fileID: 760653376}
   - component: {fileID: 760653375}
   m_Layer: 5
-  m_Name: HeaderBoard
+  m_Name: InfoBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1880,7 +1937,7 @@ GameObject:
   - component: {fileID: 946337676}
   - component: {fileID: 946337675}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EmployeeCode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2634,7 +2691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Resets Monday at 12:00'
+  m_text: Resets Monday at 12:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aed51565332094f4da40750b7f2971bf, type: 2}
   m_sharedMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
@@ -3447,7 +3504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1635230525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3935,7 +3992,7 @@ GameObject:
   - component: {fileID: 1824115364}
   - component: {fileID: 1824115363}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

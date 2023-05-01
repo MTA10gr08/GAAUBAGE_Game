@@ -29,9 +29,8 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 1591336863750735983, guid: 641c0db7ab472344daa59a43f39f572f,
       type: 3}
-    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
-      type: 2}
-    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: AI
     speech: ofhdskhfsjkfj
     textSpeed: 0

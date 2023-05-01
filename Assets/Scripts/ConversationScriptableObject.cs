@@ -13,7 +13,8 @@ public class ConversationScriptableObject : ScriptableObject
 public class DialogueContainer
 {
     public string name = "PlaceHolder";
-    [TextArea(4, 10)] public string speech = "Hello!";
+    //[TextArea(4, 10)] 
+    public string speech = "Hello!";
     [field: SerializeField] private textSpeed textSpeed = textSpeed.normal;
     [field: SerializeField] private aIFace aiFace = aIFace.None;
     public GameObject AnimatedSprite, StillSprite;

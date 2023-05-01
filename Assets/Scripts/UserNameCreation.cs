@@ -17,26 +17,32 @@ public class UserNameCreation : MonoBehaviour
     private void Awake() {
 
         if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT"))) {
-            //load a different scene dependent on the user tag read from thier token
-            //But for now just load BLAP
+           
             UsernameContent.SetActive(true);
-        } else if (string.IsNullOrEmpty(PlayerPrefs.GetString("Tag"))) {
-
         } else {
-            UsernameContent.SetActive(false);
-            string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
-            SceneManager.LoadSceneAsync(home);
+            APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
+            StartCoroutine(CrossCheckUser());
         }
+    }
+    IEnumerator CrossCheckUser() {
+        var task = UserService.GetCurrentUserAsync();
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task.Result.ResponseCode);
+            UsernameContent.SetActive(true);
+
+            yield break;
+        }
+
+        UsernameContent.SetActive(false);
+        //load a different scene dependent on the user tag read from thier tag
+        string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
+        SceneManager.LoadSceneAsync(home);
+
 
     }
     public void submitUsernameToServer() {
-        //User user = new User { Alias = usernameField.text };
-        //UserService.PostUser(user, (response) => {
-        //    if (response.ResultCode == UnityEngine.Networking.UnityWebRequest.Result.Success) {
-        //        PlayerPrefs.SetString("jwt", response.Value);
-
-        //    } else Debug.LogError(response.ToString());
-        //});
         if (submitting != true) {
             submitting = true;
             StartCoroutine(UsernameCreate());
@@ -55,6 +61,7 @@ public class UserNameCreation : MonoBehaviour
 
         PlayerPrefs.SetString("JWT", task.Result.Value);
         APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
+
         //get token tag
         var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
@@ -65,14 +72,14 @@ public class UserNameCreation : MonoBehaviour
             yield break;
         }
 
-
         tag = task2.Result.Value.Tag;
         PlayerPrefs.SetString("Tag", tag);
 
         if (tag.Equals("Narr")) {
             SceneManager.LoadSceneAsync("Narrative_Dialogue");
         } else {
-            SceneManager.LoadSceneAsync("BLAP_LevelUp");
-        } 
+            SceneManager.LoadSceneAsync("BLAP_Home");
+            //SceneManager.LoadSceneAsync("BLAP_LevelUp");
+        }
     }
 }
