@@ -13,6 +13,8 @@ public class DialogueBox : MonoBehaviour
     bool writing;
     Coroutine writer;
     public Image ButtonIcon;
+    public GameObject SpriteObject;
+    public GameObject Parent;
 
     void Awake() {
         //speech = GetComponent<TMPro.TMP_Text>();
@@ -48,13 +50,28 @@ public class DialogueBox : MonoBehaviour
         if (writing) {
             StopCoroutine(writer);
             speechBox.text = convo.Dialogues[index].speech;
+ 
             index++;
             writing = false;
             return;
         }
 
         writing = true;
-        speechBox.text = "";
+        speechBox.text = string.Empty;
+        Destroy(SpriteObject);
+        if (convo.Dialogues[index].AnimatedSprite != null) {
+            SpriteObject = Instantiate(convo.Dialogues[index].AnimatedSprite, Parent.transform);
+            SpriteObject.transform.SetAsFirstSibling();
+        } else if (convo.Dialogues[index].StillSprite != null) {
+            SpriteObject = Instantiate(convo.Dialogues[index].StillSprite, Parent.transform);
+            SpriteObject.transform.SetAsFirstSibling();
+        } else if(convo.Dialogues[index].AIFace != "") {
+            //Display AI face somehow
+            //Sprite
+        } else {
+            //Diplay nothing
+        }
+        
         writer = StartCoroutine(PlayText());
     }
 

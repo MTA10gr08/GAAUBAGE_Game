@@ -16,154 +16,263 @@ MonoBehaviour:
   - name: ???
     speech: Welcome to Junk Corp! The corp for all your Junk needs.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 564433751609612250, guid: f0d51d20dd3d22d498c240ef418ed3df,
+      type: 3}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: ???
     speech: We specialize in recycling everything the common man wastes. Recycling
       is in our blood!
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: cd90514406a735a4fa00406f8501163b, type: 3}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: ???
     speech: ... And yours, microplastics are a bummer.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "Anyway! I am Jeremiah and I\u2019ll be your supervisor."
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: 'Your job here at our headquarters will be as an Inspector. Your job
       will be to inspect any data that comes your way. See, we have these Spotter
       bots all over our lovely Swayz City, they locate any recyclables left behind. '
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: Spotters grab the location and an image of any treasure they come across.
       You have to inspect and annotate this data appropriately.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "The spotters used to do all of this on their own but, well since\u2026
       You know what\u2026 That won\u2019t be possible anymore."
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: 'Otherwise, your job will be easy enough! Each image will have to be
       marked with two tags: Litter context and Background Context. '
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "Spotters can be a bit too enthusiastic, not all images Spotters grab
       are of litter, garbage thrown, or left on the ground. That\u2019s what the
       litter context is."
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "The background context is what the surrounding environment of the garbage
       looks like. It\u2019s not always obvious but do your best."
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "That\u2019s all I had, any questions?"
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: I was actually wondering about break tim-
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: Jeremiah
     speech: "Excellent, now get to it. Those quotas aren\u2019t gonna meet themselves."
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: 
     speech: "\u2026"
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: 
     speech: '*3 weeks later*'
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: 
     speech: ...
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 - \xB0"
     speech: Are you certain it is alright for me to access company data?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Yeah.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Probably.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Maybe...
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Do it.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: " \xB0 < \xB0"
     speech: "Understood. Accessing Data\u2026"
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '- 0 -'
     speech: "Downloading\u2026"
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 \xD8 \xB0"
     speech: 'Error: Data Incomplete.'
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Why? What Happened?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 - \xB0"
     speech: Seems Junk Corp's data model is incomplete, I would require manual input
       to accurately asses further data.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Yeah okay.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: But what does that mean?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 < \xB0"
     speech: I would need to observe you completing tasks to expand the model.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Wait, so for you to do my job... I need to do my job?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 - \xB0"
     speech: Correct.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Doesn't that kinda defeat the purpose?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 < \xB0 "
     speech: Correct.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: Buuut?
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: "\xB0 v \xB0"
     speech: But with sufficient data, the process will be automatic.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
   - name: '[You]'
     speech: I wish I knew that weeks ago, but okay this better be worth it.
     textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    sprite: {fileID: 0}
     textColor: {r: 0, g: 0, b: 0, a: 0}
