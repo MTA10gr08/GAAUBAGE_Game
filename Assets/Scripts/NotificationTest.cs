@@ -6,11 +6,11 @@ using UnityEngine.Android;
 
 public class NotificationTest : MonoBehaviour
 {
-    public void SendNotification() {
+    public void Start() {
         var channel = new AndroidNotificationChannel() {
             Id = "channel_id",
             Name = "Default Channel",
-            Importance = Importance.Default,
+            Importance = Importance.High,
             Description = "Generic notifications",
         };
         AndroidNotificationCenter.RegisterNotificationChannel(channel);
@@ -22,9 +22,18 @@ public class NotificationTest : MonoBehaviour
         var notification = new AndroidNotification();
         notification.Title = "Your Title";
         notification.Text = "Your Text";
-        notification.FireTime = System.DateTime.Now.AddMinutes(1);
+        notification.SmallIcon = "";
+        notification.LargeIcon = "icon0";
+        notification.ShowTimestamp = true;
 
-        AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        notification.FireTime = System.DateTime.Now.AddSeconds(30);
+
+        var id = AndroidNotificationCenter.SendNotification(notification, "channel_id");
+
+        if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id)== NotificationStatus.Scheduled) {
+            AndroidNotificationCenter.CancelAllScheduledNotifications();
+            AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        }
     }
 
 }

@@ -65,17 +65,15 @@ public class UserNameCreation : MonoBehaviour
         //get token tag
         var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
-        string tag = "";
 
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
         }
 
-        tag = task2.Result.Value.Tag;
-        PlayerPrefs.SetString("Tag", tag);
-
-        if (tag.Equals("Narr")) {
+        PlayerPrefs.SetString("Tag", task2.Result.Value.Tag);
+        PlayerPrefs.SetInt("Level", (int)task2.Result.Value.Level);
+        if (PlayerPrefs.GetString("Tag").Equals("Narr")) {
             SceneManager.LoadSceneAsync("Narrative_Dialogue");
         } else {
             SceneManager.LoadSceneAsync("BLAP_Home");
