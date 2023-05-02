@@ -52,19 +52,19 @@ public class DailyNotification : MonoBehaviour
         //    notificationTime = notificationTime.AddHours(1);
         //    Debug.Log(notificationTime);
         //}
-        //notification.FireTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11, 00, 0);
-        notification.FireTime = DateTime.Now.AddSeconds(30);
+        notification.FireTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11, 00, 0);
+        //notification.FireTime = DateTime.Now.AddSeconds(30);
         notification.ShowTimestamp = true;
 
-        Debug.Log(notification.FireTime);
-        Debug.Log("Now " + DateTime.Now);
-        Debug.Log("Now " + DateTimeOffset.Now);
+        //Debug.Log(notification.FireTime);
+        //Debug.Log("Now " + DateTime.Now);
+        //Debug.Log("Now " + DateTimeOffset.Now);
         //Debug.Log("Now-1h " + DateTime.Now.AddHours(-1));
         //Debug.Log("NowtoLocalTime " + DateTime.Now.ToLocalTime());
         //Debug.Log("NowUTC " + DateTime.UtcNow);
 
         //Debug.Log("TimeZoneTest " + TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.Local));
-        notification.RepeatInterval = new TimeSpan(0, 0, 1, 0); // repeat every 24 hours
+        notification.RepeatInterval = new TimeSpan(1, 0, 0, 0); // repeat every 24 hours
         notification.ShouldAutoCancel = true;
         return notification;
         //PlayerPrefs.SetInt("ScheduledNotification", AndroidNotificationCenter.SendNotificationWithExplicitID(notification, "default_channel", 6969));
