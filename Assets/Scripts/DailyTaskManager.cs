@@ -48,9 +48,6 @@ public class DailyTaskManager : MonoBehaviour
                                                                     (int)tasks[i].TotalToDo,
                                                                     Assignment);
             }
-            //tmp.GetComponent<ProgressBarObject>().UpdateProgresBar((int)tasks[i].Done,
-            //                                                                (int)tasks[i].TotalToDo,
-            //                                                                Assignment);
 
             DailyTasks.Add(tmp);
         }

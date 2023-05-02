@@ -17,8 +17,8 @@ public class DialogueBox : MonoBehaviour
 
     void Awake() {
         //speech = GetComponent<TMPro.TMP_Text>();
-        speechBox.text = "";
-        nameBox.text = "";
+        //speechBox.text = "";
+        //nameBox.text = "";
         convo = convos[PlayerPrefs.GetInt("Level")];
     }
 
@@ -60,14 +60,17 @@ public class DialogueBox : MonoBehaviour
         speechBox.text = string.Empty;
         speechBox.fontSharedMaterial = convo.Dialogues[index].fontMaterial;
         speechBox.color = convo.Dialogues[index].textColor;
-        Destroy(SpriteObject);
+
         if (convo.Dialogues[index].AnimatedSprite != null) {
+            Destroy(SpriteObject);
             SpriteObject = Instantiate(convo.Dialogues[index].AnimatedSprite, Parent.transform);
             SpriteObject.transform.SetAsFirstSibling();
         } else if (convo.Dialogues[index].StillSprite != null) {
+            Destroy(SpriteObject);
             SpriteObject = Instantiate(convo.Dialogues[index].StillSprite, Parent.transform);
             SpriteObject.transform.SetAsFirstSibling();
         } else if(convo.Dialogues[index].AIFace != "") {
+            Destroy(SpriteObject);
             SpriteObject = Instantiate(AIFacePrefab, Parent.transform);
             SpriteObject.transform.SetAsFirstSibling();
             SpriteObject.GetComponent<AIFaceObject>().SetFace(convo.Dialogues[index].AIFace);

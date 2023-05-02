@@ -39,8 +39,6 @@ public class UserNameCreation : MonoBehaviour
         //load a different scene dependent on the user tag read from thier tag
         string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
         SceneManager.LoadSceneAsync(home);
-
-
     }
     public void submitUsernameToServer() {
         if (submitting != true) {

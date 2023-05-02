@@ -74,7 +74,6 @@ public class Segmentation : MonoBehaviour
     }
 
     public void ClearPolygon() {
-        Debug.Log("Resetting Polygon");
         Destroy(polygon.gameObject);
 
         foreach (var point in points) {

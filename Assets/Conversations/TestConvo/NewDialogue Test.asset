@@ -21,7 +21,7 @@ MonoBehaviour:
       type: 3}
     StillSprite: {fileID: 0}
     fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 1, g: 0, b: 0, a: 1}
+    textColor: {r: 1, g: 0.59464884, b: 0, a: 1}
   - name: '[You]'
     speech: stetsttesttes
     textSpeed: 2
@@ -35,6 +35,15 @@ MonoBehaviour:
     speech: ofhdskhfsjkfj
     textSpeed: 0
     aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: AI
+    speech: ofhdskhfsjkfj
+    textSpeed: 0
+    aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
     fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,

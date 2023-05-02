@@ -32,7 +32,6 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
         currentID = task.Result.Value.ID;
-        Debug.Log(task.Result.Value.Image.ToString());
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     public void submitValuesToServer() {
@@ -40,7 +39,6 @@ public class ClassificationTasker : MonoBehaviour
     }
     IEnumerator PostUserValues() {
         TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
-        Debug.Log(sCategory.TrashSuperCategoryLabel);
         var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -49,7 +47,6 @@ public class ClassificationTasker : MonoBehaviour
         }
 
         TrashSubCategory category = new TrashSubCategory { TrashSubCategoryLabel = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
-        Debug.Log(category.TrashSubCategoryLabel);
         var task2 = TrashSubCategoryService.PostTrashSubCategoryAsync(category, currentID);
         yield return new WaitUntil(() => task2.IsCompleted);
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {

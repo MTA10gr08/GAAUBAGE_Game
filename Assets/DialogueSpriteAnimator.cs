@@ -17,7 +17,6 @@ public class DialogueSpriteAnimator : MonoBehaviour
 
     private void Update() {
         currentTime -= Time.deltaTime;
-        Debug.Log(index);
         if (currentTime <= 0) {
             index++;
             index = index % sprites.Count;
