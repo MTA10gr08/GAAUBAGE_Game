@@ -39,6 +39,7 @@ public class DialogueContainer
                 aIFace.Error => "° Ø °",
                 aIFace.Talk => "° < °",
                 aIFace.Confused => "? < ?",
+                aIFace.Empty => " ",
                 _ => "",
             };
         }
@@ -61,6 +62,7 @@ public enum aIFace
     Error,
     Talk,
     Happy,
-    Confused
+    Confused,
+    Empty,
 
 }
