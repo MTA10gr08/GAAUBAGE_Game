@@ -186,7 +186,14 @@ MonoBehaviour:
   - name: '[You]'
     speech: "Well alright, I guess I have more time on my hands now that I don\u2019t
       have to pilot the spotters. Let\u2019s try it."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I will add this task to your system. You should see it on your desktop
+      now.
     textSpeed: 2
-    aiFace: 4
+    aiFace: 5
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
