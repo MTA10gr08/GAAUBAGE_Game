@@ -1,0 +1,26 @@
+	You walk nervously down the corridor to Jeremiah’s office. You are not sure why, but he requested a meeting with you today.
+	You find the door to his office and knock.
+Jeremiah	Yes! Come in.
+	You walk inside the office and Jeremiah stands there with his back towards you, looking over the smog-filled streets of SwayzCity. He makes a gesture that indicates you should sit down. You do so.
+Jeremiah	It is not often in my life that I have felt proud.
+Jeremiah	When you first sat in that spotter booth, I knew I saw fire in your eyes. A passion. And with my guidance, you have become a decent operator.
+	He turns and looks at you.
+Jeremiah	I am a fantastic supervisor.
+	He sits back down in his office chair
+Jeremiah	The higher-ups are saying we are picking up too many contaminants.
+[You]	Sorry?
+Jeremiah	You know, dirt, leaves that sort of thing. They want the department to be more precise when handling Spotters.
+[You]	Did you call me here to tell me that?
+Jeremiah	Well, it seems rather unfair that I have to come to you all the time, doesn’t it?
+Jeremiah	You should get going, I have meetings with all the other operators in the department.
+	You get up and notice Jeremiah getting back into position by the window overlooking the city.
+	You walk back to your booth.
+[You]	… And that’s what he said
+AI	Jeremiah is a confusing person.
+[You]	Tell me about it.
+AI	Jeremiah is a confusing person because of his strange mannerisms and—
+[You]	No no, it’s an expression.
+AI	You are confusing too.
+[You]	Either way, we need to limit the amount of contaminants you pick up with the spotters. What would such a task look like?
+AI	I would need exact knowledge of what is and is not the same object. I can make a task for segmenting objects. This should increase accuracy.
+[You]	Alright, sounds good.

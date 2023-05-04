@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb479495c3bd24e9b6965512ecec9f, type: 3}
+  m_Name: Level up 2
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - name: 
+    speech: "*You quickly scramble to look like you are actively working*\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Jeremiah, uhm hi?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "You know kid, it is rare we see someone with as much enthusiasm as you,
+      you\u2019ve really started doing numbers!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Wow really? Thanks, I\u2014\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Too bad it\u2019s all wrong.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Yeah see, you\u2019ve got numbers, but\u2014and you really should have
+      caught this on your own. You can\u2019t just throw what you collect into the
+      same pile.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "*You throw a quick, angry glance at your screens, immediately feeling
+      a little dumb as there isn\u2019t really anyone to scowl at*\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "I mean, the chart is there for a reason.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "*Jeremiah slaps a poster in your booth with a big confusing chart of
+      different types of plastics*\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "You are lucky your numbers are exceptional, but you gotta pull your
+      own load around here. You have to sort your findings.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Oh look at the time, it\u2019s my lunch break, take care!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "You heard all that right?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "Yes.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "How could you just throw it all in one pile!? Although I might be a
+      bit to blame, I should have seen this coming by now.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "Objects are confusing, shape, colour, material, and weight, all are
+      different yet some are the same.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Could you set up another task? Something that could help you categorize
+      each piece of litter?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "Yes. This should be possible.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "JunkCorp should have some data on how they sort their items, you can
+      probably use that as a starting point for categories.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "Understood.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "\u2026\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "The task should be ready.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Alright, I\u2019ll get to it."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}

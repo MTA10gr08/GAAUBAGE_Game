@@ -1,0 +1,28 @@
+You	… So, do you like, have a name?
+AI	No.
+You	Feels weird to just call you-
+Jeremiah	Knock-knock!
+You	Uh, hello.
+Jeremiah	How’s work?
+You	I—
+Jeremiah	Don’t answer that, I already know.
+Jeremiah	You! Have! Been! Slacking!
+	Jeremiah claps his hands as he speaks the words.
+You	That’s not true, I hav-
+Jeremiah	No excuses! Your statistics already show a steady decline compared to your peers. If this continues you will be dangerously close to not meeting the quota. Our prediction algorithm tells us in just four more weeks you will make -12 contributions!
+You	How is that even possible, I can’t make less than 0, how would that even work?
+Jeremiah	Exactly! You better start making numbers, superstar, or you’ll be demoted!
+You	I thought this was the lowest position in the company.
+Jeremiah	You’d be surprised! Chop-chop!
+	Jeremiah scuttles away.
+You	How are our numbers low? You have been piloting Spotters nonstop.
+AI	The issue is likely with the quantity.
+AI	With adjustments to my model, it may be possible to extract trash more efficiently from each location.
+You	I am not sure how that would work, aren't you already gathering all trash in each location, a change to your model won’t conjure up any more litter to extract.
+AI	Incorrect.
+You	What, which part?
+AI	My current model only identifies a single piece in each location. Therefore I only gather a single piece.
+You	Do you just gather the one?! Well of course our numbers are low then. How can we fix this?
+AI	I can set up another program that would train my model. This could help make better decisions in the future.
+You	Well alright, I guess I have more time on my hands now that I don’t have to pilot the spotters. Let’s try it.
+AI	I will add this task to your system.

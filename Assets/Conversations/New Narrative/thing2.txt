@@ -1,0 +1,23 @@
+Jeremiah	Superstar!
+	*You quickly scramble to look like you are actively working*
+[You]	Jeremiah, uhm hi?
+Jeremiah	You know kid, it is rare we see someone with as much enthusiasm as you, you’ve really started doing numbers!
+[You]	Wow really? Thanks, I—
+Jeremiah	Too bad it’s all wrong.
+Jeremiah	Yeah see, you’ve got numbers, but—and you really should have caught this on your own. You can’t just throw what you collect into the same pile.
+	*You throw a quick, angry glance at your screens, immediately feeling a little dumb as there isn’t really anyone to scowl at*
+Jeremiah	I mean, the chart is there for a reason.
+	*Jeremiah slaps a poster in your booth with a big confusing chart of different types of plastics*
+Jeremiah	You are lucky your numbers are exceptional, but you gotta pull your own load around here. You have to sort your findings.
+Jeremiah	Oh look at the time, it’s my lunch break, take care!
+[You]	You heard all that right?
+AI	Yes.
+[You]	How could you just throw it all in one pile!? Although I might be a bit to blame, I should have seen this coming by now.
+AI	Objects are confusing, shape, colour, material, and weight, all are different yet some are the same.
+[You]	Could you set up another task? Something that could help you categorize each piece of litter?
+AI	Yes. This should be possible.
+[You]	JunkCorp should have some data on how they sort their items, you can probably use that as a starting point for categories.
+AI	Understood.
+AI	…
+AI	The task should be ready.
+[You]	Alright, I’ll get to it.

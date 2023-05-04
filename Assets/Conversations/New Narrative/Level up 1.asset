@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb479495c3bd24e9b6965512ecec9f, type: 3}
+  m_Name: Level up 1
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - name: AI
+    speech: "No.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "Feels weird to just call you-\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Knock-knock!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "Uh, hello.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "How\u2019s work?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "I\u2014\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Don\u2019t answer that, I already know.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "You! Have! Been! Slacking!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "Jeremiah claps his hands as he speaks the words.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "That\u2019s not true, I hav-\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "No excuses! Your statistics already show a steady decline compared to
+      your peers. If this continues you will be dangerously close to not meeting
+      the quota. Our prediction algorithm tells us in just four more weeks you will
+      make -12 contributions!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "How is that even possible, I can\u2019t make less than 0, how would
+      that even work?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "Exactly! You better start making numbers, superstar, or you\u2019ll
+      be demoted!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "I thought this was the lowest position in the company.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: "You\u2019d be surprised! Chop-chop!\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "Jeremiah scuttles away.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "How are our numbers low? You have been piloting Spotters nonstop.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "The issue is likely with the quantity.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "With adjustments to my model, it may be possible to extract trash more
+      efficiently from each location.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "I am not sure how that would work, aren't you already gathering all
+      trash in each location, a change to your model won\u2019t conjure up any more
+      litter to extract.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "Incorrect.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "What, which part?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "My current model only identifies a single piece in each location. Therefore
+      I only gather a single piece.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "Do you just gather the one?! Well of course our numbers are low then.
+      How can we fix this?\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: "I can set up another program that would train my model. This could help
+      make better decisions in the future.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: You
+    speech: "Well alright, I guess I have more time on my hands now that I don\u2019t
+      have to pilot the spotters. Let\u2019s try it.\r"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I will add this task to your system.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
