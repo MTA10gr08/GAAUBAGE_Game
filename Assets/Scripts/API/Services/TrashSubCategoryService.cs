@@ -32,13 +32,13 @@ namespace GAAUBAGE_Game.API.Services
             APIRequestHandler.Get(apiUrl, onResponse);
         }
 
-        public static async Task<RequestResult<SubImageAnnotation>> GetTrashSubCategoryAsync(Guid ImageAnnotationID)
+        public static async Task<RequestResult<TrashSubCategory>> GetTrashSubCategoryAsync(Guid ImageAnnotationID)
         {
             string apiUrl = Endpoints.TrashSubCategory.Get(ImageAnnotationID);
-            return await APIRequestHandler.GetAsync<SubImageAnnotation>(apiUrl);
+            return await APIRequestHandler.GetAsync<TrashSubCategory>(apiUrl);
         }
 
-        public static void GetTrashSubCategory(Guid ImageAnnotationID, Action<RequestResult<SubImageAnnotation>>? onResponse = null)
+        public static void GetTrashSubCategory(Guid ImageAnnotationID, Action<RequestResult<TrashSubCategory>>? onResponse = null)
         {
             string apiUrl = Endpoints.TrashSubCategory.Get(ImageAnnotationID);
             APIRequestHandler.Get(apiUrl, onResponse);
