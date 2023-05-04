@@ -111,6 +111,7 @@ namespace GAAUBAGE_Game.API.Networking
             public static string Post(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}";
             public static string Next() => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/next";
             public static string Get(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{Resource}/{id}";
+            public static string GetMine(Guid id) => $"{BaseUrl}/imageannotations/subimageannotations/{id}/{Resource}/me";
         }
         public static class Segmentation
         {
