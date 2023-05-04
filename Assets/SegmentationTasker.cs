@@ -52,7 +52,7 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
-        taskText.text = "Manipulate the shape to segment the" + task2.Result.Value.; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
+        taskText.text = "Manipulate the shape to segment the" + task2.Result.Value.TrashSubCategoryLabel; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {

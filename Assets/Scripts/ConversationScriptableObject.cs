@@ -36,7 +36,7 @@ public class DialogueContainer
                 aIFace.Happy => "° v °",
                 aIFace.LookingForData => "- 0 -",
                 aIFace.Error => "° Ø °",
-                aIFace.Talk => "° < °",
+                aIFace.Talk => "° > °",
                 aIFace.Confused => "? < ?",
                 aIFace.Empty => " ",
                 _ => "",

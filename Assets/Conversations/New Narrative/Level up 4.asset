@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb479495c3bd24e9b6965512ecec9f, type: 3}
+  m_Name: Level up 4
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - name: 
+    speech: After a long day in your booth you stretch your arms and back.
+    textSpeed: 1
+    aiFace: 7
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "Jeremiah has been bothering you less and less. With all the training
+      you have done, AI\u2019s behaviour has become pretty accurate. "
+    textSpeed: 1
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: Despite how well AI performs, you seem to still be competing on even
+      grounds with your fellow operators.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "Altough you haven\u2019t really talked to your coworkers, AI suggested
+      that maybe the secret employment of AI\u2019s aren\u2019t that uncommon in
+      the operator field."
+    textSpeed: 1
+    aiFace: 4
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "Might actually explain Jeremiah\u2019s slightly inflated ego."
+    textSpeed: 1
+    aiFace: 6
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: 'Either way, there is of course no way anyone else could ever train an
+      AI better than you. Right? '
+    textSpeed: 1
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: Thanks for playing our game! If you continue playing you will still contribute
+      to our dataset and you can compete against everyone else for the top spot on
+      our contribution leaderboard.
+    textSpeed: 1
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}

@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogues:
   - name: 
-    speech: "You find the door to his office and knock.\r"
+    speech: "You walk nervously down the corridor to Jeremiah\u2019s office. He didn\u2019t
+      say why, but he requested a meeting with you today."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "You find the door to Jeremiah's office and knock.\r"
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
@@ -38,7 +45,8 @@ MonoBehaviour:
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 0}
+    StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
+      type: 3}
   - name: Jeremiah
     speech: "When you first sat in that spotter booth, I knew I saw fire in your
       eyes. A passion. And with my guidance, you have become a decent operator.\r"
@@ -115,7 +123,8 @@ MonoBehaviour:
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 0}
+    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
+      type: 3}
   - name: '[You]'
     speech: "\u2026 And that\u2019s what he said\r"
     textSpeed: 1
@@ -125,7 +134,7 @@ MonoBehaviour:
   - name: AI
     speech: "Jeremiah is a confusing person.\r"
     textSpeed: 1
-    aiFace: 0
+    aiFace: 6
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: '[You]'
@@ -137,7 +146,7 @@ MonoBehaviour:
   - name: AI
     speech: "Jeremiah is a confusing person because of his strange mannerisms and\u2014\r"
     textSpeed: 1
-    aiFace: 0
+    aiFace: 4
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: '[You]'
@@ -149,21 +158,21 @@ MonoBehaviour:
   - name: AI
     speech: "You are confusing too.\r"
     textSpeed: 1
-    aiFace: 0
+    aiFace: 6
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: '[You]'
     speech: "Either way, we need to limit the amount of contaminants you pick up
       with the spotters. What would such a task look like?\r"
     textSpeed: 1
-    aiFace: 0
+    aiFace: 1
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: AI
     speech: "I would need exact knowledge of what is and is not the same object.
       I can make a task for segmenting objects. This should increase accuracy.\r"
     textSpeed: 1
-    aiFace: 0
+    aiFace: 1
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: '[You]'
