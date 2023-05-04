@@ -32,15 +32,27 @@ namespace GAAUBAGE_Game.API.Services
             APIRequestHandler.Get(apiUrl, onResponse);
         }
 
-        public static async Task<RequestResult<TrashSubCategory>> GetTrashSubCategoryAsync(Guid ImageAnnotationID)
+        public static async Task<RequestResult<TrashSubCategory>> GetTrashSubCategoryAsync(Guid TrashsubcategorieID)
         {
-            string apiUrl = Endpoints.TrashSubCategory.Get(ImageAnnotationID);
+            string apiUrl = Endpoints.TrashSubCategory.Get(TrashsubcategorieID);
             return await APIRequestHandler.GetAsync<TrashSubCategory>(apiUrl);
         }
 
-        public static void GetTrashSubCategory(Guid ImageAnnotationID, Action<RequestResult<TrashSubCategory>>? onResponse = null)
+        public static void GetTrashSubCategory(Guid TrashsubcategorieID, Action<RequestResult<TrashSubCategory>>? onResponse = null)
         {
-            string apiUrl = Endpoints.TrashSubCategory.Get(ImageAnnotationID);
+            string apiUrl = Endpoints.TrashSubCategory.Get(TrashsubcategorieID);
+            APIRequestHandler.Get(apiUrl, onResponse);
+        }
+
+        public static async Task<RequestResult<TrashSubCategory>> GetMyTrashSubCategoryAsync(Guid ImageAnnotationID)
+        {
+            string apiUrl = Endpoints.TrashSubCategory.GetMine(ImageAnnotationID);
+            return await APIRequestHandler.GetAsync<TrashSubCategory>(apiUrl);
+        }
+
+        public static void GetMyTrashSubCategory(Guid ImageAnnotationID, Action<RequestResult<TrashSubCategory>>? onResponse = null)
+        {
+            string apiUrl = Endpoints.TrashSubCategory.GetMine(ImageAnnotationID);
             APIRequestHandler.Get(apiUrl, onResponse);
         }
     }
