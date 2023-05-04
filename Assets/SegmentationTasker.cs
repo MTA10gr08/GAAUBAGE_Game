@@ -36,6 +36,20 @@ public class SegmentationTasker : MonoBehaviour
             spriteFromURL.ImageUnavailable();
             yield break;
         }
+        //Guid test = task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty;
+        //if (test.Equals(Guid.Empty)) {
+        //    yield break;
+        //}
+        var task2 = TrashSubCategoryService.GetTrashSubCategoryAsync(task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty);
+        yield return new WaitUntil(() => task2.IsCompleted);
+
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+            Debug.LogError(task2.Result.ResponseCode);
+            Destroy(segmenter);
+            submitButton.interactable = false;
+            spriteFromURL.ImageUnavailable();
+            yield break;
+        }
 
         currentID = task.Result.Value.ID;
         taskText.text = "Segment the focal trash piece"; //task.Result.Value.TrashSubCategoriesConsensus.ToString();

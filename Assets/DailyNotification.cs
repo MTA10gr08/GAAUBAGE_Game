@@ -64,13 +64,14 @@ public class DailyNotification : MonoBehaviour
     private AndroidNotification GetAndroidNotification()
     {
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
-        return new AndroidNotification()
-        {
+        return new AndroidNotification() {
             Title = isNarr ? "JunkCorp needs you!" : "Gaaubage",
             Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Count)] : "Daily Tasks have been Reset!",
             SmallIcon = isNarr ? "notification_icon" : "",
             LargeIcon = "default",
             FireTime = DateTime.Now.Date.AddHours(12), //fucked
+            ShouldAutoCancel = true,
+            //FireTime = DateTime.Now.AddMinutes(1), //fucked
             RepeatInterval = TimeSpan.FromDays(1),
             ShowTimestamp = true,
         };
