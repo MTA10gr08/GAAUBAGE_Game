@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67fb479495c3bd24e9b6965512ecec9f, type: 3}
-  m_Name: Data
+  m_Name: Levelup1
   m_EditorClassIdentifier: 
   Dialogues:
   - name: '[You]'
@@ -141,23 +141,59 @@ MonoBehaviour:
     textSpeed: 2
     aiFace: 5
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
-      type: 3}
+    StillSprite: {fileID: 0}
   - name: '[You]'
     speech: "I am not sure how that would work, aren't you already gathering all
       trash in each location, a change to your model won\u2019t conjure up any more
       litter to extract."
-    textSpeed: 2
-    aiFace: 5
+    textSpeed: 1
+    aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
-      type: 3}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Incorrect.
+    textSpeed: 2
+    aiFace: 1
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
   - name: '[You]'
-    speech: "I am not sure how that would work, aren't you already gathering all
-      trash in each location, a change to your model won\u2019t conjure up any more
-      litter to extract."
+    speech: What, which part?
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: My current model only identifies a single piece in each location. Therefore
+      I only gather a single piece.
+    textSpeed: 2
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: Do you just gather the one?! Thats definitely why then. How can we fix
+      this?
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I can set up another program that would train my model. This could help
+      make better decisions in the future.
+    textSpeed: 2
+    aiFace: 4
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Well alright, I guess I have more time on my hands now that I don\u2019t
+      have to pilot the spotters. Let\u2019s try it."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I will add this task to your system. You should see it on your desktop
+      now.
     textSpeed: 2
     aiFace: 5
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
-      type: 3}
+    StillSprite: {fileID: 0}
