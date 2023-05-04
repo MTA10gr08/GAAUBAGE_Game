@@ -36,10 +36,10 @@ public class SegmentationTasker : MonoBehaviour
             spriteFromURL.ImageUnavailable();
             yield break;
         }
-        //Guid test = task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty;
-        //if (test.Equals(Guid.Empty)) {
-        //    yield break;
-        //}
+        Guid test = task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty;
+        if (test.Equals(Guid.Empty)) {
+            yield break;
+        }
         var task2 = TrashSubCategoryService.GetTrashSubCategoryAsync(task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty);
         yield return new WaitUntil(() => task2.IsCompleted);
 
@@ -52,7 +52,7 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
-        taskText.text = "Segment the focal trash piece"; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
+        taskText.text = "Manipulate the shape to segment the" + task2.Result.Value.; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
