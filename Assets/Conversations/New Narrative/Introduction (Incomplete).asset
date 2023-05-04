@@ -20,8 +20,6 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
       type: 3}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: ???
     speech: We specialize in recycling everything the common man wastes. Recycling
       is in our blood!
@@ -29,24 +27,18 @@ MonoBehaviour:
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: ???
     speech: And yours, microplastics are a bummer.
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: Jeremiah
     speech: "Anyway! I am Jeremiah and I\u2019ll be your supervisor."
     textSpeed: 2
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: Jeremiah
     speech: 'As an Operator you will sit in that booth over there and keep an eye
       on our Spotters: semi-autonomous robots that wander the streets of our beautiful
@@ -55,8 +47,6 @@ MonoBehaviour:
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: Jeremiah
     speech: Spotters will locate any potential reusables and ping you back here.
       You will then be given control of the bot, and are responsible for piloting
@@ -65,8 +55,6 @@ MonoBehaviour:
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: Jeremiah
     speech: Back here we recycle it back into its base components and sell it back
       for profit.
@@ -74,48 +62,36 @@ MonoBehaviour:
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: Jeremiah
     speech: "I know it\u2019s tedious work and the pay isn\u2019t that good."
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: '[You]'
     speech: But?
     textSpeed: 0
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Jeremiah
     speech: "Hm? Anyway that\u2019s all I had! Any questions before I go?"
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: '[You]'
     speech: Actually, I was wondering about break times-
     textSpeed: 2
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Jeremiah
     speech: "Excellent! Now get to it. Those quotas aren\u2019t gonna meet themselves!"
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
-    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
   - name: 
     speech: "You sit down and start your shift. Jeremiah wasn\u2019t kidding, and
       there is a constant barrage of pings from Spotters who need extraction."
@@ -125,8 +101,6 @@ MonoBehaviour:
       type: 3}
     StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
       type: 3}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   - name: '[You]'
     speech: "Why haven\u2019t they automated this process? If they can have Spotter
       roam on their own, why not pick up litter?"
@@ -134,16 +108,12 @@ MonoBehaviour:
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: '[You]'
     speech: Actually, I think I saw someone put up a general-purpose AI for sale.
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: '[You]'
     speech: ...
     textSpeed: 0
@@ -151,51 +121,235 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 2032808588711109954, guid: bbda4dfbe93ffc64ea9c1ad10ffa795a,
       type: 3}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: 
     speech: Downloading.
-    textSpeed: 2
+    textSpeed: 0
     aiFace: 7
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 2032808588711109954, guid: bbda4dfbe93ffc64ea9c1ad10ffa795a,
       type: 3}
-    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
-      type: 2}
-    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
   - name: 
     speech: "|\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588
       \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588|"
-    textSpeed: 2
+    textSpeed: 0
     aiFace: 7
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
-      type: 2}
-    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
   - name: AI.
     speech: Install Complete.
     textSpeed: 2
     aiFace: 1
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
-      type: 2}
-    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
   - name: AI.
     speech: Hello.
     textSpeed: 2
     aiFace: 5
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
-      type: 2}
-    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
   - name: '[You]'
-    speech: "Hello? Looks like it worked! Okay so, I have an important task for you\u2026"
+    speech: Oh, hello? Looks like it worked! Alright, give me a minute, I have prepared
+      a file here with the task description
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: 
+    speech: ...
+    textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: Think you can handle that?
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Yes.
+    textSpeed: 2
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Fantastic! I\u2019ll leave you to it then."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: "You kick up your legs and lean back as you observe the AI extract the
+      first piece of trash using the Spotter\u2019s pincer arms."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
+      type: 3}
+  - name: '[You]'
+    speech: 'Piece of cake. '
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: ...
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: WHAT IS GOING ON HERE?!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
+      type: 3}
+  - name: 
+    speech: You wake up with a startle and quickly assume a position that looks like
+      you are working.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: I have 43 complaints that JunkCorp Spotters have been prying items directly
+      from the hands of people and 26 stating that Spotters have stolen items from
+      shops!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: IT tracked almost all of those instances to you!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "I-I, um\u2026"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: Have you not been using the chart?!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: No more of this nonsense, I have a lot of phone calls to make. You better
+      start improving really fast.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: 
+    speech: Jeremiah walks off
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
+      type: 3}
+  - name: '[You]'
+    speech: What have you been doing?! That could have ended really badly!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I have been operating spotters as you requested.
+    textSpeed: 2
+    aiFace: 1
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Yeah, but you can\u2019t take items that aren\u2019t litter!"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Unclear meaning, is Litter an untidy accumulation of objects I have been
+      following this directive.
+    textSpeed: 1
+    aiFace: 6
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Yes but, it also depends on context, you can\u2019t just grab anything
+      that's in a pile, part of the job is also to ignore any false pings. Have you
+      just picked up every item?"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Correct
+    textSpeed: 2
+    aiFace: 4
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: "Well, theres our problem then, could you uhm\u2026 Do better?"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Yes, but I would require data samples.
+    textSpeed: 2
+    aiFace: 1
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: Great, where can I get those?
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: I can set up a program that would feed data to my model. This could help
+      make better decisions in the future.
+    textSpeed: 2
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: How does that work?
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: It would require manual input. Assigning context to sample images.
+    textSpeed: 2
+    aiFace: 4
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: So I would still have to work?
+    textSpeed: 1
+    aiFace: 4
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: Correct.
+    textSpeed: 2
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: '[You]'
+    speech: Well, it's better than operating Spotters I guess, set it up.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: AI
+    speech: 'Understood. I will overwrite the company''s internal tasking system
+      to instead show this task as a reminder to perform manual input. '
+    textSpeed: 2
+    aiFace: 2
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}

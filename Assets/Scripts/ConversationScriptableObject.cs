@@ -18,7 +18,6 @@ public class DialogueContainer
     [field: SerializeField] private textSpeed textSpeed = textSpeed.normal;
     [field: SerializeField] private aIFace aiFace = aIFace.None;
     public GameObject AnimatedSprite, StillSprite;
-    public Material fontMaterial;
 
     public float TextSpeed {
         get {
@@ -44,7 +43,6 @@ public class DialogueContainer
             };
         }
     }
-    public Color textColor = Color.black;
 }
 public enum textSpeed
 {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -448,10 +448,10 @@ RectTransform:
   m_Father: {fileID: 1654351062}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.42}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -75}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559129189
 MonoBehaviour:
@@ -2070,6 +2070,10 @@ MonoBehaviour:
   Parent: {fileID: 1716308645}
   AIFacePrefab: {fileID: 3877854578023055612, guid: 67fe751619e435143bdb5afd3b7a9f86,
     type: 3}
+  fontMaterials:
+  - {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+  - {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+  - {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf, type: 2}
 --- !u!4 &1890810390
 Transform:
   m_ObjectHideFlags: 0
