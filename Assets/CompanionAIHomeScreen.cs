@@ -18,16 +18,17 @@ public class CompanionAIHomeScreen : MonoBehaviour
                     text = "Remember to train my model.";
                     break;
                 case 1:
-                    text = "";
+                    text = "Jeremiah seems like an interesting person.";
                     break;
                 case 2:
-                    text = "";
+                    text = "Should I also refere to you as \"Superstar\"?";
                     break;
                 case 3:
-                    text = "";
+                    text = "Despite JunkCorps efforts, it seems the litter supply of SwayzCity is endless.";
                     break;
-                    //case 4:
-                    //    break;
+                case 4:
+                    text = "Hello Superstar.";
+                    break;
             }
         } else if (selector >= speech.Count - 3) {
             switch (DateTime.Now.Hour) {

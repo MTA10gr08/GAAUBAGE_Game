@@ -74,8 +74,8 @@ public class UserNameCreation : MonoBehaviour
         if (PlayerPrefs.GetString("Tag").Equals("Narr")) {
             SceneManager.LoadSceneAsync("Narrative_Dialogue");
         } else {
-            SceneManager.LoadSceneAsync("BLAP_Home");
-            //SceneManager.LoadSceneAsync("BLAP_LevelUp");
+            //SceneManager.LoadSceneAsync("BLAP_Home");
+            SceneManager.LoadSceneAsync("BLAP_LevelUp");
         }
     }
 }
