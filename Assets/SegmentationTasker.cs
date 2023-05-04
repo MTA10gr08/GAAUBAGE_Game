@@ -36,18 +36,10 @@ public class SegmentationTasker : MonoBehaviour
             spriteFromURL.ImageUnavailable();
             yield break;
         }
-<<<<<<< HEAD
-        Guid test = task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty;
-        if (test.Equals(Guid.Empty)) {
-            yield break;
-        }
-        var task2 = TrashSubCategoryService.GetTrashSubCategoryAsync(task.Result.Value.TrashSubCategoriesConsensus ?? Guid.Empty);
-=======
 
         (Guid, bool) test = (task.Result.Value.TrashSubCategoriesConsensus ?? task.Result.Value.ID, task.Result.Value.TrashSubCategoriesConsensus == null);
         var task2 = test.Item2 ? TrashSubCategoryService.GetTrashSubCategoryAsync(test.Item1) : TrashSubCategoryService.GetMyTrashSubCategoryAsync(test.Item1);
 
->>>>>>> Marcus
         yield return new WaitUntil(() => task2.IsCompleted);
 
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
