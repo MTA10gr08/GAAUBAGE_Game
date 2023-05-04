@@ -21,7 +21,7 @@ public class CompanionAIHomeScreen : MonoBehaviour
                     text = "";
                     break;
                 case 2:
-                    text = "Jeremiah ";
+                    text = "";
                     break;
                 case 3:
                     text = "";
