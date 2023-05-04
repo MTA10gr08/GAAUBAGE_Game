@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb479495c3bd24e9b6965512ecec9f, type: 3}
+  m_Name: Introduction (Incomplete)
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - name: ???
+    speech: Welcome to JunkCorp! The Corp for all your Junk needs.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
+      type: 3}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: ???
+    speech: We specialize in recycling everything the common man wastes. Recycling
+      is in our blood!
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: ???
+    speech: And yours, microplastics are a bummer.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: Jeremiah
+    speech: "Anyway! I am Jeremiah and I\u2019ll be your supervisor."
+    textSpeed: 2
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: Jeremiah
+    speech: 'As an Operator you will sit in that booth over there and keep an eye
+      on our Spotters: semi-autonomous robots that wander the streets of our beautiful
+      SwayzCity.'
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: Jeremiah
+    speech: Spotters will locate any potential reusables and ping you back here.
+      You will then be given control of the bot, and are responsible for piloting
+      the Spotter to extract the object properly.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: Jeremiah
+    speech: Back here we recycle it back into its base components and sell it back
+      for profit.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: Jeremiah
+    speech: "I know it\u2019s tedious work and the pay isn\u2019t that good."
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: '[You]'
+    speech: But?
+    textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Jeremiah
+    speech: "Hm? Anyway that\u2019s all I had! Any questions before I go?"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: '[You]'
+    speech: Actually, I was wondering about break times-
+    textSpeed: 2
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Jeremiah
+    speech: "Excellent! Now get to it. Those quotas aren\u2019t gonna meet themselves!"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: df27598888b1d37428c518f162da4340, type: 2}
+    textColor: {r: 0.83, g: 0.33502147, b: 0.12366999, a: 1}
+  - name: 
+    speech: "You sit down and start your shift. Jeremiah wasn\u2019t kidding, and
+      there is a constant barrage of pings from Spotters who need extraction."
+    textSpeed: 2
+    aiFace: 0
+    AnimatedSprite: {fileID: 3670424952243846144, guid: 924b5c0f15d1137468d83c2bb1e5c16d,
+      type: 3}
+    StillSprite: {fileID: 2860206843158729971, guid: cf903c98d9f73e743a0288729a9378c3,
+      type: 3}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
+  - name: '[You]'
+    speech: "Why haven\u2019t they automated this process? If they can have Spotter
+      roam on their own, why not pick up litter?"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: '[You]'
+    speech: Actually, I think I saw someone put up a general-purpose AI for sale.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: '[You]'
+    speech: ...
+    textSpeed: 0
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 2032808588711109954, guid: bbda4dfbe93ffc64ea9c1ad10ffa795a,
+      type: 3}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: 
+    speech: Downloading.
+    textSpeed: 2
+    aiFace: 7
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 2032808588711109954, guid: bbda4dfbe93ffc64ea9c1ad10ffa795a,
+      type: 3}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: 
+    speech: "|\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588
+      \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588|"
+    textSpeed: 2
+    aiFace: 7
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: AI.
+    speech: Install Complete.
+    textSpeed: 2
+    aiFace: 1
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: AI.
+    speech: Hello.
+    textSpeed: 2
+    aiFace: 5
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 113558950852813043, guid: aed51565332094f4da40750b7f2971bf,
+      type: 2}
+    textColor: {r: 0.12616038, g: 1, b: 0, a: 1}
+  - name: '[You]'
+    speech: "Hello? Looks like it worked! Okay so, I have an important task for you\u2026"
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+    fontMaterial: {fileID: 2100000, guid: 3e0e32a3bbdd8a340a0be7a0ae88a740, type: 2}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
