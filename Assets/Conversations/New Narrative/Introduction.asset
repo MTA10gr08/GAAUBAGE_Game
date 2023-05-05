@@ -130,18 +130,18 @@ MonoBehaviour:
       type: 3}
   - name: 
     speech: "|\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588
-      \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588|"
+      \u2588 \u2588|"
     textSpeed: 0
     aiFace: 7
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-  - name: AI.
+  - name: AI
     speech: Install Complete.
     textSpeed: 2
     aiFace: 1
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
-  - name: AI.
+  - name: AI
     speech: Hello.
     textSpeed: 2
     aiFace: 5
