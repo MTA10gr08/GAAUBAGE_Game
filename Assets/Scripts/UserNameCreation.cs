@@ -3,17 +3,19 @@ using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class UserNameCreation : MonoBehaviour
 {
     bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField, errorText;
+    public Button submitBtn;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class UserNameCreation : MonoBehaviour
         }
 
         UsernameContent.SetActive(false);
+        Debug.Log("Wack");
         //load a different scene dependent on the user tag read from thier tag
         string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
         SceneManager.LoadSceneAsync(home);
@@ -57,9 +60,11 @@ public class UserNameCreation : MonoBehaviour
             errorText.gameObject.SetActive(true);
             errorText.text = (username.Length < 4 || username.Length > 15) ? "*Username must be between 4 and 15 characters."
                 : "*Username must not have consecutive spaces and must start and end with a non-space character.";
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
             usernameField.text = Regex.Replace(username, @"\s+", " ").Trim();
-        }else if (submitting != true)
+            submitBtn.interactable = true;
+        }
+        else if (submitting != true)
         {
             submitting = true;
             errorText.gameObject.SetActive(false);
@@ -76,6 +81,10 @@ public class UserNameCreation : MonoBehaviour
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
         {
             Debug.LogError(task.Result.ResponseCode);
+            submitting = false;
+            submitBtn.interactable = true;
+            errorText.gameObject.SetActive(true);
+            errorText.text = "*Server Error: Please contact the developer.";
             yield break;
         }
 
