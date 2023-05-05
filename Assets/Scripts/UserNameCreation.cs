@@ -6,13 +6,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class UserNameCreation : MonoBehaviour
 {
     bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField, errorText;
+    public Button submitBtn;
 
     private void Awake() {
 
@@ -41,16 +42,19 @@ public class UserNameCreation : MonoBehaviour
         SceneManager.LoadSceneAsync(home);
     }
     public void submitUsernameToServer() {
+        submitBtn.interactable = false;
         if (usernameField.text == "" || usernameField.text == " " || usernameField.text == "  " || usernameField.text == "   ") {
             errorText.gameObject.SetActive(true);
             errorText.text = "*Username can not be empty.";
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            submitBtn.interactable = true;
             return;
         }
         if (usernameField.text.Length > 15) {
             errorText.gameObject.SetActive(true);
             errorText.text = "*Username can not be longer than 15 characters.";
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            submitBtn.interactable = true;
             return;
         }
         if (submitting != true) {
@@ -67,6 +71,10 @@ public class UserNameCreation : MonoBehaviour
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task.Result.ResponseCode);
+            submitting = false;
+            submitBtn.interactable = true;
+            errorText.gameObject.SetActive(true);
+            errorText.text = "*Server Error: Please contact the developer.";
             yield break;
         }
 
