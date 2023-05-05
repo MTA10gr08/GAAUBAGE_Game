@@ -108,7 +108,8 @@ public class BackgroundAndContextTasker : MonoBehaviour
         StartCoroutine(SkipImageAnnotation());
     }
 
-    IEnumerator SkipImageAnnotation() {
+    IEnumerator SkipImageAnnotation()
+    {
         var task = ImageAnnotationService.VoteSkipImageAnnotationAsync(currentID);
         yield return new WaitUntil(() => task.IsCompleted);
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {

@@ -4,6 +4,7 @@ using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,21 +15,27 @@ public class UserNameCreation : MonoBehaviour
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField, errorText;
 
-    private void Awake() {
+    private void Awake()
+    {
 
-        if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT"))) {
-           
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT")))
+        {
+
             UsernameContent.SetActive(true);
-        } else {
+        }
+        else
+        {
             APIRequestHandler.JWT = PlayerPrefs.GetString("JWT");
             StartCoroutine(CrossCheckUser());
         }
     }
-    IEnumerator CrossCheckUser() {
+    IEnumerator CrossCheckUser()
+    {
         var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
+        {
             Debug.LogError(task.Result.ResponseCode);
             UsernameContent.SetActive(true);
 
@@ -40,32 +47,34 @@ public class UserNameCreation : MonoBehaviour
         string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
         SceneManager.LoadSceneAsync(home);
     }
-    public void submitUsernameToServer() {
-        if (usernameField.text == "" || usernameField.text == " " || usernameField.text == "  " || usernameField.text == "   ") {
+    private static readonly Regex UsernameRegex = new Regex(@"^\S(?:(?!\s{2,}).){3,15}$", RegexOptions.Compiled);
+    public void submitUsernameToServer()
+    {
+
+        var username = usernameField.text;
+        if (!UsernameRegex.IsMatch(username))
+        {
             errorText.gameObject.SetActive(true);
-            errorText.text = "*Username can not be empty.";
+            errorText.text = (username.Length < 4 || username.Length > 15) ? "*Username must be between 4 and 15 characters."
+                : "*Username must not have consecutive spaces and must start and end with a non-space character.";
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
-            return;
-        }
-        if (usernameField.text.Length > 15) {
-            errorText.gameObject.SetActive(true);
-            errorText.text = "*Username can not be longer than 15 characters.";
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
-            return;
-        }
-        if (submitting != true) {
+            usernameField.text = Regex.Replace(username, @"\s+", " ").Trim();
+        }else if (submitting != true)
+        {
             submitting = true;
             errorText.gameObject.SetActive(false);
             StartCoroutine(UsernameCreate());
         }
     }
-    IEnumerator UsernameCreate() {
+    IEnumerator UsernameCreate()
+    {
         PlayerPrefs.SetString("Alias", usernameField.text);
         User user = new User { Alias = usernameField.text };
         var task = UserService.PostUserAsync(user);
         yield return new WaitUntil(() => task.IsCompleted);
 
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
+        {
             Debug.LogError(task.Result.ResponseCode);
             yield break;
         }
@@ -77,16 +86,20 @@ public class UserNameCreation : MonoBehaviour
         var task2 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task2.IsCompleted);
 
-        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
+        {
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
         }
 
         PlayerPrefs.SetString("Tag", task2.Result.Value.Tag);
         PlayerPrefs.SetInt("Level", (int)task2.Result.Value.Level);
-        if (PlayerPrefs.GetString("Tag").Equals("Narr")) {
+        if (PlayerPrefs.GetString("Tag").Equals("Narr"))
+        {
             SceneManager.LoadSceneAsync("Narrative_Dialogue");
-        } else {
+        }
+        else
+        {
             //SceneManager.LoadSceneAsync("BLAP_Home");
             SceneManager.LoadSceneAsync("BLAP_LevelUp");
         }

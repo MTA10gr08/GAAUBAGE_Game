@@ -63,6 +63,39 @@ namespace GAAUBAGE_Game.API.Networking
             }
         }
 
+        public static async Task<RequestResult> PostAsync(string Endpoint)
+        {
+            using var request = CreateRequest(Endpoint, UnityWebRequest.kHttpVerbPOST);
+
+            await request.SendWebRequest();
+
+            var requestResult = new RequestResult
+            {
+                ResponseCode = request.responseCode,
+                ResultCode = request.result
+            };
+
+            return requestResult;
+        }
+
+        public static void Post(string Endpoint, Action<RequestResult>? onResponse = null)
+        {
+            using var request = CreateRequest(Endpoint, UnityWebRequest.kHttpVerbPOST);
+            var requestAsync = request.SendWebRequest();
+            if (onResponse != null)
+            {
+                requestAsync.completed += (_) =>
+                {
+                    var requestResult = new RequestResult
+                    {
+                        ResponseCode = request.responseCode,
+                        ResultCode = request.result
+                    };
+                    onResponse.Invoke(requestResult);
+                };
+            }
+        }
+
         public static async Task<RequestResult> PostAsync<T>(string Endpoint, T Data)
             where T : class
         {

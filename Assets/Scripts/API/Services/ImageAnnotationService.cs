@@ -17,22 +17,22 @@ namespace GAAUBAGE_Game.API.Services
             return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
         }
 
-        public static void GetImageImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
+        public static void GetImageImageAnnotation(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
         {
             string apiUrl = Endpoints.ImageAnnotation.Get(id);
             APIRequestHandler.Get(apiUrl, onResponse);
         }
 
-        public static async Task<RequestResult<ImageAnnotation>> VoteSkipImageAnnotationAsync(Guid id)
+        public static async Task<RequestResult> VoteSkipImageAnnotationAsync(Guid id)
         {
             string apiUrl = Endpoints.ImageAnnotation.VoteSkip(id);
-            return await APIRequestHandler.GetAsync<ImageAnnotation>(apiUrl);
+            return await APIRequestHandler.PostAsync(apiUrl);
         }
 
-        public static void VoteSkipImageAnnotationBox(Guid id, Action<RequestResult<ImageAnnotation>>? onResponse = null)
+        public static void VoteSkipImageAnnotation(Guid id, Action<RequestResult>? onResponse = null)
         {
             string apiUrl = Endpoints.ImageAnnotation.VoteSkip(id);
-            APIRequestHandler.Get(apiUrl, onResponse);
+            APIRequestHandler.Post(apiUrl, onResponse);
         }
     }
 }
