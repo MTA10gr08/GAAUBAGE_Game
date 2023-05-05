@@ -117,12 +117,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f2cbb1d8c3bf254389a4978372425fc,
+      objectReference: {fileID: 21300000, guid: 05dbc24e5736bab4a9ac948a4607ed98,
         type: 3}
     - target: {fileID: 1591336863750735983, guid: 641c0db7ab472344daa59a43f39f572f,
         type: 3}
       propertyPath: m_Name
-      value: Jerimiah
+      value: JerimiahBack
       objectReference: {fileID: 0}
     - target: {fileID: 1591336863750735989, guid: 641c0db7ab472344daa59a43f39f572f,
         type: 3}

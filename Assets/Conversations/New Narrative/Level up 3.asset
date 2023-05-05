@@ -39,14 +39,14 @@ MonoBehaviour:
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 0}
+    StillSprite: {fileID: 6748381629693761724, guid: 2ad2822e80e489943aad7762078cd084,
+      type: 3}
   - name: Jeremiah
     speech: "It is not often in my life that I have felt proud.\r"
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
-      type: 3}
+    StillSprite: {fileID: 0}
   - name: Jeremiah
     speech: "When you first sat in that spotter booth, I knew I saw fire in your
       eyes. A passion. And with my guidance, you have become a decent operator.\r"
@@ -59,7 +59,8 @@ MonoBehaviour:
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}
-    StillSprite: {fileID: 0}
+    StillSprite: {fileID: 6748381629693761724, guid: 19906850a562bdb41901f7e9be9d9b0a,
+      type: 3}
   - name: Jeremiah
     speech: "I am a fantastic supervisor.\r"
     textSpeed: 1

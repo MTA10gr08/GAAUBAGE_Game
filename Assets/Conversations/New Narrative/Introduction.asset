@@ -271,7 +271,7 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: AI
-    speech: Unclear meaning, is Litter an untidy accumulation of objects I have been
+    speech: Unclear meaning, Litter is an untidy accumulation of objects I have been
       following this directive.
     textSpeed: 1
     aiFace: 6
