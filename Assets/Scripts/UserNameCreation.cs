@@ -13,6 +13,7 @@ public class UserNameCreation : MonoBehaviour
     bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField;
+    public GameObject errorText;
 
     private void Awake() {
 
@@ -41,6 +42,11 @@ public class UserNameCreation : MonoBehaviour
         SceneManager.LoadSceneAsync(home);
     }
     public void submitUsernameToServer() {
+        if (usernameField.text == "" || usernameField.text == " " || usernameField.text == "  " || usernameField.text == "   ") {
+            errorText.SetActive(true);
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            return;
+        }
         if (submitting != true) {
             submitting = true;
             StartCoroutine(UsernameCreate());

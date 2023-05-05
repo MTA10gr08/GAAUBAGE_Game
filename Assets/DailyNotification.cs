@@ -69,7 +69,7 @@ public class DailyNotification : MonoBehaviour
             Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Count)] : "Daily Tasks have been Reset!",
             SmallIcon = isNarr ? "notification_icon" : "",
             LargeIcon = "default",
-            FireTime = DateTime.Now.Date.AddHours(12), //fucked
+            FireTime = DateTime.Now.Date.AddHours(11),//.AddMinutes(33), //fucked
             ShouldAutoCancel = true,
             //FireTime = DateTime.Now.AddMinutes(1), //fucked
             RepeatInterval = TimeSpan.FromDays(1),

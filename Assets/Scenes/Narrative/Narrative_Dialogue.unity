@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2065,6 +2065,10 @@ MonoBehaviour:
   endSprite: {fileID: 21300000, guid: bcc43475e2ba253458a3377d046a4f11, type: 3}
   convos:
   - {fileID: 11400000, guid: 194277f302f624741967b7a84fb60d1a, type: 2}
+  - {fileID: 11400000, guid: d2716022a7bc13d498bf743d2ff63bd4, type: 2}
+  - {fileID: 11400000, guid: 5453837b79e5d6e4b876786a98c1465e, type: 2}
+  - {fileID: 11400000, guid: 1009544e227775444aa5652af474b160, type: 2}
+  - {fileID: 11400000, guid: 485c544445dc1d547a263c37670d7f06, type: 2}
   ButtonIcon: {fileID: 1140691609}
   SpriteObject: {fileID: 0}
   Parent: {fileID: 1716308645}

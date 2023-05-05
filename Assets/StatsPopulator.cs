@@ -32,6 +32,8 @@ public class StatsPopulator : MonoBehaviour
         }
         StatsText.text = "";
         var user = task.Result.Value;
+
+        PlayerPrefs.SetInt("Level", (int)user.Level);
         if (addUserName) {
             StatsText.text += "Username:\t\t" + user.Alias + "\n";
         }
@@ -45,16 +47,10 @@ public class StatsPopulator : MonoBehaviour
               + "Sub - Images made:\t\t" + user.SubImageGroups.Count + " | " + user.SubImageGroups.Count * 2 + "p\n"
               + "Categories assigned:\t\t" + user.TrashSuperCategories.Count + " | " + user.TrashSuperCategories.Count * 3 + "p\n"
               + "Segmentation drawn:\t\t" + user.Segmentations.Count + " | " + user.Segmentations.Count * 4 + "p\n\n"
-              + "Daily tasks compleated:\t" + "0 | 0" + "p\n\n" //fix?
+              //+ "Daily tasks completed:\t" + user.da "0 | 0" + "p\n\n" //fix?
               + "Total Points:\t" + user.Score; //Fix?
-        //Maybe score/leaderboardpos?
         LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
-        /*Context Classifications: 56 | 56p
-        Sub - Images made: 30 | 45p
-        Categories assigned: 13 | 26p
-        Segmentation drawn: 10 | 30p
 
-        Daily tasks compleated: 3 | 30p*/
     }
     string dateJoinedText(DateTime dateTime) {
 

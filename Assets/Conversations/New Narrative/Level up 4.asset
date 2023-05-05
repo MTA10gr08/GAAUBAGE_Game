@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogues:
   - name: 
-    speech: After a long day in your booth you stretch your arms and back.
+    speech: After a long day in your booth, you stretch your arms and back.
     textSpeed: 1
     aiFace: 7
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: 
     speech: "Jeremiah has been bothering you less and less. With all the training
-      you have done, AI\u2019s behaviour has become pretty accurate. "
+      you have done, the AI\u2019s work has become pretty accurate. "
     textSpeed: 1
     aiFace: 5
     AnimatedSprite: {fileID: 0}
@@ -34,30 +34,30 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: 
-    speech: "Altough you haven\u2019t really talked to your coworkers, AI suggested
-      that maybe the secret employment of AI\u2019s aren\u2019t that uncommon in
-      the operator field."
+    speech: "Although you haven\u2019t really talked to your coworkers, your AI suggested
+      that maybe the secret employment of AI isn\u2019t that uncommon in the operator
+      field."
     textSpeed: 1
     aiFace: 4
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: 
-    speech: "Might actually explain Jeremiah\u2019s slightly inflated ego."
+    speech: "This might actually explain Jeremiah\u2019s slightly inflated ego."
     textSpeed: 1
     aiFace: 6
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: 
-    speech: 'Either way, there is of course no way anyone else could ever train an
-      AI better than you. Right? '
+    speech: 'Either way, there is of course no way they could ever train an AI better
+      than you. '
     textSpeed: 1
     aiFace: 5
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: 
-    speech: Thanks for playing our game! If you continue playing you will still contribute
-      to our dataset and you can compete against everyone else for the top spot on
-      our contribution leaderboard.
+    speech: ...Thanks for playing our game! If you continue playing you will still
+      contribute to our dataset and you can compete against everyone else for the
+      top spot on our contribution leaderboard.
     textSpeed: 1
     aiFace: 5
     AnimatedSprite: {fileID: 0}
