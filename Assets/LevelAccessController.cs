@@ -11,7 +11,18 @@ public class LevelAccessController : MonoBehaviour
     [HideInInspector] public int level;
     public List<Button> taskButtons = new List<Button>();
     void Awake() {
+        level = PlayerPrefs.GetInt("Level");
+        for (int i = 0; i < taskButtons.Count; i++) {
+
+            if (level >= i) {
+                taskButtons[i].interactable = true;
+            } else {
+                taskButtons[i].interactable = false;
+            }
+
+        }
         StartCoroutine(GetLevelFromServer());
+
     }
 
     IEnumerator GetLevelFromServer() {

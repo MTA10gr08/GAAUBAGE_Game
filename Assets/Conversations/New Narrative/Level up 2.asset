@@ -120,7 +120,7 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: '[You]'
-    speech: "Could you set up another task? Something that could help you categorize
+    speech: "Could you set up another task? Something that could help you categorise
       each piece of litter?\r"
     textSpeed: 1
     aiFace: 0
