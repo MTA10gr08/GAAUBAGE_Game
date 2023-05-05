@@ -12,8 +12,7 @@ public class UserNameCreation : MonoBehaviour
 {
     bool submitting = false;
     public GameObject UsernameContent;
-    public TMPro.TMP_Text usernameField;
-    public GameObject errorText;
+    public TMPro.TMP_Text usernameField, errorText;
 
     private void Awake() {
 
@@ -43,12 +42,20 @@ public class UserNameCreation : MonoBehaviour
     }
     public void submitUsernameToServer() {
         if (usernameField.text == "" || usernameField.text == " " || usernameField.text == "  " || usernameField.text == "   ") {
-            errorText.SetActive(true);
+            errorText.gameObject.SetActive(true);
+            errorText.text = "*Username can not be empty.";
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            return;
+        }
+        if (usernameField.text.Length > 15) {
+            errorText.gameObject.SetActive(true);
+            errorText.text = "*Username can not be longer than 15 characters.";
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
             return;
         }
         if (submitting != true) {
             submitting = true;
+            errorText.gameObject.SetActive(false);
             StartCoroutine(UsernameCreate());
         }
     }
