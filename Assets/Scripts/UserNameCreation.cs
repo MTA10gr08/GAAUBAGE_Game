@@ -3,6 +3,7 @@ using GAAUBAGE_Game.API.Networking;
 using GAAUBAGE_Game.API.Services;
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,22 +38,21 @@ public class UserNameCreation : MonoBehaviour
         }
 
         UsernameContent.SetActive(false);
+        Debug.Log("Wack");
         //load a different scene dependent on the user tag read from thier tag
         string home = PlayerPrefs.GetString("Tag") == "Blap" ? "BLAP_Home" : "Narrative_Home";
         SceneManager.LoadSceneAsync(home);
     }
     public void submitUsernameToServer() {
         submitBtn.interactable = false;
-        if (usernameField.text == "" || usernameField.text == " " || usernameField.text == "  " || usernameField.text == "   ") {
+
+        string pattern = @"^(?=.*[^\s])[a-zA-Z\s\p{L}]{5,15}$";
+
+        Regex regex = new Regex(pattern);
+        bool result = regex.IsMatch(usernameField.text);
+        if (result == false) {
             errorText.gameObject.SetActive(true);
-            errorText.text = "*Username can not be empty.";
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
-            submitBtn.interactable = true;
-            return;
-        }
-        if (usernameField.text.Length > 15) {
-            errorText.gameObject.SetActive(true);
-            errorText.text = "*Username can not be longer than 15 characters.";
+            errorText.text = "*Username can not be empty and must be between 5 and 15 characters.";
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
             submitBtn.interactable = true;
             return;
