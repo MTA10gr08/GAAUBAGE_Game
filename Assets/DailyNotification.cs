@@ -31,7 +31,7 @@ public class DailyNotification : MonoBehaviour
             });
         };
 
-        SendOrUpdateNotofication();
+        //SendOrUpdateNotofication();
 
         AndroidNotificationCenter.OnNotificationReceived += (data) =>
         {
