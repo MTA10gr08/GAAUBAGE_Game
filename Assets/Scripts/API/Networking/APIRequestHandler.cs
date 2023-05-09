@@ -31,7 +31,7 @@ namespace GAAUBAGE_Game.API.Networking
             using var request = CreateRequest(Endpoint);
 
             await request.SendWebRequest();
-
+            UnityEngine.Debug.Log(request.downloadHandler.text);
             var requestResult = new RequestResult<T>
             {
                 Value = JsonConvert.DeserializeObject<T>(request.downloadHandler.text) ?? null,

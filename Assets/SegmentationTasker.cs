@@ -37,7 +37,7 @@ public class SegmentationTasker : MonoBehaviour
             yield break;
         }
 
-        (Guid, bool) test = (task.Result.Value.TrashSubCategoriesConsensus ?? task.Result.Value.ID, task.Result.Value.TrashSubCategoriesConsensus == null);
+        (Guid, bool) test = (task.Result.Value.TrashSubCategoriesConsensus ?? task.Result.Value.ID, task.Result.Value.TrashSubCategoriesConsensus != null);
         var task2 = test.Item2 ? TrashSubCategoryService.GetTrashSubCategoryAsync(test.Item1) : TrashSubCategoryService.GetMyTrashSubCategoryAsync(test.Item1);
 
         yield return new WaitUntil(() => task2.IsCompleted);
@@ -51,7 +51,7 @@ public class SegmentationTasker : MonoBehaviour
         }
 
         currentID = task.Result.Value.ID;
-        taskText.text = "Manipulate the shape to segment the" + task2.Result.Value.TrashSubCategoryLabel; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
+        taskText.text = "Manipulate the shape to segment the: " + task2.Result.Value.TrashSubCategoryLabel; //task.Result.Value.TrashSubCategoriesConsensus.ToString();
         spriteFromURL.GetImageFromTask(task.Result.Value);
     }
     IEnumerator PostUserValues() {
