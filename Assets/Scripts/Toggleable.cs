@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Toggleable : MonoBehaviour
 {
-    public void ToggleGameObject() {
+    public void ToggleGameObject()
+    {
         gameObject.SetActive(!gameObject.activeSelf);
     }
 }

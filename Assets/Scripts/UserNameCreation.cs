@@ -5,13 +5,13 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UserNameCreation : MonoBehaviour
 {
+
     bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField, errorText;
@@ -19,7 +19,7 @@ public class UserNameCreation : MonoBehaviour
 
     private void Awake()
     {
-
+        PlayerPrefs.SetInt("notificationID", -10);
         if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT")))
         {
 
@@ -35,6 +35,8 @@ public class UserNameCreation : MonoBehaviour
     {
         var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
+
+        Debug.Log(task.Result != null);
 
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
         {
