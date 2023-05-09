@@ -2795,6 +2795,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7935651072740999025, guid: bf614f3c6618db349bff575f2819dea4,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7935651072811831033, guid: bf614f3c6618db349bff575f2819dea4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2885,6 +2890,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7935651073416708022, guid: bf614f3c6618db349bff575f2819dea4,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7935651073416708025, guid: bf614f3c6618db349bff575f2819dea4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2963,6 +2973,11 @@ PrefabInstance:
     - target: {fileID: 7935651073661222780, guid: bf614f3c6618db349bff575f2819dea4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935651073661222781, guid: bf614f3c6618db349bff575f2819dea4,
+        type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7935651073697584962, guid: bf614f3c6618db349bff575f2819dea4,
@@ -3159,6 +3174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Navigation Layout Narrative w-Tasks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935651074485498624, guid: bf614f3c6618db349bff575f2819dea4,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7935651074485498627, guid: bf614f3c6618db349bff575f2819dea4,
         type: 3}
