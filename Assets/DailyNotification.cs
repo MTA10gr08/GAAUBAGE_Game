@@ -7,7 +7,7 @@ using UnityEngine.Android;
 
 public class DailyNotification : MonoBehaviour
 {
-    private List<string> JunkCorpQuotes = new List<string> { "\"You have new daily quotas to complete!\" -Jeremiah",
+    private readonly string[] JunkCorpQuotes = new string[]{ "\"You have new daily quotas to complete!\" -Jeremiah",
                                                      "\"That litter isn't gonne pick up itself! Come back and complete your quota.\" -Jeremiah",
                                                      "\"I am in need of your assistance, my model needs more work to be efficient.\"",
                                                      "\"You aren't slacking off at work are you? If you are we have a fresh batch of tasks ready on your desk.\" -Jeremiah"};
@@ -20,7 +20,8 @@ public class DailyNotification : MonoBehaviour
         if (permissionStatus != PermissionStatus.Allowed)
             return;
 
-        if (string.IsNullOrEmpty(AndroidNotificationCenter.GetNotificationChannel(NCId).Id))
+        var notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
+        if (string.IsNullOrEmpty(notificationChannel.Id))
         {
             Debug.Log("RegisterNotificationChannel");
             AndroidNotificationCenter.RegisterNotificationChannel(new AndroidNotificationChannel()
@@ -29,16 +30,25 @@ public class DailyNotification : MonoBehaviour
                 Name = "Daily Notifications",
                 Description = "Notifications when daily tasks reset everyday, interaction reminders, etc.",
                 Importance = Importance.High,
+                CanBypassDnd = true,
+                CanShowBadge = true,
+                EnableLights = true,
+                EnableVibration = true,
+                LockScreenVisibility = LockScreenVisibility.Public,
+                VibrationPattern = new long[] { long.MaxValue }
+
             });
-        };
+            notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
+        }
+        Debug.Log(notificationChannel.Id + " | " + notificationChannel.Name);
 
         SendOrUpdateNotofication();
 
         AndroidNotificationCenter.OnNotificationReceived += (data) =>
         {
+            Debug.Log("OnNotificationReceived");
             if (data.Id == NId)
             {
-                Debug.Log("OnNotificationReceived");
                 SendOrUpdateNotofication();
             }
         };
@@ -69,13 +79,15 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
-        var fireTime = DateTimeOffset.Now.AddMinutes(1).LocalDateTime;
+        var fireTime = DateTime.Today.AddHours(14).AddMinutes(36);
+        if (DateTime.Now > fireTime)
+            fireTime.AddDays(1); 
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()
         {
             Title = isNarr ? "JunkCorp needs you!" : "Gaaubage",
-            Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Count)] : "Daily Tasks have been Reset!",
+            Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Length)] : "Daily Tasks have been Reset!",
             SmallIcon = isNarr ? "notification_icon" : "",
             LargeIcon = "default",
             FireTime = fireTime,
