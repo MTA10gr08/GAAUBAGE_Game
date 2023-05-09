@@ -47,13 +47,15 @@ public class NewNotifier : MonoBehaviour
         System.DateTime now = System.DateTime.Now;
 
         // Set the notification time to 12:00 PM
-        System.DateTime notificationTime = System.DateTime.Today.AddHours(11);
-        //System.DateTime notificationTime = System.DateTime.Today.AddHours(14).AddMinutes(13);
+        //System.DateTime notificationTime = System.DateTime.Today.AddHours(11);
+        System.DateTime notificationTime = System.DateTime.Today.AddHours(14).AddMinutes(49);
 
         // If the notification time has already passed, schedule it for the next day
         if (now > notificationTime) {
             notificationTime = notificationTime.AddDays(1);
         }
+
+        Debug.Log("notificationTime @ " + notificationTime);
 
         return notificationTime;
     }

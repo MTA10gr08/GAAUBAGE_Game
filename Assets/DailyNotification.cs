@@ -66,8 +66,8 @@ public class DailyNotification : MonoBehaviour
         }
         else if (status == NotificationStatus.Scheduled)
         {
-            Debug.Log("UpdateScheduledNotification");
-            AndroidNotificationCenter.UpdateScheduledNotification(NId, GetAndroidNotification(), NCId);
+            //Debug.Log("UpdateScheduledNotification");
+            //AndroidNotificationCenter.UpdateScheduledNotification(NId, GetAndroidNotification(), NCId);
         }
         else if (status == NotificationStatus.Delivered || status == NotificationStatus.Unavailable)
         {
@@ -79,7 +79,7 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
-        var fireTime = DateTime.Today.AddHours(14).AddMinutes(36);
+        var fireTime = DateTime.Today.AddHours(14).AddMinutes(53);
         if (DateTime.Now > fireTime)
             fireTime.AddDays(1); 
         Debug.Log("GetAndroidNotification @ " + fireTime);
@@ -88,12 +88,12 @@ public class DailyNotification : MonoBehaviour
         {
             Title = isNarr ? "JunkCorp needs you!" : "Gaaubage",
             Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Length)] : "Daily Tasks have been Reset!",
-            SmallIcon = isNarr ? "notification_icon" : "",
-            LargeIcon = "default",
+            SmallIcon = isNarr ? "junk_small" : "gaaubage_small",
+            LargeIcon = isNarr ? "junk_large" : "gaaubage_large",
             FireTime = fireTime,
             ShouldAutoCancel = true,
-            RepeatInterval = TimeSpan.FromDays(1),
-            ShowTimestamp = true,
+            //RepeatInterval = TimeSpan.FromDays(1),
+            //ShowTimestamp = true,
         };
     }
 }
