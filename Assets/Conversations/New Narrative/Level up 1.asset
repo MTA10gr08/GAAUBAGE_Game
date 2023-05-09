@@ -82,10 +82,16 @@ MonoBehaviour:
     AnimatedSprite: {fileID: 0}
     StillSprite: {fileID: 0}
   - name: Jeremiah
-    speech: 'No excuses! Your statistics already show a steady decline compared to
+    speech: No excuses! Your statistics already show a steady decline compared to
       your peers. If this continues you will be dangerously close to not meeting
-      the quota. Our prediction algorithm tells us in just four more weeks you will
-      make -12 contributions! '
+      the quota.
+    textSpeed: 1
+    aiFace: 0
+    AnimatedSprite: {fileID: 0}
+    StillSprite: {fileID: 0}
+  - name: Jeremiah
+    speech: 'Our prediction algorithm tells us in just four more weeks you will make
+      -12 contributions! '
     textSpeed: 1
     aiFace: 0
     AnimatedSprite: {fileID: 0}

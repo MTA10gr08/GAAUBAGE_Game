@@ -41,15 +41,15 @@ public class ClassificationTasker : MonoBehaviour
         spriteFromURL.LoadingObject.SetActive(true);
         TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
         var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
-        yield return new WaitUntil(() => task.IsCompleted);
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            Debug.LogError(task.Result.ResponseCode);
-            yield break;
-        }
-
         TrashSubCategory category = new TrashSubCategory { TrashSubCategoryLabel = categoryPopulator.categoryDropdown.options[categoryPopulator.categoryDropdown.value].text };
         var task2 = TrashSubCategoryService.PostTrashSubCategoryAsync(category, currentID);
-        yield return new WaitUntil(() => task2.IsCompleted);
+        //yield return new WaitUntil(() => task.IsCompleted);
+        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        //    Debug.LogError(task.Result.ResponseCode);
+        //    yield break;
+        //}
+
+        yield return new WaitUntil(() => task.IsCompleted && task2.IsCompleted);
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
@@ -57,6 +57,7 @@ public class ClassificationTasker : MonoBehaviour
         
         categoryPopulator.ClearSelection();
 
+        StartCoroutine(GetTask());
         var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
         if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -75,6 +76,5 @@ public class ClassificationTasker : MonoBehaviour
             yield break;
         }
 
-        StartCoroutine(GetTask());
     }
 }

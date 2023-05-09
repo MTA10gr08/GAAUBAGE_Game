@@ -70,6 +70,7 @@ public class SegmentationTasker : MonoBehaviour
         }
         segmenter.ClearPolygon();
 
+        StartCoroutine(GetTask());
         var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
         if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -88,7 +89,6 @@ public class SegmentationTasker : MonoBehaviour
             yield break;
         }
 
-        StartCoroutine(GetTask());
     }
 
 }

@@ -1100,7 +1100,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 743686228}
         m_TargetAssemblyTypeName: Toggleable, Assembly-CSharp
-        m_MethodName: ToggleGameObject
+        m_MethodName: ToggleOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

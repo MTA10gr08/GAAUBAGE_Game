@@ -60,16 +60,15 @@ public class BackgroundAndContextTasker : MonoBehaviour
         spriteFromURL.LoadingObject.SetActive(true);
         BackgroundClassification bgClass = new BackgroundClassification { BackgroundClassificationLabels = bgSelector.CompileStringList() };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
-        yield return new WaitUntil(() => task.IsCompleted);
-        if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
-            Debug.LogError(task.Result.ResponseCode);
-            Debug.LogError(task.Result.ResultCode);
-            yield break;
-        }
-
         ContextClassification ctxClass = new ContextClassification { ContextClassificationLabel = ctxSelector.SelectedContext() };
         var task2 = ContextClassificationService.PostContextClassificationAsync(ctxClass, currentID);
-        yield return new WaitUntil(() => task2.IsCompleted);
+        //yield return new WaitUntil(() => task.IsCompleted);
+        //if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
+        //    Debug.LogError(task.Result.ResponseCode);
+        //    Debug.LogError(task.Result.ResultCode);
+        //    yield break;
+        //}
+        yield return new WaitUntil(() => task.IsCompleted && task2.IsCompleted);
         if (task2.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
@@ -77,6 +76,8 @@ public class BackgroundAndContextTasker : MonoBehaviour
 
         bgSelector.ClearSelection();
         ctxSelector.ClearSelection();
+
+        StartCoroutine(GetTask());
 
         var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
@@ -96,7 +97,6 @@ public class BackgroundAndContextTasker : MonoBehaviour
             yield break;
         }
 
-        StartCoroutine(GetTask());
     }
     void OnValueChanged() {
         if (ctxSelector.contextDropdown.value > 0 && bgSelector.CompileStringList().Count > 0) {

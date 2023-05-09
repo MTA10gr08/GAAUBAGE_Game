@@ -50,6 +50,8 @@ public class SubImageTasker : MonoBehaviour
         }
         boxManager.ClearBoxes();
 
+        StartCoroutine(GetTask());
+
         var task3 = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task3.IsCompleted);
         if (task3.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success) {
@@ -67,7 +69,6 @@ public class SubImageTasker : MonoBehaviour
             }
             yield break;
         }
-        StartCoroutine(GetTask());
     }
 
     public void Skip() {

@@ -8,4 +8,10 @@ public class Toggleable : MonoBehaviour
     {
         gameObject.SetActive(!gameObject.activeSelf);
     }
+    public void ToggleOff() {
+        gameObject.SetActive(false);
+    }
+    public void ToggleOn() {
+        gameObject.SetActive(true);
+    }
 }
