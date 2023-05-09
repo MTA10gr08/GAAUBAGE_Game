@@ -66,8 +66,8 @@ public class DailyNotification : MonoBehaviour
         }
         else if (status == NotificationStatus.Scheduled)
         {
-            //Debug.Log("UpdateScheduledNotification");
-            //AndroidNotificationCenter.UpdateScheduledNotification(NId, GetAndroidNotification(), NCId);
+            Debug.Log("UpdateScheduledNotification");
+            AndroidNotificationCenter.UpdateScheduledNotification(NId, GetAndroidNotification(), NCId);
         }
         else if (status == NotificationStatus.Delivered || status == NotificationStatus.Unavailable)
         {
@@ -79,9 +79,9 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
-        var fireTime = DateTime.Today.AddHours(14).AddMinutes(53);
+        var fireTime = DateTime.Today.AddHours(1);
         if (DateTime.Now > fireTime)
-            fireTime.AddDays(1); 
+            fireTime = fireTime.AddDays(1); 
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()
@@ -92,8 +92,8 @@ public class DailyNotification : MonoBehaviour
             LargeIcon = isNarr ? "junk_large" : "gaaubage_large",
             FireTime = fireTime,
             ShouldAutoCancel = true,
-            //RepeatInterval = TimeSpan.FromDays(1),
-            //ShowTimestamp = true,
+            RepeatInterval = TimeSpan.FromDays(1),
+            ShowTimestamp = true,
         };
     }
 }
