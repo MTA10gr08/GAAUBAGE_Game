@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class UserNameCreation : MonoBehaviour
 {
+
     bool submitting = false;
     public GameObject UsernameContent;
     public TMPro.TMP_Text usernameField, errorText;
@@ -18,7 +19,7 @@ public class UserNameCreation : MonoBehaviour
 
     private void Awake()
     {
-
+        PlayerPrefs.SetInt("notificationID", -10);
         if (string.IsNullOrEmpty(PlayerPrefs.GetString("JWT")))
         {
 
