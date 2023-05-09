@@ -39,18 +39,19 @@ public class StatsPopulator : MonoBehaviour
         }
         StatsText.text += dateJoinedText(user.Created);
         if (addUserName) {
-            StatsText.text += "Current Level:\t\t" + user.Level + "\n";
+            StatsText.text += "Current Level:\t\t" + user.Level + "\n\n";
         } else {
-            StatsText.text += "Access Level:\t\t" + user.Level + "\n";
+            StatsText.text += "Access Level:\t\t" + user.Level + "\n\n";
         }
-        StatsText.text += "Context Classifications:\t" + user.BackgroundClassifications.Count + " | " + user.BackgroundClassifications.Count * 1 + "p\n"
-              + "Sub - Images made:\t\t" + user.SubImageGroups.Count + " | " + user.SubImageGroups.Count * 2 + "p\n"
-              + "Categories assigned:\t\t" + user.TrashSuperCategories.Count + " | " + user.TrashSuperCategories.Count * 3 + "p\n"
-              + "Segmentation drawn:\t\t" + user.Segmentations.Count + " | " + user.Segmentations.Count * 4 + "p\n\n"
-              //+ "Daily tasks completed:\t" + user.da "0 | 0" + "p\n\n" //fix?
-              + "Total Points:\t" + user.Score; //Fix?
-        LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
 
+        int dailytaskpoints = (int)user.Score - ((user.BackgroundClassifications.Count) + (user.SubImageGroups.Count * 1) + (user.TrashSuperCategories.Count * 2) + (user.Segmentations.Count * 2));
+        StatsText.text += "Context Classifications:\t" + user.BackgroundClassifications.Count + " | " + user.BackgroundClassifications.Count * 1 + "p\n"
+              + "Sub - Images made:\t\t" + user.SubImageGroups.Count + " | " + user.SubImageGroups.Count * 1 + "p\n"
+              + "Categories assigned:\t\t" + user.TrashSuperCategories.Count + " | " + user.TrashSuperCategories.Count * 2 + "p\n"
+              + "Segmentation drawn:\t\t" + user.Segmentations.Count + " | " + user.Segmentations.Count * 2 + "p\n\n"
+              + "Daily tasks completed:\t" + (dailytaskpoints/5) + " | " + dailytaskpoints + "p\n\n" //fix?
+              + "Total Points:\t\t" + user.Score; //Fix?
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
     }
     string dateJoinedText(DateTime dateTime) {
 
