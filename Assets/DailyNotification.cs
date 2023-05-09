@@ -79,7 +79,7 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
-        var fireTime = DateTime.Today.AddHours(1);
+        var fireTime = DateTime.Today.AddHours(11);
         if (DateTime.Now > fireTime)
             fireTime = fireTime.AddDays(1); 
         Debug.Log("GetAndroidNotification @ " + fireTime);
