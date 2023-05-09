@@ -34,7 +34,7 @@ namespace GAAUBAGE_Game.API.Networking
 
             var requestResult = new RequestResult<T>
             {
-                Value = JsonConvert.DeserializeObject<T>(request.downloadHandler.text),
+                Value = JsonConvert.DeserializeObject<T>(request.downloadHandler.text) ?? null,
                 ResponseCode = request.responseCode,
                 ResultCode = request.result
             };
@@ -210,28 +210,6 @@ namespace GAAUBAGE_Game.API.Networking
             request.downloadHandler = new DownloadHandlerBuffer();
 
             return request;
-        }
-
-        public static void Post2<D, T>(string Endpoint, T Data, Action<RequestResult<D>>? onResponse = null)
-            where D : class
-            where T : class
-        {
-            using var request = CreateRequest(Endpoint, Data);
-            var requestAsync = request.SendWebRequest();
-            if (onResponse != null)
-            {
-                requestAsync.completed += (_) =>
-                {
-                    var objectReceived = JsonConvert.DeserializeObject<D>(request.downloadHandler.text);
-                    var requestResult = new RequestResult<D>
-                    {
-                        Value = JsonConvert.DeserializeObject<D>(request.downloadHandler.text),
-                        ResponseCode = request.responseCode,
-                        ResultCode = request.result
-                    };
-                    onResponse.Invoke(requestResult);
-                };
-            }
         }
     }
 }

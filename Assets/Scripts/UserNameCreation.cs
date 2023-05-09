@@ -36,6 +36,8 @@ public class UserNameCreation : MonoBehaviour
         var task = UserService.GetCurrentUserAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
+        Debug.Log(task.Result != null);
+
         if (task.Result.ResultCode != UnityEngine.Networking.UnityWebRequest.Result.Success)
         {
             Debug.LogError(task.Result.ResponseCode);
