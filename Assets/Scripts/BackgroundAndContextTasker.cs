@@ -57,6 +57,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
     }
 
     IEnumerator PostUserValues() {
+        spriteFromURL.LoadingObject.SetActive(true);
         BackgroundClassification bgClass = new BackgroundClassification { BackgroundClassificationLabels = bgSelector.CompileStringList() };
         var task = BackgroundClassificationService.PostBackgroundClassificationAsync(bgClass, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
@@ -73,6 +74,7 @@ public class BackgroundAndContextTasker : MonoBehaviour
             Debug.LogError(task2.Result.ResponseCode);
             yield break;
         }
+
         bgSelector.ClearSelection();
         ctxSelector.ClearSelection();
 

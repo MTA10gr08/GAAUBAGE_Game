@@ -38,6 +38,7 @@ public class ClassificationTasker : MonoBehaviour
         StartCoroutine(PostUserValues());
     }
     IEnumerator PostUserValues() {
+        spriteFromURL.LoadingObject.SetActive(true);
         TrashSuperCategory sCategory = new TrashSuperCategory { TrashSuperCategoryLabel = categoryPopulator.superCategoryDropdown.options[categoryPopulator.superCategoryDropdown.value].text };
         var task = TrashSuperCategoryService.PostTrashSuperCategoryAsync(sCategory, currentID);
         yield return new WaitUntil(() => task.IsCompleted);
