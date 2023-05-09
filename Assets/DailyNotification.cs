@@ -15,13 +15,14 @@ public class DailyNotification : MonoBehaviour
     private int NId;
     void Start()
     {
-        if (!Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFICATIONS"))
-        {
-            Permission.RequestUserPermission("android.permission.POST_NOTIFICATIONS");
-        }
+        var permissionStatus = new PermissionRequest().Status;
+        Debug.Log(permissionStatus);
+        if (permissionStatus != PermissionStatus.Allowed)
+            return;
 
-        if (AndroidNotificationCenter.GetNotificationChannel(NCId).Id.NullIfEmpty() == null)
+        if (string.IsNullOrEmpty(AndroidNotificationCenter.GetNotificationChannel(NCId).Id))
         {
+            Debug.Log("RegisterNotificationChannel");
             AndroidNotificationCenter.RegisterNotificationChannel(new AndroidNotificationChannel()
             {
                 Id = NCId,
@@ -31,12 +32,13 @@ public class DailyNotification : MonoBehaviour
             });
         };
 
-        //SendOrUpdateNotofication();
+        SendOrUpdateNotofication();
 
         AndroidNotificationCenter.OnNotificationReceived += (data) =>
         {
             if (data.Id == NId)
             {
+                Debug.Log("OnNotificationReceived");
                 SendOrUpdateNotofication();
             }
         };
@@ -46,16 +48,20 @@ public class DailyNotification : MonoBehaviour
     {
         NId = PlayerPrefs.GetInt(nameof(NId), -1);
         var status = AndroidNotificationCenter.CheckScheduledNotificationStatus(NId);
+        Debug.Log($"{nameof(NId)}: {NId} | {status}");
         if (NId == -1 || status == NotificationStatus.Unknown)
         {
+            Debug.Log("SendNotification");
             PlayerPrefs.SetInt(nameof(NId), AndroidNotificationCenter.SendNotification(GetAndroidNotification(), NCId));
         }
-        else if(status == NotificationStatus.Scheduled)
+        else if (status == NotificationStatus.Scheduled)
         {
+            Debug.Log("UpdateScheduledNotification");
             AndroidNotificationCenter.UpdateScheduledNotification(NId, GetAndroidNotification(), NCId);
         }
         else if (status == NotificationStatus.Delivered || status == NotificationStatus.Unavailable)
         {
+            Debug.Log("CancelNotification");
             AndroidNotificationCenter.CancelNotification(NId);
             PlayerPrefs.SetInt(nameof(NId), AndroidNotificationCenter.SendNotification(GetAndroidNotification(), NCId));
         }
@@ -63,15 +69,17 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
+        var fireTime = DateTimeOffset.Now.AddMinutes(1).LocalDateTime;
+        Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
-        return new AndroidNotification() {
+        return new AndroidNotification()
+        {
             Title = isNarr ? "JunkCorp needs you!" : "Gaaubage",
             Text = isNarr ? JunkCorpQuotes[UnityEngine.Random.Range(0, JunkCorpQuotes.Count)] : "Daily Tasks have been Reset!",
             SmallIcon = isNarr ? "notification_icon" : "",
             LargeIcon = "default",
-            FireTime = DateTime.Now.Date.AddHours(11),//.AddMinutes(33), //fucked
+            FireTime = fireTime,
             ShouldAutoCancel = true,
-            //FireTime = DateTime.Now.AddMinutes(1), //fucked
             RepeatInterval = TimeSpan.FromDays(1),
             ShowTimestamp = true,
         };
