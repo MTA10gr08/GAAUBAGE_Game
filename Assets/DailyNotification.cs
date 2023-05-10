@@ -13,6 +13,7 @@ public class DailyNotification : MonoBehaviour
                                                      "\"You aren't slacking off at work are you? If you are we have a fresh batch of tasks ready on your desk.\" -Jeremiah"};
     private string NCId = "daily_task_channel";
     private int NId;
+
     void Start()
     {
         var permissionStatus = new PermissionRequest().Status;
@@ -20,8 +21,20 @@ public class DailyNotification : MonoBehaviour
         if (permissionStatus != PermissionStatus.Allowed)
             return;
 
+        var version = PlayerPrefs.GetString(nameof(Application.version), string.Empty);
+        if (!version.Equals(Application.version))
+        {
+            Debug.Log("New version; purge notifcations");
+            PlayerPrefs.SetString(nameof(Application.version), Application.version);
+            AndroidNotificationCenter.CancelAllNotifications();
+            foreach (var nc in AndroidNotificationCenter.GetNotificationChannels())
+            {
+                AndroidNotificationCenter.DeleteNotificationChannel(nc.Id);
+            }
+        }
+
         var notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
-        if (string.IsNullOrEmpty(notificationChannel.Id))
+        if (!NCId.Equals(notificationChannel.Id))
         {
             Debug.Log("RegisterNotificationChannel");
             AndroidNotificationCenter.RegisterNotificationChannel(new AndroidNotificationChannel()
@@ -35,7 +48,7 @@ public class DailyNotification : MonoBehaviour
                 EnableLights = true,
                 EnableVibration = true,
                 LockScreenVisibility = LockScreenVisibility.Public,
-                VibrationPattern = new long[] { long.MaxValue }
+                VibrationPattern = new long[] { 0, 10, 10, 20, 20, 30, 30  }
 
             });
             notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
@@ -47,10 +60,7 @@ public class DailyNotification : MonoBehaviour
         AndroidNotificationCenter.OnNotificationReceived += (data) =>
         {
             Debug.Log("OnNotificationReceived");
-            if (data.Id == NId)
-            {
-                SendOrUpdateNotofication();
-            }
+            SendOrUpdateNotofication();
         };
     }
 
@@ -81,7 +91,7 @@ public class DailyNotification : MonoBehaviour
     {
         var fireTime = DateTime.Today.AddHours(11);
         if (DateTime.Now > fireTime)
-            fireTime = fireTime.AddDays(1); 
+            fireTime = fireTime.AddDays(1);
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()
