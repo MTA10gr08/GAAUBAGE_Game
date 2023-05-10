@@ -46,6 +46,7 @@ public class UserNameCreation : MonoBehaviour
             yield break;
         }
 
+        PlayerPrefs.SetString("Tag", task.Result.Value.Tag);
         UsernameContent.SetActive(false);
         Debug.Log("Wack");
         //load a different scene dependent on the user tag read from thier tag
