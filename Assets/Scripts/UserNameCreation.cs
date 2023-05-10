@@ -25,7 +25,6 @@ public class UserNameCreation : MonoBehaviour
         {
 
             UsernameContent.SetActive(true);
-            AndroidNotificationCenter.CancelAllNotifications();
         }
         else
         {
@@ -44,7 +43,6 @@ public class UserNameCreation : MonoBehaviour
         {
             Debug.LogError(task.Result.ResponseCode);
             UsernameContent.SetActive(true);
-            AndroidNotificationCenter.CancelAllNotifications();
 
             yield break;
         }
