@@ -35,10 +35,11 @@ public class DailyNotification : MonoBehaviour
                 EnableLights = true,
                 EnableVibration = true,
                 LockScreenVisibility = LockScreenVisibility.Public,
-                VibrationPattern = new long[] { long.MaxValue }
+                VibrationPattern = new long[] { 0, 10, 10, 20, 20, 30, 30  }
 
             });
             notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
+            AndroidNotificationCenter.CancelAllNotifications();
         }
         Debug.Log(notificationChannel.Id + " | " + notificationChannel.Name);
 
@@ -47,10 +48,7 @@ public class DailyNotification : MonoBehaviour
         AndroidNotificationCenter.OnNotificationReceived += (data) =>
         {
             Debug.Log("OnNotificationReceived");
-            if (data.Id == NId)
-            {
-                SendOrUpdateNotofication();
-            }
+            SendOrUpdateNotofication();
         };
     }
 
@@ -79,9 +77,9 @@ public class DailyNotification : MonoBehaviour
 
     private AndroidNotification GetAndroidNotification()
     {
-        var fireTime = DateTime.Today.AddHours(11);
+        var fireTime = DateTime.Today.AddHours(13);
         if (DateTime.Now > fireTime)
-            fireTime = fireTime.AddDays(1); 
+            fireTime = fireTime.AddDays(1);
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()

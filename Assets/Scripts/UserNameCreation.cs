@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Notifications.Android;
 
 public class UserNameCreation : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class UserNameCreation : MonoBehaviour
         {
 
             UsernameContent.SetActive(true);
+            AndroidNotificationCenter.CancelAllNotifications();
         }
         else
         {
@@ -42,6 +44,7 @@ public class UserNameCreation : MonoBehaviour
         {
             Debug.LogError(task.Result.ResponseCode);
             UsernameContent.SetActive(true);
+            AndroidNotificationCenter.CancelAllNotifications();
 
             yield break;
         }
