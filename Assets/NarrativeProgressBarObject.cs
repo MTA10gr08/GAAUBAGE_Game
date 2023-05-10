@@ -11,11 +11,11 @@ public class NarrativeProgressBarObject : MonoBehaviour
     private void Awake() {;
         taskText = GetComponent<TMP_Text>();
     }
-    public void UpdateProgresBar(int value, int maxValue, string assignment) {
+    public void UpdateProgresBar(float value, float maxValue, string assignment) {
         taskText.text = assignment + "\n";
         taskText.text += "|";
 
-        int proogress = Mathf.CeilToInt(maxChars / maxValue) * (value);
+        int proogress = Mathf.CeilToInt((maxChars / maxValue) * value);
         for (int i = 0; i < maxChars; i++) {
             if (i <= proogress && proogress != 0) {
                 taskText.text += one;
