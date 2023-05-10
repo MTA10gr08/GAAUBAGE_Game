@@ -48,7 +48,7 @@ public class DailyNotification : MonoBehaviour
                 EnableLights = true,
                 EnableVibration = true,
                 LockScreenVisibility = LockScreenVisibility.Public,
-                VibrationPattern = new long[] { 0, 10, 10, 20, 20, 30, 30  }
+                VibrationPattern = new long[] { 0, 10, 10, 20, 20, 30, 30 }
 
             });
             notificationChannel = AndroidNotificationCenter.GetNotificationChannel(NCId);
@@ -92,6 +92,12 @@ public class DailyNotification : MonoBehaviour
         var fireTime = DateTime.Today.AddHours(11);
         if (DateTime.Now > fireTime)
             fireTime = fireTime.AddDays(1);
+
+
+        transform.Translate(y: 1, x: 1, z: 54);
+
+        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()
