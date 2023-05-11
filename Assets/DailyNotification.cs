@@ -93,11 +93,6 @@ public class DailyNotification : MonoBehaviour
         if (DateTime.Now > fireTime)
             fireTime = fireTime.AddDays(1);
 
-
-        transform.Translate(y: 1, x: 1, z: 54);
-
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-
         Debug.Log("GetAndroidNotification @ " + fireTime);
         var isNarr = PlayerPrefs.GetString("Tag") == "Narr";
         return new AndroidNotification()
